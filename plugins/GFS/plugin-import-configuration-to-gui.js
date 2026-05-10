@@ -32,9 +32,9 @@ export default (Plugin) => {
           </div>
 
           <div class="mb-8">
-            <div class="font-bold text-primary mb-4">工作原理：</div>
+            <div class="font-bold text-primary mb-4">Working principle：</div>
             <p class="mb-4 opacity-80">
-              如果你的配置中包含 GUI 尚未支持的设置项，插件将采取<b>动态生成脚本</b>的方式处理：
+              If your configuration contains settings that are not yet supported by the GUI, the plugin will handle this by <b>dynamically generating scripts</b>：
             </p>
             <ul class="list-disc pl-20 opacity-80 mb-4">
               <li>
@@ -43,7 +43,7 @@ export default (Plugin) => {
                   * Note: Endpoint placeholders will be created synchronously in both the inbound and outbound nodes.
                 </div>
                 <div class="mt-2">
-                  To ensure the script can correctly restore the configuration，<span style="color: #ff4d4f;">Please do not delete these placeholder items.</span>，These will be replaced with the original configuration by the script at runtime.。
+                  To ensure the script can correctly restore the configuration，<span style="color: #ff4d4f;">Please do not delete these placeholder items</span>, these will be replaced with the original configuration by the script at runtime.
                 </div>
               </li>
               <li>
@@ -59,10 +59,10 @@ export default (Plugin) => {
 
       <div class="flex gap-12 mt-2">
         <Button type="primary" @click="importLocalConfig" icon="file" class="flex-1">
-          从文件导入
+          Import from file
         </Button>
         <Button type="primary" @click="importRemoteConfig" icon="link" class="flex-1">
-          从链接导入
+          Import from link
         </Button>
       </div>
     </div>
@@ -124,7 +124,7 @@ export default (Plugin) => {
       template: `
     <div class="flex flex-col gap-4">
       <div>
-        <div class="text-14 opacity-80 mb-4">请输入链接（每行一个）：</div>
+        <div class="text-14 opacity-80 mb-4">Please enter the link (one per line)：</div>
         <textarea
           v-model="remoteUrls"
           class="w-full p-8 rounded border outline-none resize-none font-mono text-14 box-border"
@@ -1315,7 +1315,7 @@ const fetchJson = async (url) => {
   }
 }
 const processRemoteImport = async (urls) => {
-  Plugins.message.info(`开始解析 ${urls.length} 个链接...`)
+  Plugins.message.info(`Start parsing ${urls.length} links...`)
   const results = await Promise.allSettled(urls.map(fetchJson))
   let failCount = 0
   for (const [i, result] of results.entries()) {
