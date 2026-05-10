@@ -3,11 +3,9 @@ const onRun = async () => {
   const envStore = Plugins.useEnvStore()
   const { os } = envStore.env
 
-  const common = ['常见问题：', ' - 没有网络：请更换tun堆栈', ' - 出现ssl错误：请手动设置系统dns为223.5.5.5或8.8.8.8']
-
+  const common = ['Frequently Asked Questions:', '- No network: Please replace the tun stack', '- SSL error: Please manually set the system DNS to 223.5.5.5 or 8.8.8.8']
   if (os === 'windows') {
-    const arr = ['1、请转至设置，开启以管理员身份运行', '2、退出程序，重新打开（不要使用重启）', '3、修改配置，开启TUN模式', '4、启动内核\n'].concat(common)
-    await Plugins.alert(Plugin.name, arr.join('\n'))
+  const arr = ['1. Please go to settings and enable run as administrator', '2. Exit the program and reopen it (do not use reboot)', '3. Modify the configuration and enable TUN mode', '4. Start the kernel\n'].concat(common)    await Plugins.alert(Plugin.name, arr.join('\n'))
     return
   }
 
@@ -16,14 +14,14 @@ const onRun = async () => {
 
   if (os === 'linux') {
     const arr = [
-      '1、复制下列命令',
+      '1、Copy the following commands',
       '',
       `sudo setcap cap_net_bind_service,cap_net_admin,cap_dac_override=+ep ${stable}`,
       `sudo setcap cap_net_bind_service,cap_net_admin,cap_dac_override=+ep ${alpha}`,
       '',
-      '2、打开终端并执行上面命令',
-      '3、修改配置，开启TUN模式',
-      '4、启动内核\n'
+      '2、Open the terminal and execute the above command.',
+      '3、Modify the configuration to enable TUN mode.',
+      '4、Start the kernel\n'
     ].concat(common)
     await Plugins.alert(Plugin.name, arr.join('\n'))
     return
@@ -31,14 +29,14 @@ const onRun = async () => {
 
   if (os === 'darwin') {
     const arr = [
-      '1、复制下列命令',
+      '1、Copy the following commands',
       '',
       `osascript -e 'do shell script "chown root:admin ${stable}\\nchmod +sx ${stable}" with administrator privileges'`,
       `osascript -e 'do shell script "chown root:admin ${alpha}\\nchmod +sx ${alpha}" with administrator privileges'`,
       '',
-      '2、打开终端并执行上面命令',
-      '3、修改配置，开启TUN模式',
-      '4、启动内核\n'
+      '2、Open the terminal and execute the above command.',
+      '3、Modify the configuration to enable TUN mode.',
+      '4、Start the kernel\n'
     ].concat(common)
     await Plugins.alert(Plugin.name, arr.join('\n'))
   }

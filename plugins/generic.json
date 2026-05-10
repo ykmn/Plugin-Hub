@@ -1,15 +1,19 @@
 [
   {
     "id": "plugin-configuration-example",
-    "name": "插件配置示例",
+    "name": "Plugin configuration example",
     "version": "v2.0.0",
     "group": "Examples",
-    "description": "插件配置示例，该示例包含了多种数据格式：字符串数组、长文本、键值对、布尔值、单文本。开发者可在编辑插件中配置插件源码中使用到的参数，通过相关API进行引用。用户可右键【配置插件】对这些参数按需修改。",
-    "tags": ["插件示例"],
+    "description": "This plugin configuration example includes various data formats: string arrays, long text, key-value pairs, boolean values, and single text. Developers can configure parameters used in the plugin source code within the plugin editor and reference them through relevant APIs. Users can right-click and select "Configure Plugin" to modify these parameters as needed.",
+    "tags": [
+      "Plugin Examples"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-configuration-example.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-configuration-example.js",
     "path": "data/plugins/plugin-configuration-example.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": false,
     "menus": {},
     "context": {
@@ -23,17 +27,27 @@
     "configuration": [
       {
         "id": "ID_npthz66q",
-        "title": "请配置你最常用的协议？",
-        "description": "这是一个多选示例，返回值是一个字符串数组，例如：['vmess', 'vless', 'shadowsocks']，已经勾选了一些默认值。",
+        "title": "Please configure your most frequently used protocol",
+        "description": "This is a multiple-choice example; the return value is an array of strings, for example：['vmess', 'vless', 'shadowsocks']，Some default values ​​have already been selected.",
         "key": "checkbox",
         "component": "CheckBox",
-        "value": ["vless", "shadowsocks"],
-        "options": ["vmess", "vless", "trojan", "shadowsocks", "hysteria", "tuic"]
+        "value": [
+          "vless",
+          "shadowsocks"
+        ],
+        "options": [
+          "vmess",
+          "vless",
+          "trojan",
+          "shadowsocks",
+          "hysteria",
+          "tuic"
+        ]
       },
       {
         "id": "ID_xwfe0u0h",
-        "title": "请配置文本？",
-        "description": "长文本编辑器示例，返回值是一个字符串，可能包含换行。",
+        "title": "Please configure the text",
+        "description": "This is an example of a long text editor that returns a string, which may contain line breaks.",
         "key": "codeviewer",
         "component": "CodeViewer",
         "value": "const obj = {\n  name: 'plugin-test',\n  version: 1\n}",
@@ -41,26 +55,30 @@
       },
       {
         "id": "ID_np6jpmhc",
-        "title": "请配置你想显示的文本？",
-        "description": "单文本输入示例，",
+        "title": "Please configure the text you want to display?",
+        "description": "Single text input example,",
         "key": "input",
         "component": "Input",
-        "value": "这一段文字是默认值",
+        "value": "This text is the default value.",
         "options": []
       },
       {
         "id": "ID_lrehnpks",
-        "title": "请配置需要发起请求的网站？",
-        "description": "这是一个输入数组示例，返回值是一个字符串数组：['字符串1', '字符串2']",
+        "title": "Please configure the website that needs to initiate the request.",
+        "description": "This is an example of an input array that returns an array of strings: ['string1', 'string2']",
         "key": "inputlist",
         "component": "InputList",
-        "value": ["google.com", "openai.com", "youtube.com"],
+        "value": [
+          "google.com",
+          "openai.com",
+          "youtube.com"
+        ],
         "options": []
       },
       {
         "id": "ID_k4oyi1wv",
-        "title": "请配置节点名称替换的关键词？",
-        "description": "键值对编辑器示例，返回值是一个对象：{key1: val1, key2: val2}",
+        "title": "Please configure the keywords for node name replacement?",
+        "description": "This is a sample key-value pair editor that returns an object：{key1: val1, key2: val2}",
         "key": "keyvalueEditor",
         "component": "KeyValueEditor",
         "value": {
@@ -71,35 +89,58 @@
       },
       {
         "id": "ID_hem1xu4i",
-        "title": "请配置你想使用的内核？",
-        "description": "单选示例，返回值是一个字符串：\"sing-box\"",
+        "title": "Please configure the kernel you want to use.",
+        "description": "Single-choice example, the return value is a string：\"sing-box\"",
         "key": "radio",
         "component": "Radio",
         "value": "mihomo",
-        "options": ["sing-box", "mihomo", "xray", "v2ray"]
+        "options": [
+          "sing-box",
+          "mihomo",
+          "xray",
+          "v2ray"
+        ]
       },
       {
         "id": "ID_d0rgw5vn",
-        "title": "请配置你想使用的搜索引擎？",
-        "description": "下拉选择示例，通常用于展示过多的单选项，返回值是一个字符串：\"google.com\"",
+        "title": "Please configure the search engine you want to use.",
+        "description": "This is an example of a dropdown selection, typically used to display too many radio buttons; the return value is a string. \"google.com\"",
         "key": "select",
         "component": "Select",
         "value": "option2",
-        "options": ["google.com", "baidu.com", "bing.com"]
+        "options": [
+          "google.com",
+          "baidu.com",
+          "bing.com"
+        ]
       },
       {
         "id": "ID_mtme6ryq",
-        "title": "请选择你喜爱的客户端？",
-        "description": "多选下拉示例，用于替换选项过多的 CheckBox 组件",
+        "title": "Please select your preferred client?",
+        "description": "This is an example of a multi-select dropdown menu, used to replace a CheckBox component with too many options.",
         "key": "multipleSelect",
         "component": "MultipleSelect",
-        "value": ["GUI.for.SingBox", "GUI.for.Clash", "GUI.for.Xray", "Clash Verge Rev", "Clash for Windows", "V2rayN"],
-        "options": ["GUI.for.SingBox", "GUI.for.Clash", "GUI.for.Xray", "Clash Verge Rev", "Clash for Windows", "V2rayN"]
+        "value": [
+          "GUI.for.SingBox",
+          "GUI.for.Clash",
+          "GUI.for.Xray",
+          "Clash Verge Rev",
+          "Clash for Windows",
+          "V2rayN"
+        ],
+        "options": [
+          "GUI.for.SingBox",
+          "GUI.for.Clash",
+          "GUI.for.Xray",
+          "Clash Verge Rev",
+          "Clash for Windows",
+          "V2rayN"
+        ]
       },
       {
         "id": "ID_sgnvsolc",
-        "title": "请配置是否在启动时运行此插件？",
-        "description": "开关示例，返回值是一个布尔值：true",
+        "title": "Please configure whether to run this plugin on startup?",
+        "description": "Example switch, returns a boolean value: true",
         "key": "switch",
         "component": "Switch",
         "value": true,
@@ -112,15 +153,19 @@
   },
   {
     "id": "plugin-mmdb-example",
-    "name": "GeoLite2 操作示例",
+    "name": "GeoLite2 Operation Instructions",
     "version": "v1.0.2",
     "group": "Examples",
-    "description": "插件API MMDB操作示例",
-    "tags": ["插件示例"],
+    "description": "Plugin API MMDB Operation Examples",
+    "tags": [
+      "Plugin Examples"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-mmdb-example.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-mmdb-example.js",
     "path": "data/plugins/plugin-mmdb-example.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": false,
     "menus": {},
     "context": {
@@ -138,15 +183,19 @@
   },
   {
     "id": "plugin-ui-example",
-    "name": "插件UI示例",
+    "name": "Plugin UI Example",
     "version": "v1.1.0",
     "group": "Examples",
-    "description": "插件创建UI示例",
-    "tags": ["插件示例"],
+    "description": "Plugin creation UI example",
+    "tags": [
+      "Plugin Examples"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-ui-example.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-ui-example.js",
     "path": "data/plugins/plugin-ui-example.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": true,
     "menus": {},
     "context": {
@@ -164,16 +213,22 @@
   },
   {
     "id": "plugin-quick-start-guide",
-    "name": "快速配置向导",
+    "name": "Quick Configuration Wizard",
     "version": "v1.3.1",
     "group": "Recommended",
-    "description": "快速配置，但是多一点自定义。",
-    "tags": ["提升体验", "功能扩展"],
+    "description": "Quick configuration, but with more customization options.",
+    "tags": [
+      "Improved user experience",
+      "Function expansion"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-quick-start-guide.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-quick-start-guide.js",
     "status": 0,
     "path": "data/plugins/plugin-quick-start-guide.js",
-    "triggers": ["on::manual", "on::ready"],
+    "triggers": [
+      "on::manual",
+      "on::ready"
+    ],
     "hasUI": true,
     "menus": {},
     "context": {
@@ -190,16 +245,20 @@
   },
   {
     "id": "plugin-ui-dev-helper",
-    "name": "插件UI开发助手",
+    "name": "Plugin UI Development Assistant",
     "version": "v1.2.0",
     "group": "Development",
-    "description": "可热更新代码，实时预览插件UI改动。",
-    "tags": ["插件开发"],
+    "description": "Code can be hot-updated, and plugin UI changes can be previewed in real time.",
+    "tags": [
+      "插件开发"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-ui-dev-helper.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-ui-dev-helper.js",
     "status": 0,
     "path": "data/plugins/plugin-ui-dev-helper.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "menus": {},
     "hasUI": true,
     "context": {
@@ -212,7 +271,7 @@
     "configuration": [
       {
         "id": "ID_i0lo92gn",
-        "title": "开发Token",
+        "title": "Develop Token",
         "description": "",
         "key": "Token",
         "component": "Input",
@@ -226,25 +285,30 @@
   },
   {
     "id": "plugin-node-convert",
-    "name": "节点转换",
+    "name": "Node conversion",
     "version": "v3.0.0",
     "group": "Recommended",
-    "description": "节点格式转换插件，支持v2Ray格式转clash、clash格式转sing-box。",
-    "tags": ["节点处理"],
+    "description": "This is a node format conversion plugin that supports converting v2Ray format to clash and clash format to sing-box.",
+    "tags": [
+      "Node processing"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-node-convert.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-node-convert.js",
     "path": "data/plugins/plugin-node-convert.js",
-    "triggers": ["on::manual", "on::subscribe"],
+    "triggers": [
+      "on::manual",
+      "on::subscribe"
+    ],
     "hasUI": false,
     "menus": {
-      "更新依赖": "Update"
+      "Update dependencies": "Update"
     },
     "context": {
       "profiles": {},
       "subscriptions": {
-        "导出(URI)": "ExportAsURI",
-        "导出(Clash)": "ExportAsClash",
-        "导出(SingBox)": "ExportAsSingBox"
+        "Export(URI)": "ExportAsURI",
+        "Export(Clash)": "ExportAsClash",
+        "Export(SingBox)": "ExportAsSingBox"
       },
       "rulesets": {},
       "plugins": {},
@@ -258,18 +322,23 @@
   },
   {
     "id": "plugin-node-configurator",
-    "name": "节点配置器",
+    "name": "Node Configurator",
     "version": "v1.0.0",
     "group": "Tools",
-    "description": "基于 JSON Schema 的代理协议配置器，支持协议/传输/TLS/插件字段联动，并将输入 JSON 实时 produce 为目标客户端格式。Supported by: Codex",
-    "tags": ["实用工具", "节点处理"],
+    "description": "A proxy protocol configurator based on JSON Schema, supporting linkage between protocol/transport/TLS/plugin fields, and producing the input JSON in real-time into the target client format. Supported by: Codex",
+    "tags": [
+      "utilities",
+      "node processing"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-node-configurator.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-node-configurator.js",
     "path": "data/plugins/plugin-node-configurator.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": true,
     "menus": {
-      "更新依赖": "Update"
+      "Update dependencies": "Update"
     },
     "context": {
       "profiles": {},
@@ -286,19 +355,24 @@
   },
   {
     "id": "plugin-ipc-logs",
-    "name": "日志系统",
+    "name": "Log system",
     "version": "v2.4.0",
     "group": "Extensions",
-    "description": "GUI日志系统，包含敏感信息，用于debug。",
-    "tags": ["功能扩展"],
+    "description": "A GUI logging system containing sensitive information for debugging purposes.",
+    "tags": [
+      "功能扩展"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-ipc-logs.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-ipc-logs.js",
     "path": "data/plugins/plugin-ipc-logs.js",
-    "triggers": ["on::ready", "on::manual"],
+    "triggers": [
+      "on::ready",
+      "on::manual"
+    ],
     "hasUI": true,
     "menus": {
-      "导出日志": "ExportLogs",
-      "清空日志": "ClearHistory"
+      "Export Logs": "ExportLogs",
+      "Clear Logs": "ClearHistory"
     },
     "context": {
       "profiles": {},
@@ -316,18 +390,24 @@
   {
     "id": "plugin-traffic-statistics",
     "version": "v0.0.5",
-    "name": "流量统计",
+    "name": "Traffic statistics",
     "group": "Extensions",
-    "description": "高效流量统计插件，支持按域名、节点、规则、标签分析流量，提供每日/月汇总、排行和历史趋势",
-    "tags": ["功能扩展"],
+    "description": "A high-efficiency traffic statistics plugin that supports traffic analysis by domain, node, rule, and tag, providing daily/monthly summaries, rankings, and historical trends.",
+    "tags": [
+      "Function extensions"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-traffic-statistics.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-traffic-statistics.js",
     "path": "data/plugins/plugin-traffic-statistics.js",
-    "triggers": ["on::manual", "on::ready", "on::shutdown"],
+    "triggers": [
+      "on::manual",
+      "on::ready",
+      "on::shutdown"
+    ],
     "hasUI": true,
     "menus": {
-      "开始": "Start",
-      "停止": "Stop"
+      "Start": "Start",
+      "Stop": "Stop"
     },
     "context": {
       "profiles": {},
@@ -339,7 +419,7 @@
     "configuration": [
       {
         "id": "ID_qleoqyhz",
-        "title": "监听地址",
+        "title": "Listening address",
         "description": "",
         "key": "ApiAddress",
         "component": "Input",
@@ -354,15 +434,20 @@
   },
   {
     "id": "plugin-subscribe-in-one-click",
-    "name": "一键导入订阅助手",
+    "name": "One-click import subscription assistant",
     "version": "v1.1.0",
     "group": "Extensions",
-    "description": "运行此插件，帮助你使用机场的一键导入订阅功能。",
-    "tags": ["提升体验", "功能扩展"],
+    "description": "Run this plugin to help you use the airport's one-click subscription import function.",
+    "tags": [
+      "Enhanced experience",
+      "Function expansion"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-subscribe-in-one-click.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-subscribe-in-one-click.js",
     "path": "data/plugins/plugin-subscribe-in-one-click.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": true,
     "menus": {},
     "context": {
@@ -381,18 +466,26 @@
   {
     "id": "plugin-smart-proxy-switcher",
     "version": "v5.2.0",
-    "name": "节点智能切换",
+    "name": "Intelligent Node Switching",
     "group": "Extensions",
-    "description": "实现动态代理选择机制，包含故障转移、断路器、EWMA 延迟跟踪、基于分数调度与滞后控制。",
-    "tags": ["提升体验", "功能扩展"],
+    "description": "Implements a dynamic agent selection mechanism, including failover, circuit breakers, EWMA delay tracking, fractional scheduling, and lag control.",
+    "tags": [
+      "Improved Experience",
+      "Function Extensions"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-smart-proxy-switcher.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-smart-proxy-switcher.js",
     "path": "data/plugins/plugin-smart-proxy-switcher.js",
-    "triggers": ["on::manual", "on::ready", "on::core::started", "on::core::stopped"],
+    "triggers": [
+      "on::manual",
+      "on::ready",
+      "on::core::started",
+      "on::core::stopped"
+    ],
     "hasUI": true,
     "menus": {
-      "启动": "Start",
-      "停止": "Stop"
+      "Start": "Start",
+      "Stop": "Stop"
     },
     "context": {
       "profiles": {},
@@ -404,25 +497,32 @@
     "configuration": [
       {
         "id": "ID_pxpbp262",
-        "title": "使用场景",
-        "description": "哪种使用场景更适合你？",
+        "title": "Use Scenarios",
+        "description": "Which use case is more suitable for you?",
         "key": "Preset",
         "component": "Radio",
         "value": "Stable",
-        "options": ["稳定型,Stable", "延迟优先型,LatencyFirst", "自定义型,Custom"]
+        "options": [
+          "Stable",
+          "LatencyFirst",
+          "Custom"
+        ]
       },
       {
         "id": "ID_fe2ext3m",
-        "title": "应用智能切换的策略组",
-        "description": "在列表中添加你要应用智能切换的策略组名称",
+        "title": "Policy group for applying smart toggle",
+        "description": "Add the name of the policy group to which you want to apply smart toggle to the list",
         "key": "IncludeGroup",
         "component": "InputList",
-        "value": ["🚀 节点选择", "🚀 Select"],
+        "value": [
+          "🚀 Node Selection",
+          "🚀 Select"
+        ],
         "options": []
       },
       {
         "id": "ID_53zg977v",
-        "title": "并发检测数量",
+        "title": "Number of concurrent detections",
         "description": "",
         "key": "ConcurrencyLimit",
         "component": "Input",
@@ -431,8 +531,8 @@
       },
       {
         "id": "ID_0j5oj2fv",
-        "title": "检测时间间隔(ms)",
-        "description": "作用：控制状态监测的频率和实时性，更大的数值更省资源，更小的数值更新代理状态更及时",
+        "title": "Monitoring Interval (ms)",
+        "description": "Purpose: Controls the frequency and real-time performance of status monitoring; larger values ​​save resources, while smaller values ​​update agent status more promptly",
         "key": "MonitoringInterval",
         "component": "Input",
         "value": "180000",
@@ -440,8 +540,8 @@
       },
       {
         "id": "ID_jad56pmh",
-        "title": "代理超时时间(ms)",
-        "description": "作用：控制检测速度与“是否误判”为失败之间的平衡，更大的数值更宽容高延迟的代理，更小的数值则快速放弃响应慢的代理",
+        "title": "Proxy Timeout (ms)",
+        "description": "Purpose: To control the balance between detection speed and failure due to false positives; a larger value is more lenient towards high-latency proxies, while a smaller value quickly abandons slow-responding proxies.",
         "key": "RequestTimeout",
         "component": "Input",
         "value": "5000",
@@ -449,7 +549,7 @@
       },
       {
         "id": "ID_ktzcar7y",
-        "title": "代理测试链接",
+        "title": "Proxy test link",
         "description": "",
         "key": "TestUrl",
         "component": "Input",
@@ -458,30 +558,29 @@
       },
       {
         "id": "ID_qslmfrva",
-        "title": "稳定型",
-        "description": "减少切换，容忍波动，适合：对切换敏感、希望尽可能维持当前代理状态",
+        "title": "Stable Mode",
+        "description": "Reduces switching, tolerates fluctuations, suitable for: switching-sensitive applications that want to maintain the current proxy state as much as possible",
         "key": "StableMode",
         "component": "CodeViewer",
-        "value": "{\n  \"ewmaAlpha\": 0.1,\n  \"_ewmaAlpha\": \"更平滑，更看重历史表现\",\n  \"failureThreshold\": 5,\n  \"_failureThreshold\": \"更容忍失败，不容易触发断路\",\n  \"hysteresisMargin\": 1.0,\n  \"_hysteresisMargin\": \"减少切换频率，保持更稳定\",\n  \"latencyWeight\": 50.0,\n  \"_latencyWeight\": \"降低延迟影响，更重视稳定性\"\n}\n",
+        "value": "{\n \"ewmaAlpha\": 0.1,\n \"_ewmaAlpha\": \"Smoother, more focused on historical performance\",\n \"failureThreshold\": 5,\n \"_failureThreshold\": \"More tolerant of failures, less likely to trigger circuit breakers\",\n \"hysteresisMargin\": 1.0,\n \"_hysteresisMargin\": \"Reduces switching frequency, maintains greater stability\",\n \"latencyWeight\": 50.0,\n \"_latencyWeight\": \"Reduces latency impact, prioritizes stability\"\n}\n",
         "options": []
       },
       {
         "id": "ID_cqum4do9",
-        "title": "延迟优先型",
-        "description": "严格追求低延迟，适合：对响应速度要求极高，宁愿频繁切换",
+        "title": "Latency First Mode",
+        "description": "Strictly prioritizes low latency, suitable for: those with extremely high responsiveness requirements who prefer frequent proxy switching",
         "key": "LatencyFirstMode",
         "component": "CodeViewer",
-        "value": "{\n  \"ewmaAlpha\": 0.5,\n  \"_ewmaAlpha\": \"更敏感，延迟波动响应更快\",\n  \"failureThreshold\": 2,\n  \"_failureThreshold\": \"更快识别故障，更敏捷\",\n  \"hysteresisMargin\": 0.05,\n  \"_hysteresisMargin\": \"更敏感，容易发生代理抖动\",\n  \"latencyWeight\": 200.0,\n  \"_latencyWeight\": \"更关注低延迟，代理切换更频繁\"\n}\n",
+        "value": "{\n \"ewmaAlpha\": 0.5,\n \"_ewmaAlpha\": \"More sensitive, faster response to latency fluctuations\",\n \"failureThreshold\": 2,\n \"_failureThreshold\": \"Faster fault identification, more agile\",\n \"hysteresisMargin\": 0.05,\n \"_hysteresisMargin\": \"More sensitive, prone to proxy jitter\",\n \"latencyWeight\": 200.0,\n \"_latencyWeight\": \"Focus more on low latency, more frequent proxy switching\n}\n",
         "options": []
       },
       {
         "id": "ID_xa46mkur",
-        "title": "自定义型",
-        "description": "对切换策略进行微调，适合高级玩家",
+        "title": "Custom Mode",
+        "description": "Fine-tunes the switching strategy, suitable for advanced users",
         "key": "CustomMode",
         "component": "CodeViewer",
-        "value": "{\n  \"ewmaAlpha\": 0.3,\n  \"_ewmaAlpha\": \"作用：控制 EWMA 对延迟的记忆程度，默认值：0.3\",\n  \"_ewmaAlpha增大\": \"更敏感，延迟波动响应更快\",\n  \"_ewmaAlpha减小\": \"更平滑，更看重历史表现\",\n  \"_ewmaAlpha提示\": \"适合根据网络抖动强度调节灵敏度\",\n\n  \"failureThreshold\": 3,\n  \"_failureThreshold\": \"作用：连续失败几次后触发断路器，默认值：3\",\n  \"_failureThreshold增大\": \"更容忍失败，不容易触发断路\",\n  \"_failureThreshold减小\": \"更快识别故障，更敏捷\",\n  \"_failureThreshold提示\": \"影响代理因失败被判为不可用的门槛\",\n\n  \"circuitBreakerTimeout\": 360000,\n  \"_circuitBreakerTimeout\": \"作用：断路器打开后等待多长时间重试，默认值：360000（6分钟）\",\n  \"_circuitBreakerTimeout增大\": \"断路持续更久，降低恢复频率\",\n  \"_circuitBreakerTimeout减小\": \"更早尝试恢复，有可能误恢复\",\n  \"_circuitBreakerTimeout提示\": \"适合根据代理恢复速度调整重试间隔\",\n\n  \"penaltyIncrement\": 5,\n  \"_penaltyIncrement\": \"作用：每次失败后累加的惩罚值，默认值：5\",\n  \"_penaltyIncrement增大\": \"失败惩罚更重，代理得分下降更快\",\n  \"_penaltyIncrement减小\": \"更宽容失败，不易被替换\",\n  \"_penaltyIncrement提示\": \"影响失败事件对代理选择的惩罚力度\",\n\n  \"penaltyDecayRate\": 0.1,\n  \"_penaltyDecayRate\": \"作用：惩罚值的时间衰减速率，默认值：0.1\",\n  \"_penaltyDecayRate增大\": \"惩罚恢复更快，代理更容易被原谅\",\n  \"_penaltyDecayRate减小\": \"惩罚持续时间更长，慎重切换回来\",\n  \"_penaltyDecayRate提示\": \"控制失败历史影响持续多久\",\n\n  \"priorityWeight\": 1.0,\n  \"_priorityWeight\": \"作用：优先级在综合评分中的权重，默认值：1.0\",\n  \"_priorityWeight增大\": \"更倾向优先使用高优先级代理\",\n  \"_priorityWeight减小\": \"更注重实际性能而非设定优先级\",\n  \"_priorityWeight提示\": \"反映系统对预设偏好程度的信任\",\n\n  \"latencyWeight\": 100.0,\n  \"_latencyWeight\": \"作用：延迟在综合评分中的权重，默认值：100.0\",\n  \"_latencyWeight增大\": \"更关注低延迟，代理切换更频繁\",\n  \"_latencyWeight减小\": \"更稳定，允许较高延迟代理被选中\",\n  \"_latencyWeight提示\": \"决定系统是否更看重实时响应性能\",\n\n  \"penaltyWeight\": 1.0,\n  \"_penaltyWeight\": \"作用：惩罚值在综合评分中的权重，默认值：1.0\",\n  \"_penaltyWeight增大\": \"历史失败更影响评分，代理更难被重新使用\",\n  \"_penaltyWeight减小\": \"惩罚影响弱化，更容易容忍曾失败的代理\",\n  \"_penaltyWeight提示\": \"影响失败代理重新进入候选池的难度\",\n\n  \"hysteresisMargin\": 0.1,\n  \"_hysteresisMargin\": \"作用：切换代理需超出当前代理得分多少，默认值：0.1\",\n  \"_hysteresisMargin增大\": \"减少切换频率，保持更稳定\",\n  \"_hysteresisMargin减小\": \"更敏感，容易发生代理抖动\",\n  \"_hysteresisMargin提示\": \"防止分数接近时频繁切换（抖动）\"\n}\n",
-        "options": []
+        "value": "{\n \"ewmaAlpha\": 0.3,\n \"_ewmaAlpha\": \"Function: Controls the EWMA's memory of latency. Default: 0.3\",\n \"_ewmaAlpha increased\": \"More sensitive, faster response to latency fluctuations\",\n \"_ewmaAlpha decreased\": \"Smoother, more focused on historical performance\",\n \"_ewmaAlpha hint\": \"Suitable for adjusting sensitivity based on network jitter intensity\",\n\n \"failureThreshold\": 3,\n \"_failureThreshold\": \"Function: Triggers the circuit breaker after several consecutive failures. Default: 3\",\n \"_failureThreshold increased\": \"More tolerant of failures, less likely to trigger circuit breaker\",\n "_failureThreshold Decrease": "Faster fault identification, more agile",\n "_failureThreshold Tip": "Affects the threshold at which an agent is judged as unavailable due to failure",\n\n "circuitBreakerTimeout": 360000,\n "_circuitBreakerTimeout": "Function: How long to wait before retrying after the circuit breaker opens, default: 360000 (6 minutes)",\n "_circuitBreakerTimeout Increase": "Prolongs the circuit breaker disconnection, reducing the recovery frequency",\n "_circuitBreakerTimeout Decrease": "Attempts recovery earlier, potentially leading to false recovery",\n "_circuitBreakerTimeout Tip": "Suitable for adjusting the retry interval based on agent recovery speed",\n\n "penaltyIncrement": 5,\n "_penaltyIncrement": "Function: The accumulated penalty value after each failure, default value: 5".\n "_penaltyIncrement increased": "The failure penalty is heavier, and the agent's score drops faster".\n "_penaltyIncrement decreased": "More lenient with failures, less likely to be replaced".\n "_penaltyIncrement hint": "Affects the severity of the penalty for agent selection due to failure events".\n\n "penaltyDecayRate": 0.1.\n "_penaltyDecayRate": "Function: The rate at which the penalty value decays over time, default value: 0.1".\n "_penaltyDecayRate increased": "The penalty recovers faster, and the agent is more easily forgiven".\n "_penaltyDecayRate decreased": "The penalty lasts longer; be careful when switching back".\n "_penaltyDecayRate hint": "Controls how long the impact of failure history lasts".\n\n "priorityWeight": 1.0,\n "_priorityWeight": \"Function: The weight of priority in the overall score, default value: 1.0\n \"Increase in _priorityWeight": \"Prefers to use higher priority proxies\"\n Decrease in _priorityWeight": \"Focuses more on actual performance than setting priority\"\n "_priorityWeight Tip": \"Reflects the system's trust in the preset preference\"\n\n \"latencyWeight": 100.0,\n \"_latencyWeight": \"Function: The weight of latency in the overall score, default value: 100.0\"Increase in _latencyWeight": \"Focuses more on low latency, more frequent proxy switching\"\n Decrease in _latencyWeight": \"More stable, allows higher latency proxies to be selected\"\n "_latencyWeight Tip": \"Determines whether the system values ​​real-time response performance\"\n\n \"penaltyWeight": 1.0,\n "_penaltyWeight":\nFunction: The weight of the penalty value in the overall score, default value: 1.0\n "_penaltyWeight increased":\nHistorical failures have a greater impact on the score, making it harder for the agent to be reused\n "_penaltyWeight decreased":\nThe impact of the penalty is weakened, making it easier to tolerate agents that have failed in the past\n "_penaltyWeight hint":\nAffects the difficulty of a failed agent re-entering the candidate pool\n\n "hysteresisMargin": 0.1,\n "_hysteresisMargin":\nFunction: How much higher the score is than the current agent before switching agents, default value: 0.1\n "_hysteresisMargin increased":\nReducing the switching frequency and maintaining greater stability\n "_hysteresisMargin decreased":\nMore sensitive, more prone to agent jitter\n "_hysteresisMargin hint": "Prevents frequent switching (jittering) when scores are close""options": []
       }
     ],
     "status": 0,
@@ -491,21 +590,28 @@
   },
   {
     "id": "plugin-rolling-release",
-    "name": "滚动发行",
+    "name": "Rolling Release",
     "version": "v3.2.0",
     "group": "Recommended",
-    "description": "提升GUI升级体验，获取更快、更新、更稳定的版本更新。",
-    "tags": ["提升体验", "功能扩展"],
+    "description": "Improved GUI upgrade experience, get faster, newer, and more stable version updates.",
+    "tags": [
+      "Improved Experience",
+      "Feature Expansion"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-rolling-release.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-rolling-release.js",
     "path": "data/plugins/plugin-rolling-release.js",
-    "triggers": ["on::manual", "on::ready", "on::startup"],
+    "triggers": [
+      "on::manual",
+      "on::ready",
+      "on::startup"
+    ],
     "hasUI": false,
     "menus": {
-      "滚动版本": "Rolling",
-      "恢复版本": "Recovery",
-      "更新日志": "Changelog",
-      "版本统计": "Statistics"
+      "Rolling Versions": "Rolling",
+      "Recovery Versions": "Recovery",
+      "Changelog": "Changelog",
+      "Version Statistics": "Statistics"
     },
     "context": {
       "profiles": {},
@@ -517,17 +623,21 @@
     "configuration": [
       {
         "id": "ID_wqicvdoc",
-        "title": "自动更新策略",
-        "description": "自动滚动至最新版本",
+        "title": "Automatic Update Strategy",
+        "description": "Automatically roll to the latest version",
         "key": "AutoRollingMode",
         "component": "Radio",
         "value": "disabled",
-        "options": ["不自动更新,disabled", "启动APP时,onStartup", "APP就绪时,onReady"]
+        "options": [
+          "Do not update automatically,disabled",
+          "When the app starts,onStartup",
+          "When the app is ready,onReady"
+        ]
       },
       {
         "id": "ID_7im5ezm7",
-        "title": "自动重载界面",
-        "description": "自动更新完成后是否自动重载界面",
+        "title": "Automatic UI Reload",
+        "description": "Whether to automatically reload the interface after automatic update",
         "key": "AutoRollingReload",
         "component": "Switch",
         "value": true,
@@ -535,8 +645,8 @@
       },
       {
         "id": "ID_vognsfjh",
-        "title": "自动更新策略延迟",
-        "description": "延迟N秒再执行检测，确保核心已启动（若核心在运行则不延迟）",
+        "title": "Automatic Update Strategy Delay",
+        "description": "Delay N seconds before performing the check to ensure the core is started (no delay if the core is running)",
         "key": "AutoRollingDelay",
         "component": "Input",
         "value": "10",
@@ -551,18 +661,23 @@
   {
     "id": "plugin-music-player",
     "version": "v1.2.0",
-    "name": "简单音乐播放器",
+    "name": "Simple Music Player",
     "group": "Fun",
-    "description": "一个简单的本地音乐播放器",
-    "tags": ["功能扩展", "实用工具"],
+    "description": "A simple local music player",
+    "tags": [
+      "Feature Extensions",
+      "Utilities"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-music-player.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-music-player.js",
     "path": "data/plugins/plugin-music-player.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": true,
     "menus": {
-      "启动服务": "startMusicServer",
-      "停止服务": "stopMusicServer"
+      "Start Service": "startMusicServer",
+      "Stop Service": "stopMusicServer"
     },
     "context": {
       "profiles": {},
@@ -574,7 +689,7 @@
     "configuration": [
       {
         "id": "ID_85b0dzns",
-        "title": "音乐文件夹",
+        "title": "Music folder",
         "description": "",
         "key": "MusicDir",
         "component": "Input",
@@ -589,15 +704,19 @@
   },
   {
     "id": "plugin-tun-assistant",
-    "name": "TUN模式助手",
+    "name": "TUN Mode Assistant",
     "version": "v1.0.1",
     "group": "Tools",
-    "description": "TUN模式食用指南！",
-    "tags": ["提升体验"],
+    "description": "TUN Mode User Guide!",
+    "tags": [
+      "Enhancing Experience"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-tun-assistant.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-tun-assistant.js",
     "path": "data/plugins/plugin-tun-assistant.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": false,
     "menus": {},
     "context": {
@@ -615,15 +734,20 @@
   },
   {
     "id": "plugin-check-certificate",
-    "name": "系统证书安全检测",
+    "name": "System Certificate Security Detection",
     "version": "v1.0.2",
     "group": "Tools",
-    "description": "检测系统是否具有未经验证的证书！",
-    "tags": ["实用工具", "安全检测"],
+    "description": "Detects whether the system has unverified certificates!",
+    "tags": [
+      "Utilities",
+      "Security Detection"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-check-certificate.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-check-certificate.js",
     "path": "data/plugins/plugin-check-certificate.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": false,
     "menus": {},
     "context": {
@@ -642,15 +766,20 @@
   {
     "id": "plugin-download-speed-guard",
     "version": "v1.0.0",
-    "name": "下载守卫者",
+    "name": "Download Guardian",
     "group": "Extensions",
-    "description": "监测下载速率，超出阈值时切换至下一个节点，避免因单个节点流量过大造成的机场限速。",
-    "tags": ["提升体验", "功能扩展"],
+    "description": "Monitors download speed and switches to the next node when it exceeds the threshold, avoiding speed limits caused by excessive traffic from a single node.",
+    "tags": [
+      "Improved Experience",
+      "Function Extensions"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-download-speed-guard.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-download-speed-guard.js",
     "path": "data/plugins/plugin-download-speed-guard.js",
     "status": 0,
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": false,
     "menus": {},
     "context": {
@@ -663,17 +792,17 @@
     "configuration": [
       {
         "id": "ID_bdzeqpgn",
-        "title": "策略组名称",
-        "description": "在此策略组中进行轮询切换不同代理",
+        "title": "Policy Group Name",
+        "description": "Rotating between different proxies within this policy group",
         "key": "GroupName",
         "component": "Input",
-        "value": "🚀 节点选择",
+        "value": "🚀 Node Selection",
         "options": []
       },
       {
         "id": "ID_6w2hky4p",
-        "title": "预期下载速率",
-        "description": "节点未达到此下载速率将视为被限速，单位MB/s",
+        "title": "Expected Download Speed",
+        "description": "Nodes not reaching this download speed will be considered speed-limited, unit MB/s",
         "key": "DownloadSpeed",
         "component": "Input",
         "value": "10",
@@ -681,8 +810,8 @@
       },
       {
         "id": "ID_4haysu7r",
-        "title": "超时阈值",
-        "description": "等待节点达到预期下载速度的最大时长，超时未达到将切换为下一节点，单位秒",
+        "title": "Timeout Threshold",
+        "description": "Maximum time to wait for a node to reach the expected download speed; if the timeout is not reached, it will switch to the next node, unit seconds",
         "key": "MaxWaiting",
         "component": "Input",
         "value": "10",
@@ -696,19 +825,25 @@
   {
     "id": "plugin-pac-server",
     "version": "v1.0.0",
-    "name": "PAC 服务器",
+    "name": "PAC Server",
     "group": "Tools",
-    "description": "适用于使用代理自动配置的用户。",
-    "tags": ["提升体验", "功能扩展"],
+    "description": "For users using agent auto-configuration.""tags": [
+      "Improved Experience",
+      "Feature Extensions"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-pac-server.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-pac-server.js",
     "path": "data/plugins/plugin-pac-server.js",
     "status": 0,
-    "triggers": ["on::manual", "on::core::stopped", "on::core::started"],
+    "triggers": [
+      "on::manual",
+      "on::core::stopped",
+      "on::core::started"
+    ],
     "hasUI": false,
     "menus": {
-      "启动服务": "Start",
-      "停止服务": "Stop"
+      "Start service": "Start",
+      "Stop service": "Stop"
     },
     "context": {
       "profiles": {},
@@ -720,7 +855,7 @@
     "configuration": [
       {
         "id": "ID_ud5xpt5w",
-        "title": "PAC服务监听地址",
+        "title": "PAC service listening address",
         "description": "",
         "key": "Address",
         "component": "Input",
@@ -734,15 +869,21 @@
   },
   {
     "id": "plugin-system-proxy-guard",
-    "name": "代理守卫",
+    "name": "Proxy Guardian",
     "version": "v2.3.0",
     "group": "Extensions",
-    "description": "谁动了我的系统代理？防止系统代理被篡改",
-    "tags": ["提升体验", "功能扩展"],
+    "description": "Who tampered with my system proxy? Prevent system proxy from being tampered with",
+    "tags": [
+      "Improved experience",
+      "Feature extensions"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-system-proxy-guard.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-system-proxy-guard.js",
     "path": "data/plugins/plugin-system-proxy-guard.js",
-    "triggers": ["on::manual", "on::ready"],
+    "triggers": [
+      "on::manual",
+      "on::ready"
+    ],
     "hasUI": false,
     "menus": {
       "关闭守卫": "Stop"
@@ -757,8 +898,8 @@
     "configuration": [
       {
         "id": "ID_9mc9z6m0",
-        "title": "设置守卫间隔",
-        "description": "取值范围：10~60，即每10s-60s设置一次系统代理",
+        "title": "Set Guard Interval",
+        "description": "Value range: 10~60, that is, the system agent is set every 10s-60s",
         "key": "Interval",
         "component": "Input",
         "value": "30",
@@ -772,19 +913,24 @@
   },
   {
     "id": "plugin-systemproxy-external",
-    "name": "外接网卡系统代理",
+    "name": "External Adapter System Proxy",
     "version": "v2.1.0",
     "group": "Extensions",
-    "description": "为macOS的外接网卡设置系统代理。",
-    "tags": ["功能扩展"],
+    "description": "Set up a system proxy for external network adapters on macOS.",
+    "tags": [
+      "Feature Extensions"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-systemproxy-external.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-systemproxy-external.js",
     "path": "data/plugins/plugin-systemproxy-external.js",
-    "triggers": ["on::manual", "on::ready"],
+    "triggers": [
+      "on::manual",
+      "on::ready"
+    ],
     "hasUI": false,
     "menus": {
-      "设置代理": "Set",
-      "清除代理": "Clear"
+      "Set Proxy": "Set",
+      "Clear Proxy": "Clear"
     },
     "context": {
       "profiles": {},
@@ -801,20 +947,24 @@
   },
   {
     "id": "plugin-hosts-management",
-    "name": "Hosts管理",
+    "name": "Hosts Management",
     "version": "v1.0.1",
     "group": "Tools",
-    "description": "在三种预设Hosts中自由切换",
-    "tags": ["功能扩展"],
+    "description": "Switch freely between three preset Hosts",
+    "tags": [
+      "Function Extension"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-hosts-management.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-hosts-management.js",
     "path": "data/plugins/plugin-hosts-management.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": false,
     "menus": {
-      "普通配置": "Normal",
-      "开发配置": "Development",
-      "生产配置": "Production"
+      "Normal Configuration": "Normal",
+      "Development Configuration": "Development",
+      "Production Configuration": "Production"
     },
     "context": {
       "profiles": {},
@@ -826,7 +976,7 @@
     "configuration": [
       {
         "id": "ID_usw41mx9",
-        "title": "普通配置",
+        "title": "Standard configuration",
         "description": "",
         "key": "NormalHosts",
         "component": "CodeViewer",
@@ -835,7 +985,7 @@
       },
       {
         "id": "ID_v7b5eni5",
-        "title": "开发配置",
+        "title": "Development Configuration",
         "description": "",
         "key": "DevHosts",
         "component": "CodeViewer",
@@ -844,7 +994,7 @@
       },
       {
         "id": "ID_jfhlewa2",
-        "title": "生产配置",
+        "title": "Production configuration",
         "description": "",
         "key": "ProdHosts",
         "component": "CodeViewer",
@@ -862,12 +1012,17 @@
     "name": "Twemoji.Mozilla",
     "version": "v2.0.0",
     "group": "Extensions",
-    "description": "下载并安装字体“Twemoji.Mozilla.ttf”，你的节点将正常显示国旗图标。（Twemoji font in COLR/CPAL layered format）",
-    "tags": ["实用工具", "提升体验"],
+    "description": "Download and install the font Twemoji.Mozilla.ttf, and your node will display the national flag icon correctly. (Twemoji font in COLR/CPAL layered format)",
+    "tags": [
+      "Utility tools",
+      "Enhance user experience"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-install-font.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-install-font.js",
     "path": "data/plugins/plugin-install-font.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": false,
     "menus": {},
     "context": {
@@ -885,15 +1040,20 @@
   },
   {
     "id": "plugin-live2d-widget",
-    "name": "Live2D 看板娘",
+    "name": "Live2D mascot girl",
     "version": "v1.0.0",
     "group": "Fun",
-    "description": "把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ",
-    "tags": ["UI美化"],
+    "description": "Bring the adorable mascot girl home (ノ≧∇≦)ノ",
+    "tags": [
+      "UI enhancement"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-live2d-widget.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-live2d-widget.js",
     "path": "data/plugins/plugin-live2d-widget.js",
-    "triggers": ["on::manual", "on::ready"],
+    "triggers": [
+      "on::manual",
+      "on::ready"
+    ],
     "hasUI": false,
     "menus": {},
     "context": {
@@ -907,7 +1067,7 @@
     "configuration": [
       {
         "id": "ID_qfyj3c1a",
-        "title": "让看板娘闭嘴",
+        "title": "Shut up, sir!",
         "description": "",
         "key": "DisableMessage",
         "component": "Switch",
@@ -916,7 +1076,7 @@
       },
       {
         "id": "ID_gytm0oyf",
-        "title": "自动运行看板娘",
+        "title": "Automatic operation of the mascot",
         "description": "",
         "key": "AutoStart",
         "component": "Switch",
@@ -933,20 +1093,26 @@
     "name": "AdGuardHome",
     "version": "v2.0.1",
     "group": "Tools",
-    "description": "集成AdGuardHome程序。（Network-wide ads & trackers blocking DNS server）",
-    "tags": ["实用工具"],
+    "description": "Integrates with AdGuardHome (Network-wide ads & trackers blocking DNS server)",
+    "tags": [
+      "Utilities"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-adguardhome.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-adguardhome.js",
     "path": "data/plugins/plugin-adguardhome.js",
-    "triggers": ["on::manual", "on::startup", "on::shutdown"],
+    "triggers": [
+      "on::manual",
+      "on::startup",
+      "on::shutdown"
+    ],
     "hasUI": false,
     "menus": {
-      "授权程序": "Grant",
-      "运行服务": "Start",
-      "停止服务": "Stop",
-      "更新程序": "Update",
-      "备份配置": "Backup",
-      "恢复配置": "Restore"
+      "Licensing Program": "Grant",
+      "Running Service": "Start",
+      "Stop Service": "Stop",
+      "Update Program": "Update",
+      "Backup Configuration": "Backup",
+      "Restore Configuration": "Restore"
     },
     "context": {
       "profiles": {},
@@ -959,8 +1125,8 @@
     "configuration": [
       {
         "id": "ID_9mzd7h3y",
-        "title": "WEB管理地址",
-        "description": "默认 127.0.0.1:3000，可设置为 0.0.0.0:3000",
+        "title": "Web Management Address",
+        "description": "Default 127.0.0.1:3000, can be set to 0.0.0.0:3000",
         "key": "Address",
         "component": "Input",
         "value": "127.0.0.1:3000",
@@ -968,8 +1134,8 @@
       },
       {
         "id": "ID_qvmlagvg",
-        "title": "DNS 监听端口",
-        "description": "Linux 和 MacOS 设置 1024 以下的端口需要授权",
+        "title": "DNS Listening Port",
+        "description": "Linux and macOS require authorization to set ports below 1024",
         "key": "dnsPort",
         "component": "Input",
         "value": "20053",
@@ -977,7 +1143,7 @@
       },
       {
         "id": "ID_gytm0oyf",
-        "title": "跟随GUI启动或停止",
+        "title": "Start or stop with GUI",
         "description": "",
         "key": "AutoStartOrStop",
         "component": "Switch",
@@ -994,12 +1160,18 @@
     "name": "TrafficMonitor",
     "version": "v1.0.1",
     "group": "Tools",
-    "description": "这是一个用于显示当前网速、CPU及内存利用率的桌面悬浮窗软件，并支持任务栏显示，支持更换皮肤。",
-    "tags": ["实用工具"],
+    "description": "This is a desktop floating window software that displays current network speed, CPU and memory utilization, and supports taskbar display and skin customization.",
+    "tags": [
+      "Utilities"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-traffic-monitor.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-traffic-monitor.js",
     "path": "data/plugins/plugin-traffic-monitor.js",
-    "triggers": ["on::manual", "on::startup", "on::shutdown"],
+    "triggers": [
+      "on::manual",
+      "on::startup",
+      "on::shutdown"
+    ],
     "hasUI": false,
     "menus": {
       "停止": "Stop"
@@ -1015,7 +1187,7 @@
     "configuration": [
       {
         "id": "ID_s2gz9fxo",
-        "title": "跟随GUI启动或停止",
+        "title": "Start or stop with GUI",
         "description": "",
         "key": "AutoStartup",
         "component": "Switch",
@@ -1029,21 +1201,26 @@
   },
   {
     "id": "plugin-file-transfer-assistant",
-    "name": "文件互传助手",
+    "name": "File Transfer Assistant",
     "version": "v1.4.0",
     "group": "Tools",
-    "description": "文件互传助手，支持Siri快捷指令。",
-    "tags": ["实用工具", "功能扩展"],
+    "description": "File transfer assistant, supports Siri shortcuts.""tags": [
+      "Utility Tools",
+      "Function Extensions"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-file-transfer-assistant.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-file-transfer-assistant.js",
     "path": "data/plugins/plugin-file-transfer-assistant.js",
-    "triggers": ["on::manual", "on::ready"],
+    "triggers": [
+      "on::manual",
+      "on::ready"
+    ],
     "hasUI": false,
     "menus": {
-      "运行服务": "Start",
-      "停止服务": "Stop",
-      "已接收文件": "Saved",
-      "共享的文件": "Share"
+      "Running service": "Start",
+      "Stop service": "Stop",
+      "Received files": "Saved",
+      "Shared files": "Share"
     },
     "context": {
       "profiles": {},
@@ -1056,8 +1233,8 @@
     "configuration": [
       {
         "id": "ID_ufqxympi",
-        "title": "文件保存位置",
-        "description": "要将接收到的文件保存到哪里？",
+        "title": "File save location",
+        "description": "Where should I save the received file?",
         "key": "SavePath",
         "component": "Input",
         "value": "data/third/file-transfer-assistant/Saved",
@@ -1065,8 +1242,8 @@
       },
       {
         "id": "ID_th803wig",
-        "title": "共享文件夹",
-        "description": "要将共享哪个目录给其他设备？",
+        "title": "Shared Folder",
+        "description": "Which directory should I share with other devices?",
         "key": "SharePath",
         "component": "Input",
         "value": "data/third/file-transfer-assistant/Share",
@@ -1074,8 +1251,8 @@
       },
       {
         "id": "ID_or2prycz",
-        "title": "自动启动",
-        "description": "自动跟随GUI启动？（注：该服务总是跟随GUI自动停止）",
+        "title": "Auto Start",
+        "description": "Automatically start following the GUI? (Note: This service always automatically stops following the GUI)",
         "key": "AutoStart",
         "component": "Switch",
         "value": false,
@@ -1091,16 +1268,22 @@
     "name": "Gitea",
     "version": "v1.0.1",
     "group": "Tools",
-    "description": "🌱 轻量级自托管 Git 服务，支持一键安装与管理。Supported by: Fromsko",
-    "tags": ["实用工具"],
+    "description": "🌱 Lightweight self-hosted Git service, supports one-click installation and management. Supported by: Fromsko",
+    "tags": [
+      "utility tools"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-gitea.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-gitea.js",
     "path": "data/plugins/plugin-gitea.js",
-    "triggers": ["on::manual", "on::startup", "on::shutdown"],
+    "triggers": [
+      "on::manual",
+      "on::startup",
+      "on::shutdown"
+    ],
     "menus": {
-      "运行服务": "Start",
-      "停止服务": "Stop",
-      "配置文件": "Config"
+      "Running the service": "Start",
+      "Stopping the service": "Stop",
+      "Configuration file": "Config"
     },
     "context": {
       "profiles": {},
@@ -1113,7 +1296,7 @@
     "configuration": [
       {
         "id": "ID_gytm0oyf",
-        "title": "跟随GUI启动或停止",
+        "title": "Start or stop with GUI",
         "description": "",
         "key": "AutoStartOrStop",
         "component": "Switch",
@@ -1131,17 +1314,23 @@
     "version": "v1.0.1",
     "group": "Tools",
     "description": "A new AList Fork to Anti Trust Crisis",
-    "tags": ["实用工具"],
+    "tags": [
+      "Utility tools"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-openlist.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-openlist.js",
     "path": "data/plugins/plugin-openlist.js",
-    "triggers": ["on::manual", "on::startup", "on::shutdown"],
+    "triggers": [
+      "on::manual",
+      "on::startup",
+      "on::shutdown"
+    ],
     "hasUI": false,
     "menus": {
-      "运行服务": "Start",
-      "停止服务": "Stop",
-      "配置文件": "Config",
-      "管理员": "More"
+      "Start Service": "Start",
+      "Stop Service": "Stop",
+      "Configuration File": "Config",
+      "Administrator": "More"
     },
     "context": {
       "profiles": {},
@@ -1154,7 +1343,7 @@
     "configuration": [
       {
         "id": "ID_gytm0oyf",
-        "title": "跟随GUI启动或停止",
+        "title": "Start or stop with GUI",
         "description": "",
         "key": "AutoStartOrStop",
         "component": "Switch",
@@ -1171,17 +1360,23 @@
     "name": "Meilisearch",
     "version": "v1.0.0",
     "group": "Tools",
-    "description": "集成 Meilisearch 程序，一个强大、快速、开源的搜索引擎。Supported by: Alkacid",
-    "tags": ["实用工具"],
+    "description": "Integrated with Meisearch, a powerful, fast, and open-source search engine. Supported by: Alkacid",
+    "tags": [
+      "utilities"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-meilisearch.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-meilisearch.js",
     "path": "data/plugins/plugin-meilisearch.js",
-    "triggers": ["on::manual", "on::startup", "on::shutdown"],
+    "triggers": [
+      "on::manual",
+      "on::startup",
+      "on::shutdown"
+    ],
     "hasUI": false,
     "menus": {
-      "运行服务": "Start",
-      "停止服务": "Stop",
-      "打开目录": "OpenDataDir"
+      "Run service": "Start",
+      "Stop service": "Stop",
+      "Open directory": "OpenDataDir"
     },
     "context": {
       "profiles": {},
@@ -1194,7 +1389,7 @@
     "configuration": [
       {
         "id": "ID_xh130ial",
-        "title": "跟随GUI启动或停止",
+        "title": "Start or stop with GUI",
         "description": "",
         "key": "AutoStartOrStop",
         "component": "Switch",
@@ -1203,8 +1398,8 @@
       },
       {
         "id": "ID_h15qrvcs",
-        "title": "HTTP 地址",
-        "description": "Meilisearch 监听的地址和端口，例如：127.0.0.1:7700",
+        "title": "HTTP Address",
+        "description": "Meilisearch listens on the address and port, for example: 127.0.0.1:7700",
         "key": "HttpAddress",
         "component": "Input",
         "value": "127.0.0.1:7700",
@@ -1213,7 +1408,7 @@
       {
         "id": "ID_simzjfu4",
         "title": "Master Key",
-        "description": "设置密码（Master Key）来保护你的 Meilisearch 实例，留空则不启用",
+        "description": "Set a password (Master Key) to protect your Meilishuo instance. Leave blank to disable.",
         "key": "MasterKey",
         "component": "Input",
         "value": "",
@@ -1221,8 +1416,8 @@
       },
       {
         "id": "ID_1e6s3uzi",
-        "title": "数据库路径",
-        "description": "数据库文件的存放位置；留空则使用默认路径",
+        "title": "Database path",
+        "description": "Location of database file; leave blank to use the default path",
         "key": "DbPath",
         "component": "Input",
         "value": "",
@@ -1235,19 +1430,25 @@
   },
   {
     "id": "plugin-frp-client",
-    "name": "frp 内网穿透",
+    "name": "frp intranet penetration",
     "version": "v1.1.1",
     "group": "Tools",
-    "description": "FRP内网穿透客户端程序。（A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.）",
-    "tags": ["实用工具"],
+    "description": "FRP intranet penetration client program. (A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.)",
+    "tags": [
+      "utilities"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-frp-client.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-frp-client.js",
     "path": "data/plugins/plugin-frp-client.js",
-    "triggers": ["on::manual", "on::startup", "on::shutdown"],
+    "triggers": [
+      "on::manual",
+      "on::startup",
+      "on::shutdown"
+    ],
     "hasUI": false,
     "menus": {
-      "运行服务": "Start",
-      "停止服务": "Stop"
+      "Run service": "Start",
+      "Stop service": "Stop"
     },
     "context": {
       "profiles": {},
@@ -1260,8 +1461,8 @@
     "configuration": [
       {
         "id": "ID_k5ppluon",
-        "title": "frpc 配置",
-        "description": "TOML格式",
+        "title": "frpc configuration",
+        "description": "TOML format",
         "key": "Config",
         "component": "CodeViewer",
         "value": "# frpc.toml\nserverAddr = \"x.x.x.x\"\nserverPort = 7000\n\n[[proxies]]\nname = \"http\"\ntype = \"tcp\"\nlocalIP = \"127.0.0.1\"\nlocalPort = 8080\nremotePort = 8090",
@@ -1269,7 +1470,7 @@
       },
       {
         "id": "ID_1glttoka",
-        "title": "跟随GUI启动或停止",
+        "title": "Start or stop with GUI",
         "description": "",
         "key": "AutoStartOrStop",
         "component": "Switch",
@@ -1283,20 +1484,25 @@
   },
   {
     "id": "plugin-sub-store-v3",
-    "name": "Sub-Store 纯净版",
+    "name": "Sub-Store Pure Version",
     "version": "v1.5.0",
     "group": "Tools",
-    "description": "高级订阅管理工具。无Node.js、无MITM，优雅。（Advanced Subscription Manager for QX, Loon, Surge, Stash and Shadowrocket!）",
-    "tags": ["实用工具"],
+    "description": "Advanced Subscription Manager for QX, Loon, Surge, Stash and Shadowrocket!. No Node.js, no MITM, elegant.",
+    "tags": [
+      "Utility Tools"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-sub-store-v3.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-sub-store-v3.js",
     "path": "data/plugins/plugin-sub-store-v3.js",
-    "triggers": ["on::manual", "on::ready"],
+    "triggers": [
+      "on::manual",
+      "on::ready"
+    ],
     "hasUI": false,
     "menus": {
-      "运行服务": "Start",
-      "停止服务": "Stop",
-      "更新程序": "Update"
+      "Run Service": "Start",
+      "Stop Service": "Stop",
+      "Update Program": "Update"
     },
     "context": {
       "profiles": {},
@@ -1309,7 +1515,7 @@
     "configuration": [
       {
         "id": "ID_ziwhcqmo",
-        "title": "服务监听地址",
+        "title": "Service listening address",
         "description": "",
         "key": "Address",
         "component": "Input",
@@ -1318,8 +1524,8 @@
       },
       {
         "id": "ID_or2prycz",
-        "title": "自动启动",
-        "description": "自动跟随GUI启动？（注：该服务总是跟随GUI自动停止）",
+        "title": "Auto Start",
+        "description": "Automatically start following GUI? (Note: This service always automatically stops following the GUI)",
         "key": "AutoStart",
         "component": "Switch",
         "value": false,
@@ -1332,20 +1538,26 @@
   },
   {
     "id": "plugin-sub-store-v2",
-    "name": "Sub-Store Nodejs版",
+    "name": "Sub-Store Node.js Edition",
     "version": "v1.3.3",
     "group": "Tools",
-    "description": "高级订阅管理工具，Node.js版，无需编译。（Advanced Subscription Manager for QX, Loon, Surge, Stash and Shadowrocket!）",
-    "tags": ["实用工具"],
+    "description": "Advanced Subscription Manager for QX, Loon, Surge, Stash and Shadowrocket! (Node.js version, no compilation required)",
+    "tags": [
+      "Utilities"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-sub-store-v2.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-sub-store-v2.js",
     "path": "data/plugins/plugin-sub-store-v2.js",
-    "triggers": ["on::manual", "on::startup", "on::shutdown"],
+    "triggers": [
+      "on::manual",
+      "on::startup",
+      "on::shutdown"
+    ],
     "hasUI": false,
     "menus": {
-      "运行服务": "Start",
-      "停止服务": "Stop",
-      "更新程序": "Update"
+      "Run service": "Start",
+      "Stop service": "Stop",
+      "Update program": "Update"
     },
     "context": {
       "profiles": {},
@@ -1358,8 +1570,8 @@
     "configuration": [
       {
         "id": "ID_ziwhcqmo",
-        "title": "后端监听地址",
-        "description": "环境变量：SUB_STORE_BACKEND_API_HOST",
+        "title": "Backend Listening Address",
+        "description": "Environment Variable: SUB_STORE_BACKEND_API_HOST",
         "key": "SUB_STORE_BACKEND_API_HOST",
         "component": "Input",
         "value": "127.0.0.1",
@@ -1367,8 +1579,8 @@
       },
       {
         "id": "ID_khbdj07a",
-        "title": "前端监听地址",
-        "description": "环境变量：SUB_STORE_FRONTEND_HOST",
+        "title": "Frontend Listening Address",
+        "description": "Environment Variable: SUB_STORE_FRONTEND_HOST",
         "key": "SUB_STORE_FRONTEND_HOST",
         "component": "Input",
         "value": "127.0.0.1",
@@ -1376,8 +1588,8 @@
       },
       {
         "id": "ID_rwdt9pzf",
-        "title": "前端监听端口",
-        "description": "环境变量：SUB_STORE_FRONTEND_API_PORT",
+        "title": "Frontend Listening Port",
+        "description": "Environment Variable: SUB_STORE_FRONTEND_API_PORT",
         "key": "SUB_STORE_FRONTEND_API_PORT",
         "component": "Input",
         "value": "3001",
@@ -1385,8 +1597,8 @@
       },
       {
         "id": "ID_o9kapjcm",
-        "title": "后端监听端口",
-        "description": "环境变量：SUB_STORE_BACKEND_API_PORT",
+        "title": "Backend Listening Port",
+        "description": "Environment Variable: SUB_STORE_BACKEND_API_PORT",
         "key": "SUB_STORE_BACKEND_API_PORT",
         "component": "Input",
         "value": "3002",
@@ -1394,7 +1606,7 @@
       },
       {
         "id": "ID_s30xrqyn",
-        "title": "自定义前端显示名称",
+        "title": "Custom front-end display name",
         "description": "",
         "key": "SUB_STORE_BACKEND_CUSTOM_NAME",
         "component": "Input",
@@ -1403,7 +1615,7 @@
       },
       {
         "id": "ID_nra4uiaa",
-        "title": "自定义前端显示图标",
+        "title": "Customize front-end display icons",
         "description": "",
         "key": "SUB_STORE_BACKEND_CUSTOM_ICON",
         "component": "Input",
@@ -1412,8 +1624,8 @@
       },
       {
         "id": "ID_ozf0uhpk",
-        "title": "定时恢复配置",
-        "description": "5位cron表达式",
+        "title": "Scheduled Backup Configuration Download",
+        "description": "5-digit cron expression",
         "key": "SUB_STORE_BACKEND_DOWNLOAD_CRON",
         "component": "Input",
         "value": "",
@@ -1421,8 +1633,8 @@
       },
       {
         "id": "ID_r9i77br5",
-        "title": "定时备份配置",
-        "description": "5位cron表达式",
+        "title": "Scheduled Backup Configuration Upload",
+        "description": "5-digit cron expression",
         "key": "SUB_STORE_BACKEND_UPLOAD_CRON",
         "component": "Input",
         "value": "",
@@ -1430,8 +1642,8 @@
       },
       {
         "id": "ID_zbofamjg",
-        "title": "定时同步订阅/文件",
-        "description": "5位cron表达式",
+        "title": "Scheduled Cron Subscription/File Synchronization",
+        "description": "5-digit Cron Expression",
         "key": "SUB_STORE_BACKEND_SYNC_CRON",
         "component": "Input",
         "value": "",
@@ -1439,7 +1651,7 @@
       },
       {
         "id": "ID_khjlx7w0",
-        "title": "Node可执行文件路径",
+        "title": "Node executable path",
         "description": "",
         "key": "NODE_PATH",
         "component": "Input",
@@ -1448,7 +1660,7 @@
       },
       {
         "id": "ID_qenehz06",
-        "title": "跟随GUI启动或停止",
+        "title": "Start or stop with GUI",
         "description": "",
         "key": "AutoStartOrStop",
         "component": "Switch",
@@ -1465,16 +1677,21 @@
     "name": "Sub-Store 脚本支持",
     "version": "v1.0.2",
     "group": "Tools",
-    "description": "安装后Sub-Store可正常使用测落地的相关脚本。",
-    "tags": ["实用工具"],
+    "description": "After installation, Sub-Store can use scripts related to landing testing normally.",
+    "tags": [
+      "utilities"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-sub-store-script-support.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-sub-store-script-support.js",
     "path": "data/plugins/plugin-sub-store-script-support.js",
-    "triggers": ["on::manual", "on::ready"],
+    "triggers": [
+      "on::manual",
+      "on::ready"
+    ],
     "hasUI": false,
     "menus": {
-      "运行服务": "Start",
-      "停止服务": "Stop"
+      "Run service": "Start",
+      "Stop service": "Stop"
     },
     "context": {
       "profiles": {},
@@ -1487,8 +1704,8 @@
     "configuration": [
       {
         "id": "ID_or2prycz",
-        "title": "自动启动",
-        "description": "自动跟随GUI启动？（注：该服务总是跟随GUI自动停止）",
+        "title": "Automatic Startup",
+        "description": "Automatically start following the GUI? (Note: This service always automatically stops following the GUI)",
         "key": "AutoStart",
         "component": "Switch",
         "value": false,
@@ -1501,15 +1718,19 @@
   },
   {
     "id": "plugin-github-commit-history",
-    "name": "GitHub提交记录",
+    "name": "GitHub commit history",
     "version": "v1.0.1",
     "group": "Tools",
-    "description": "添加目标仓库，查看其历史提交记录",
-    "tags": ["实用工具"],
+    "description": "Add target repository to view its commit history",
+    "tags": [
+      "utilities"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-github-commit-history.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-github-commit-history.js",
     "path": "data/plugins/plugin-github-commit-history.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": true,
     "menus": {},
     "context": {
@@ -1523,16 +1744,20 @@
     "configuration": [
       {
         "id": "ID_goqh9w8i",
-        "title": "GitHub API TOKEN 来源",
-        "description": "提供token以免被GitHub限制请求",
+        "title": "GitHub API TOKEN Source",
+        "description": "Provide a token to avoid GitHub's request restrictions",
         "key": "TOKEN_MODE",
         "component": "Radio",
         "value": "gui",
-        "options": ["使用GUI内配置的,gui", "使用插件单独配置的,plugin", "不使用任何TOKEN,none"]
+        "options": [
+          "Use the one configured in the GUI, gui",
+          "Use the one configured separately by the plugin, plugin",
+          "Do not use any TOKEN, none"
+        ]
       },
       {
         "id": "ID_ya8r6f5g",
-        "title": "为此插件单独配置TOKEN",
+        "title": "Configure a separate TOKEN for this plugin",
         "description": "",
         "key": "TOKEN",
         "component": "Input",
@@ -1546,15 +1771,19 @@
   },
   {
     "id": "plugin-github-workflows",
-    "name": "GitHub工作流管理",
+    "name": "GitHub Workflow Management",
     "version": "v2.0.0",
     "group": "Tools",
-    "description": "添加目标仓库，管理其工作流、Runs、Artifacts、Release 和 Tag，支持按需加载与批量删除",
-    "tags": ["实用工具"],
+    "description": "Add target repositories, manage their workflows, Runs, Artifacts, Releases, and Tags, supporting on-demand loading and batch deletion",
+    "tags": [
+      "Utilities"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-github-workflows.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-github-workflows.js",
     "path": "data/plugins/plugin-github-workflows.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": true,
     "menus": {},
     "context": {
@@ -1569,7 +1798,7 @@
       {
         "id": "ID_igog5b39",
         "title": "Token",
-        "description": "具有仓库 Actions 和 Contents 权限的 GitHub API Token",
+        "description": "GitHub API Token with repository Actions and Contents permissions",
         "key": "Token",
         "component": "Input",
         "value": "",
@@ -1577,8 +1806,8 @@
       },
       {
         "id": "ID_mvwb0dmp",
-        "title": "仓库列表",
-        "description": "例如：GUI-for-Cores/GUI.for.Clash",
+        "title": "List of Repositories",
+        "description": "For example: GUI-for-Cores/GUI.for.Clash",
         "key": "RepoList",
         "component": "InputList",
         "value": [],
@@ -1591,23 +1820,29 @@
   },
   {
     "id": "plugin-sync-configuration",
-    "name": "配置同步",
+    "name": "Configuration Synchronization",
     "version": "v2.0.0",
     "group": "Extensions",
-    "description": "使用自建服务同步GUI配置。",
-    "tags": ["提升体验", "功能扩展", "提升体验"],
+    "description": "Use a self-built service to synchronize GUI configuration.",
+    "tags": [
+      "Improved Experience",
+      "Feature Extension",
+      "Improved Experience"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-sync-configuration.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-sync-configuration.js",
     "path": "data/plugins/plugin-sync-configuration.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": false,
     "menus": {
-      "立即备份": "Backup",
-      "同步至本地": "Sync"
+      "Backup Now": "Backup",
+      "Sync to Local": "Sync"
     },
     "context": {
       "profiles": {
-        "部署到服务器": "Deploy"
+        "Deploy to Server": "Deploy"
       },
       "subscriptions": {},
       "rulesets": {},
@@ -1618,8 +1853,8 @@
     "configuration": [
       {
         "id": "ID_u3272842",
-        "title": "服务器地址",
-        "description": "若启用了TLS请填写https://，否则填写http://，或直接填写IP:Port",
+        "title": "Server Address",
+        "description": "If TLS is enabled, please enter https://; otherwise, enter http://, or directly enter IP:Port",
         "key": "ServerAddress",
         "component": "Input",
         "value": "https://127.0.0.1:8080",
@@ -1627,8 +1862,8 @@
       },
       {
         "id": "ID_8v1vyleh",
-        "title": "忽略不安全的TLS证书",
-        "description": "自签证书，请打开此设置。",
+        "title": "Ignore insecure TLS certificates",
+        "description": "For self-signed certificates, please enable this setting.",
         "key": "IgnoreInsecureTLS",
         "component": "Switch",
         "value": false,
@@ -1636,8 +1871,8 @@
       },
       {
         "id": "ID_imjlb4rx",
-        "title": "密钥",
-        "description": "加密、解密使用的密钥",
+        "title": "Key",
+        "description": "Key used for encryption and decryption",
         "key": "Secret",
         "component": "Input",
         "value": "",
@@ -1645,17 +1880,16 @@
       },
       {
         "id": "ID_4hhfojgk",
-        "title": "认证 TOKEN",
-        "description": "Authorization，需要和服务端保持一致。",
-        "key": "Authorization",
+        "title": "Authentication TOKEN",
+        "description": "Authorization, needs to be consistent with the server.""key": "Authorization",
         "component": "Input",
         "value": "",
         "options": []
       },
       {
         "id": "ID_h2p3p2nn",
-        "title": "核心配置路径",
-        "description": "核心配置路径，例如：/etc/core/config.json",
+        "title": "Core configuration path",
+        "description": "Core configuration path, e.g., /etc/core/config.json",
         "key": "ServerConfigPath",
         "component": "Input",
         "value": "",
@@ -1663,8 +1897,8 @@
       },
       {
         "id": "ID_ipgaaq1l",
-        "title": "核心服务名",
-        "description": "systemd服务名，例如：sing-box.service、mihomo.service",
+        "title": "Core service name",
+        "description": "systemd service name, e.g., sing-box.service, mihomo.service",
         "key": "ServerServiceName",
         "component": "Input",
         "value": "",
@@ -1677,19 +1911,25 @@
   },
   {
     "id": "plugin-sync-configuration-gists",
-    "name": "配置同步 - Gists",
+    "name": "Configuration Synchronization - Gists",
     "version": "v2.0.0",
     "group": "Extensions",
-    "description": "使用Gists同步GUI配置。",
-    "tags": ["实用工具", "功能扩展", "提升体验"],
+    "description": "Use Gists to synchronize GUI configurations.",
+    "tags": [
+      "Utilities",
+      "Feature Extensions",
+      "Enhanced Experience"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-sync-configuration-gists.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-sync-configuration-gists.js",
     "path": "data/plugins/plugin-sync-configuration-gists.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": false,
     "menus": {
-      "立即备份": "Backup",
-      "同步至本地": "Sync"
+      "Back Up Now": "Backup",
+      "Sync to Local": "Sync"
     },
     "context": {
       "profiles": {},
@@ -1703,7 +1943,7 @@
       {
         "id": "ID_u3272842",
         "title": "TOKEN",
-        "description": "拥有Gists访问权限的 token",
+        "description": "A token with Gists access rights",
         "key": "Authorization",
         "component": "Input",
         "value": "",
@@ -1711,8 +1951,8 @@
       },
       {
         "id": "ID_imjlb4rx",
-        "title": "密钥",
-        "description": "加密、解密使用的密钥",
+        "title": "Key",
+        "description": "Key used for encryption and decryption",
         "key": "Secret",
         "component": "Input",
         "value": "",
@@ -1725,19 +1965,25 @@
   },
   {
     "id": "plugin-sync-configuration-webdav",
-    "name": "配置同步 - WebDAV",
+    "name": "Configuration Synchronization - WebDAV",
     "version": "v3.0.0",
     "group": "Extensions",
-    "description": "使用webDAV协议同步GUI配置。",
-    "tags": ["实用工具", "功能扩展", "提升体验"],
+    "description": "Uses the WebDAV protocol to synchronize GUI configuration.",
+    "tags": [
+      "Utilities",
+      "Feature Extensions",
+      "Enhanced Experience"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-sync-configuration-webdav.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-sync-configuration-webdav.js",
     "path": "data/plugins/plugin-sync-configuration-webdav.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": false,
     "menus": {
-      "立即备份": "Backup",
-      "同步至本地": "Sync"
+      "Back Up Now": "Backup",
+      "Sync to Local": "Sync"
     },
     "context": {
       "profiles": {},
@@ -1750,8 +1996,8 @@
     "configuration": [
       {
         "id": "ID_rx5ee7jd",
-        "title": "WebDAV地址",
-        "description": "格式：http://127.0.0.1:5244",
+        "title": "WebDAV address",
+        "description": "Format: http://127.0.0.1:5244",
         "key": "Address",
         "component": "Input",
         "value": "http://127.0.0.1:5244",
@@ -1759,7 +2005,7 @@
       },
       {
         "id": "ID_e24q3j0c",
-        "title": "用户名",
+        "title": "username",
         "description": "",
         "key": "Username",
         "component": "Input",
@@ -1768,7 +2014,7 @@
       },
       {
         "id": "ID_2v45ffki",
-        "title": "密码",
+        "title": "password",
         "description": "",
         "key": "Password",
         "component": "Input",
@@ -1777,8 +2023,8 @@
       },
       {
         "id": "ID_66w4psyd",
-        "title": "保存路径",
-        "description": "例如：/dav/gui-for-cores",
+        "title": "Save path",
+        "description": "For example: /dav/gui-for-cores",
         "key": "DataPath",
         "component": "Input",
         "value": "",
@@ -1786,8 +2032,8 @@
       },
       {
         "id": "ID_1w6ddaf1",
-        "title": "密钥",
-        "description": "加密、解密使用的密钥",
+        "title": "Key",
+        "description": "Key used for encryption and decryption",
         "key": "Secret",
         "component": "Input",
         "value": "",
@@ -1795,7 +2041,7 @@
       },
       {
         "id": "ID_nrxu1qyz",
-        "title": "路径不存在时尝试创建",
+        "title": "Try to create the path if it does not exist.",
         "key": "CreateOnNotExist",
         "component": "Switch",
         "value": true,
@@ -1808,15 +2054,19 @@
   },
   {
     "id": "plugin-bandwagon-vps",
-    "name": "搬瓦工 VPS 管理",
+    "name": "Bandwagon VPS Management",
     "version": "v1.0.0",
     "group": "Tools",
-    "description": "管理你的搬瓦工VPS。",
-    "tags": ["实用工具"],
+    "description": "Manage your Bandwagon VPS.",
+    "tags": [
+      "utilities"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-bandwagon-vps.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-bandwagon-vps.js",
     "path": "data/plugins/plugin-bandwagon-vps.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": false,
     "menus": {},
     "context": {
@@ -1830,8 +2080,8 @@
     "configuration": [
       {
         "id": "ID_u3272842",
-        "title": "VPS列表",
-        "description": "格式为：【描述,Your VEID,Your API KEY】，例如：我的VPS,123,my_key",
+        "title": "VPS List",
+        "description": "Format: [Description, Your VEID, Your API KEY], for example: My VPS, 123, my_key",
         "key": "VPS_LIST",
         "component": "InputList",
         "value": [],
@@ -1844,19 +2094,27 @@
   },
   {
     "id": "plugin-unblockneteasemusic",
-    "name": "解锁网易云音乐",
+    "name": "Unlock NetEase Cloud Music",
     "version": "v8.1.0",
     "group": "Fun",
-    "description": "解锁网易云音乐插件，需要安装CA证书。请在音乐客户端内开启：使用IE代理设置。（Revive unavailable songs for Netease Cloud Music (Refactored & Enhanced version)）",
-    "tags": ["实用工具", "功能扩展"],
+    "description": "Unlocks the NetEase Cloud Music plugin. A CA certificate is required. Please enable IE proxy settings in the music client. (Revive unavailable songs for Netease Cloud Music (Refactored & Enhanced version))",
+    "tags": [
+      "Utilities",
+      "Function Extensions"
+    ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-unblockneteasemusic.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-unblockneteasemusic.js",
     "path": "data/plugins/plugin-unblockneteasemusic.js",
-    "triggers": ["on::manual", "on::before::core::start", "on::core::stopped", "on::core::started"],
+    "triggers": [
+      "on::manual",
+      "on::before::core::start",
+      "on::core::stopped",
+      "on::core::started"
+    ],
     "hasUI": true,
     "menus": {
-      "运行服务": "Start",
-      "停止服务": "Stop"
+      "Start Service": "Start",
+      "Stop Service": "Stop"
     },
     "context": {
       "profiles": {},
@@ -1869,8 +2127,8 @@
     "configuration": [
       {
         "id": "ID_45aos2xh",
-        "title": "音乐下载保存路径",
-        "description": "默认保存在插件目录内，不修改卸载插件时会被清空。",
+        "title": "Music download save path",
+        "description": "By default, it is saved in the plugin directory. It will be cleared when the plugin is uninstalled if not modified.",
         "key": "DownloadsPath",
         "component": "Input",
         "value": "",
@@ -1878,8 +2136,8 @@
       },
       {
         "id": "ID_nf183eae",
-        "title": "监听端口",
-        "description": "Http监听端口，默认为 15200，https监听端口自动+1。",
+        "title": "Listening port",
+        "description": "HTTP listening port, default is 15200, HTTPS listening port is automatically incremented by 1.",
         "key": "Port",
         "component": "Input",
         "value": "15200",
@@ -1887,44 +2145,49 @@
       },
       {
         "id": "ID_8aiktkuq",
-        "title": "音源",
-        "description": "选择有兴趣的音源，部分音源还需在下方配置Cookie。",
+        "title": "Audio Source",
+        "description": "Select an audio source you are interested in. Some audio sources require configuring cookies below.",
         "key": "Source",
         "component": "MultipleSelect",
-        "value": ["kugou", "bodian", "ytdlp", "pyncmd"],
+        "value": [
+          "kugou",
+          "bodian",
+          "ytdlp",
+          "pyncmd"
+        ],
         "options": [
-          "QQ音乐,qq",
-          "酷狗音乐,kugou",
-          "酷我音乐,kuwo",
-          "波点音乐,bodian",
-          "咪咕音乐,migu",
-          "JOOX,joox",
-          "YouTube,ytdlp",
-          "B 站音乐,bilibili",
-          "第三方网易云,pyncmd"
+          "QQ Music, qq",
+          "Kugou Music, kugou",
+          "Kuwo Music, kuwo",
+          "Bodian Music, bodian",
+          "Migu Music, migu",
+          "JOOX, joox",
+          "YouTube, ytdlp",
+          "Bilibili Music, bilibili",
+          "Third-party NetEase Cloud Music, pyncmd"
         ]
       },
       {
         "id": "ID_yl8s60lj",
-        "title": "代理组名称",
+        "title": "Proxy Group Name",
         "description": "",
         "key": "ProxyGroup",
         "component": "Input",
-        "value": "🎶 网易云",
+        "value": "🎶 NetEase Cloud Music",
         "options": []
       },
       {
         "id": "ID_x6oim1t0",
-        "title": "代理名称",
+        "title": "Proxy Name",
         "description": "",
         "key": "Proxy",
         "component": "Input",
-        "value": "🎶 本地解锁",
+        "value": "🎶 Local Unlock",
         "options": []
       },
       {
         "id": "ID_o37f5t9o",
-        "title": "网易云音乐进程名",
+        "title": "NetEase Cloud Music Process Name",
         "description": "",
         "key": "Process",
         "component": "Input",
@@ -1933,1059 +2196,1210 @@
       },
       {
         "id": "ID_6n0tgftx",
-        "title": "激活本地黑胶 VIP",
+        "title": "Activate Local Vinyl VIP",
         "description": "",
         "key": "ENABLE_LOCAL_VIP",
         "component": "Radio",
-        "value": "不激活",
-        "options": ["不激活,", "cvip,cvip", "svip,svip"]
+        "value": "Do not activate",
+        "options": [
+          "Do not activate,",
+          "cvip,cvip",
+          "svip,svip"
+        ]
       },
       {
-        "id": "ID_vvfg93pm",
-        "title": "激活无损音质获取",
-        "description": "",
-        "key": "ENABLE_FLAC",
-        "component": "Switch",
-        "value": false,
-        "options": []
-      },
-      {
-        "id": "ID_5duhnvux",
-        "title": "允许的最低源音质",
-        "description": "小于该值将被替换",
-        "key": "MIN_BR",
-        "component": "Input",
-        "value": "320000",
-        "options": []
-      },
-      {
-        "id": "ID_2423810w",
-        "title": "最高码率",
-        "description": "选择所有音源中的最高码率替换音频",
-        "key": "SELECT_MAX_BR",
-        "component": "Switch",
-        "value": false,
-        "options": []
-      },
-      {
-        "id": "ID_n889cz6h",
-        "title": "各大音源的Cookie",
-        "description": "格式参考：https://github.com/UnblockNeteaseMusic/server?tab=readme-ov-file#音源清单",
-        "key": "CookieMap",
-        "component": "KeyValueEditor",
-        "value": {
-          "QQ_COOKIE": "",
-          "MIGU_COOKIE": "",
-          "JOOX_COOKIE": "",
-          "NETEASE_COOKIE": ""
+        {
+          "id": "ID_vvfg93pm",
+          "title": "Activate Lossless Audio Acquisition",
+          "description": "",
+          "key": "ENABLE_FLAC",
+          "component": "Switch",
+          "value": false,
+          "options": []
         },
-        "options": []
-      }
-    ],
-    "disabled": false,
-    "install": true,
-    "installed": false
-  },
-  {
-    "id": "plugin-hotkey-api-bridge",
-    "name": "全局热键",
-    "version": "v1.0.3",
-    "group": "Extensions",
-    "description": "请配合【RESTful-Api v1】插件使用。",
-    "tags": ["功能扩展", "提升体验"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-hotkey-api-bridge.js",
-    "path": "data/plugins/plugin-hotkey-api-bridge.js",
-    "triggers": ["on::manual", "on::startup", "on::shutdown"],
-    "hasUI": true,
-    "menus": {
-      "运行服务": "Start",
-      "停止服务": "Stop"
+        {
+          "id": "ID_5duhnvux",
+          "title": "Minimum Allowed Source Audio Quality",
+          "description": "Anything less than this value will be replaced",
+          "key": "MIN_BR",
+          "component": "Input",
+          "value": "320000",
+          "options": []
+        },
+        {
+          "id": "ID_2423810w",
+          "title": "Maximum Bitrate",
+          "description": "Select the highest bitrate among all audio sources to replace the audio",
+          "key": "SELECT_MAX_BR",
+          "component": "Switch",
+          "value": false,
+          "options": []
+        },
+        {
+          "id": "ID_n889cz6h",
+          "title": "Cookies for various music streaming platforms",
+          "description": "Format reference: https://github.com/UnblockNeteaseMusic/server?tab=readme-ov-file#musicstreamlist",
+          "key": "CookieMap",
+          "component": "KeyValueEditor",
+          "value": {
+            "QQ_COOKIE": "",
+            "MIGU_COOKIE": "",
+            "JOOX_COOKIE": "",
+            "NETEASE_COOKIE": ""
+          },
+          "options": []
+        }
+      ],
+      "disabled": false,
+      "install": true,
+      "installed": false
     },
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [
-      {
-        "id": "ID_qz3y1pmc",
-        "title": "全局热键后端监听地址",
-        "description": "",
-        "key": "HOTKEY_API_ADDRESS",
-        "component": "Input",
-        "value": "127.0.0.1:32325",
-        "options": []
+    {
+      "id": "plugin-hotkey-api-bridge",
+      "name": "Global Hotkeys",
+      "version": "v1.0.3",
+      "group": "Extensions",
+      "description": "Please use with the 【RESTful-Api v1】 plugin.""tags": [
+        "Function Extension",
+        "Improved Experience"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-hotkey-api-bridge.js",
+      "path": "data/plugins/plugin-hotkey-api-bridge.js",
+      "triggers": [
+        "on::manual",
+        "on::startup",
+        "on::shutdown"
+      ],
+      "hasUI": true,
+      "menus": {
+        "Run service": "Start",
+        "Stop service": "Stop"
       },
-      {
-        "id": "ID_4ab8oosx",
-        "title": "全局热键后端认证 TOKEN",
-        "description": "",
-        "key": "HOTKEY_API_TOKEN",
-        "component": "Input",
-        "value": "",
-        "options": []
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_pdd63nvb",
-        "title": "RESTful-Api v1 插件的连接地址",
-        "description": "",
-        "key": "ApiAddress",
-        "component": "Input",
-        "value": "http://127.0.0.1:20234",
-        "options": []
+      "status": 0,
+      "configuration": [
+        {
+          "id": "ID_qz3y1pmc",
+          "title": "Global hotkey backend listening address",
+          "description": "",
+          "key": "HOTKEY_API_ADDRESS",
+          "component": "Input",
+          "value": "127.0.0.1:32325",
+          "options": []
+        },
+        {
+          "id": "ID_4ab8oosx",
+          "title": "Global hotkey backend authentication TOKEN",
+          "description": "",
+          "key": "HOTKEY_API_TOKEN",
+          "component": "Input",
+          "value": "",
+          "options": []
+        },
+        {
+          "id": "ID_pdd63nvb",
+          "title": "RESTful-Api v1 Plugin link address",
+          "description": "",
+          "key": "ApiAddress",
+          "component": "Input",
+          "value": "http://127.0.0.1:20234",
+          "options": []
+        },
+        {
+          "id": "ID_s8a4spoi",
+          "title": "RESTful-Api v1 Plugin authentication TOKEN",
+          "description": "",
+          "key": "ApiSecret",
+          "component": "Input",
+          "value": "",
+          "options": []
+        }
+      ],
+      "disabled": false,
+      "install": true,
+      "installed": false
+    },
+    {
+      "id": "plugin-index-the-proxy-name",
+      "name": "Anti-duplicate proxy name",
+      "version": "v1.0.0",
+      "group": "Extensions",
+      "description": "Adds an index to the proxy name to avoid name conflicts.",
+      "tags": [
+        "Node processing"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-index-the-proxy-name.js",
+      "path": "data/plugins/plugin-index-the-proxy-name.js",
+      "triggers": [
+        "on::subscribe"
+      ],
+      "hasUI": false,
+      "menus": {},
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_s8a4spoi",
-        "title": "RESTful-Api v1 插件的认证 TOKEN",
-        "description": "",
-        "key": "ApiSecret",
-        "component": "Input",
-        "value": "",
-        "options": []
-      }
-    ],
-    "disabled": false,
-    "install": true,
-    "installed": false
-  },
-  {
-    "id": "plugin-index-the-proxy-name",
-    "name": "防代理重名",
-    "version": "v1.0.0",
-    "group": "Extensions",
-    "description": "在代理名称后面加上索引、避免名称冲突。",
-    "tags": ["节点处理"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-index-the-proxy-name.js",
-    "path": "data/plugins/plugin-index-the-proxy-name.js",
-    "triggers": ["on::subscribe"],
-    "hasUI": false,
-    "menus": {},
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
+      "status": 0,
+      "configuration": [],
+      "disabled": false,
+      "install": false,
+      "installed": false
     },
-    "status": 0,
-    "configuration": [],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-uwp-loopback-exempt",
-    "name": "解除UWP应用本地回环限制",
-    "version": "v1.0.0",
-    "group": "Tools",
-    "description": "解除Window的UWP应用本地回环限制，解除后UWP应用将支持系统代理。",
-    "tags": ["实用工具", "功能扩展", "提升体验"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-uwp-loopback-exempt.js",
-    "path": "data/plugins/plugin-uwp-loopback-exempt.js",
-    "triggers": ["on::manual"],
-    "hasUI": false,
-    "menus": {},
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-terminal-proxy",
-    "name": "一键设置终端代理",
-    "version": "v2.1.0",
-    "group": "Extensions",
-    "description": "一键设置系统cmd、powershell等终端的代理，非常适用于使用系统代理的用户。",
-    "tags": ["实用工具", "功能扩展", "提升体验"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-terminal-proxy.js",
-    "path": "data/plugins/plugin-terminal-proxy.js",
-    "triggers": ["on::manual", "on::ready"],
-    "hasUI": false,
-    "menus": {
-      "复制 Bash 环境变量": "copyBashEnv",
-      "复制 CMD 环境变量": "copyCMDEnv",
-      "复制 PowerShell 环境变量": "copyPowerShellEnv"
-    },
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [
-      {
-        "id": "ID_9jz1jc9c",
-        "title": "启用增强模式",
-        "description": "启用后，你可以使用高级功能：修改系统环境变量和使用注册表彻底清除环境变量",
-        "key": "enableEnhance",
-        "component": "Switch",
-        "value": false,
-        "options": []
-      }
-    ],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-modify-proxy-name",
-    "name": "更好的代理名称显示",
-    "version": "v1.0.0",
-    "group": "Extensions",
-    "description": "在节点名称前加上对应的国家地区的 Emoji；移除节点名称中的一些关键词；对节点名称进行标号。Supported by: QiChaiQiChai",
-    "tags": ["节点处理"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-modify-proxy-name.js",
-    "path": "data/plugins/plugin-modify-proxy-name.js",
-    "triggers": ["on::subscribe"],
-    "hasUI": false,
-    "menus": {},
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [
-      {
-        "id": "ID_b6yfktzm",
-        "title": "添加 Emoji",
-        "description": "是否在节点名称前加上对应的国家地区的 Emoji？",
-        "key": "EnableAddEmoji",
-        "component": "Switch",
-        "value": true,
-        "options": []
+    {
+      "id": "plugin-uwp-loopback-exempt",
+      "name": "Remove Local Loop Restriction for UWP Apps",
+      "version": "v1.0.0",
+      "group": "Tools",
+      "description": "Remove local loop restriction for UWP apps on Windows. After removal, UWP apps will support system proxies.",
+      "tags": [
+        "Utilities",
+        "Feature Extensions",
+        "Enhanced Experience"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-uwp-loopback-exempt.js",
+      "path": "data/plugins/plugin-uwp-loopback-exempt.js",
+      "triggers": [
+        "on::manual"
+      ],
+      "hasUI": false,
+      "menus": {},
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_f8auxoc1",
-        "title": "关键词移除",
-        "description": "是否移除节点名称中的一些关键词？",
-        "key": "EnableRemoveKeywords",
-        "component": "Switch",
-        "value": false,
-        "options": []
+      "status": 0,
+      "configuration": [],
+      "disabled": false,
+      "install": false,
+      "installed": false
+    },
+    {
+      "id": "plugin-terminal-proxy",
+      "name": "One-click Terminal Proxy Setup",
+      "version": "v2.1.0",
+      "group": "Extensions",
+      "description": "One-click setup of proxy for system terminals such as cmd and PowerShell, ideal for users using system proxies.",
+      "tags": [
+        "Utility Tools",
+        "Function Extensions",
+        "Enhanced Experience"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-terminal-proxy.js",
+      "path": "data/plugins/plugin-terminal-proxy.js",
+      "triggers": [
+        "on::manual",
+        "on::ready"
+      ],
+      "hasUI": false,
+      "menus": {
+        "Copy Bash environment variable": "copyBashEnv",
+        "Copy CMD environment variable": "copyCMDEnv",
+        "Copy PowerShell environment variable": "copyPowerShellEnv"
       },
-      {
-        "id": "ID_gvbh1wtg",
-        "title": "添加索引",
-        "description": "是否对相同节点名称添加索引？",
-        "key": "EnableIndexProxyName",
-        "component": "Radio",
-        "value": "0",
-        "options": ["否,0", "所有节点按顺序标号,1", "仅对相同节点进行标号,2"]
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_oqfaqveh",
-        "title": "移除关键词的正则表达式",
-        "description": "匹配的关键词将被移除，正则表达式 \"关键词1|关键词2|关键词3\" 将会匹配 proxy name 中的 \"关键词1\" \"关键词2\" 和 \"关键词3\"，并将其替换为一个空字符串。你可以根据自己的需求修改正则表达式，添加或删除需要匹配的关键词。",
-        "key": "RemoveKeywords",
-        "component": "Input",
-        "value": "-|_|油|羊|🇨🇳",
-        "options": []
-      }
-    ],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-beautiful-node-name",
-    "name": "美化节点名称",
-    "version": "v5.0.1",
-    "group": "Extensions",
-    "description": "统一规范节点名称，使其显示更好看。Supported by: Starfish",
-    "tags": ["节点处理"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-beautiful-node-name.js",
-    "path": "data/plugins/plugin-beautiful-node-name.js",
-    "triggers": ["on::subscribe", "on::manual"],
-    "hasUI": false,
-    "menus": {
-      "测试节点名": "testName"
+      "status": 0,
+      "configuration": [
+        {
+          "id": "ID_9jz1jc9c",
+          "title": "Enable Enhanced Mode",
+          "description": "When enabled, you can use advanced features: modify system environment variables and completely clear environment variables using the registry",
+          "key": "enableEnhance",
+          "component": "Switch",
+          "value": false,
+          "options": []
+        }
+      ],
+      "disabled": false,
+      "install": false,
+      "installed": false
     },
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [
-      {
-        "id": "ID_d1f05rnu",
-        "title": "订阅名称",
-        "description": "是否将订阅名显示在节点名之前",
-        "key": "EnableSubscriptionName",
-        "component": "Switch",
-        "value": true,
-        "options": []
+    {
+      "id": "plugin-modify-proxy-name",
+      "name": "Better proxy name display",
+      "version": "v1.0.0",
+      "group": "Extensions",
+      "description": "Add the corresponding country/region Emoji before the node name; remove some keywords from the node name; label the node names. Supported by: QiChaiQiChai",
+      "tags": [
+        "Node processing"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-modify-proxy-name.js",
+      "path": "data/plugins/plugin-modify-proxy-name.js",
+      "triggers": [
+        "on::subscribe"
+      ],
+      "hasUI": false,
+      "menus": {},
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_9mv4yzsa",
-        "title": "国旗emoji",
-        "description": "是否在节点名之前（订阅名之后）添加国旗emoji",
-        "key": "EnableNationalEmoji",
-        "component": "Switch",
-        "value": true,
-        "options": []
+      "status": 0,
+      "configuration": [
+        {
+          "id": "ID_b6yfktzm",
+          "title": "Add Emoji",
+          "description": "Do you want to add the corresponding country/region Emoji before the node name?",
+          "key": "EnableAddEmoji",
+          "component": "Switch",
+          "value": true,
+          "options": []
+        },
+        {
+          "id": "ID_f8auxoc1",
+          "title": "Keyword Removal",
+          "description": "Do you want to remove some keywords from the node name?",
+          "key": "EnableRemoveKeywords",
+          "component": "Switch",
+          "value": false,
+          "options": []
+        },
+        {
+          "id": "ID_gvbh1wtg",
+          "title": "Add Index",
+          "description": "Do you want to add an index for nodes with the same name?",
+          "key": "EnableIndexProxyName",
+          "component": "Radio",
+          "value": "0",
+          "options": [
+            "No, 0",
+            "Number all nodes sequentially, 1",
+            "Number only identical nodes, 2"
+          ]
+        },
+        {
+          "id": "ID_oqfaqveh",
+          "title": "Regular expression for removing keywords",
+          "description": "Matching keywords will be removed. The regular expression \"keyword1|keyword2|keyword3\" will match \"keyword1\", \"keyword2\", and \"keyword3\" in the proxy name and replace them with an empty string. You can modify the regular expression to add or delete keywords to be matched according to your needs.",
+          "key": "RemoveKeywords",
+          "component": "Input",
+          "value": "-|_|oil|sheep|🇨🇳",
+          "options": []
+        }
+      ],
+      "disabled": false,
+      "install": false,
+      "installed": false
+    },
+    {
+      "id": "plugin-beautiful-node-name",
+      "name": "Beautify node names",
+      "version": "v5.0.1",
+      "group": "Extensions",
+      "description": "Standardize node names to make them look better. Supported by: Starfish",
+      "tags": [
+        "Node processing"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-beautiful-node-name.js",
+      "path": "data/plugins/plugin-beautiful-node-name.js",
+      "triggers": [
+        "on::subscribe",
+        "on::manual"
+      ],
+      "hasUI": false,
+      "menus": {
+        "Test node name": "testName"
       },
-      {
-        "id": "ID_g9x0ko1l",
-        "title": "统一国家/地区名",
-        "description": "是否将识别到的关键字统一替换为地区名，比如HK,HongKong统一为香港",
-        "key": "EnableUnifyRegionName",
-        "component": "Radio",
-        "value": "统一为中文",
-        "options": ["不启用", "统一为中文", "统一为英文"]
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_d3fbj626",
-        "title": "保留城市名",
-        "description": "如果存在具体的地点城市，是否保留",
-        "key": "EnableCityName",
-        "component": "Switch",
-        "value": true,
-        "options": []
+      "status": 0,
+      "configuration": [
+        {
+          "id": "ID_d1f05rnu",
+          "title": "Subscription Name",
+          "description": "Whether to display the subscription name before the node name",
+          "key": "EnableSubscriptionName",
+          "component": "Switch",
+          "value": true,
+          "options": []
+        },
+        {
+          "id": "ID_9mv4yzsa",
+          "title": "National Flag Emoji",
+          "description": "Whether to add the national flag emoji before the node name (after the subscription name)",
+          "key": "EnableNationalEmoji",
+          "component": "Switch",
+          "value": true,
+          "options": []
+        },
+        {
+          "id": "ID_g9x0ko1l",
+          "title": "Unify Country/Region Name",
+          "description": "Whether to uniformly replace identified keywords with region names, such as HK, HongKong to Hong Kong",
+          "key": "EnableUnifyRegionName",
+          "component": "Radio",
+          "value": "Unify to Chinese",
+          "options": [
+            "Disable",
+            "Unify to Chinese",
+            "Unify to English"
+          ]
+        },
+        {
+          "id": "ID_d3fbj626",
+          "title": "Retain City Name",
+          "description": "If a specific city exists, whether to retain it",
+          "key": "EnableCityName",
+          "component": "Switch",
+          "value": true,
+          "options": []
+        },
+        {
+          "id": "ID_0g2le942",
+          "title": "Other keywords that need to be retained",
+          "description": "Other information in the node name that needs to be retained, separated by |, supports regular expressions, such as BGP|IEPL|\\d+\\.\\d+ etc.",
+          "key": "ReservedKeywords",
+          "component": "Input",
+          "value": "BGP|IEPL|IPLC|(\\d+(?:\\.\\d+)?)[xX]",
+          "options": []
+        }
+      ],
+      "disabled": false,
+      "install": false,
+      "installed": false
+    },
+    {
+      "id": "plugin-ip-geolocation",
+      "name": "IP Information Query",
+      "version": "v2.1.2",
+      "group": "Tools",
+      "description": "Quickly query current IP information. Supported by: QiChaiQiChai",
+      "tags": [
+        "Utility Tools"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-ip-geolocation.js",
+      "path": "data/plugins/plugin-ip-geolocation.js",
+      "triggers": [
+        "on::manual",
+        "on::ready"
+      ],
+      "hasUI": false,
+      "menus": {},
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_0g2le942",
-        "title": "其它需要保留的关键字",
-        "description": "节点名中其他还需要保留的信息，用 | 分割，支持正则，比如BGP|IEPL|\\d+\\.\\d+等",
-        "key": "ReservedKeywords",
-        "component": "Input",
-        "value": "BGP|IEPL|IPLC|(\\d+(?:\\.\\d+)?)[xX]",
-        "options": []
-      }
-    ],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-ip-geolocation",
-    "name": "IP 信息查询",
-    "version": "v2.1.2",
-    "group": "Tools",
-    "description": "快速查询当前 IP 信息。Supported by: QiChaiQiChai",
-    "tags": ["实用工具"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-ip-geolocation.js",
-    "path": "data/plugins/plugin-ip-geolocation.js",
-    "triggers": ["on::manual", "on::ready"],
-    "hasUI": false,
-    "menus": {},
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
+      "status": 0,
+      "configuration": [],
+      "disabled": false,
+      "install": false,
+      "installed": false
     },
-    "status": 0,
-    "configuration": [],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-speedtest",
-    "name": "SpeedTest 速度测试",
-    "version": "v1.0.1",
-    "group": "Tools",
-    "description": "测试当前节点延迟和下行速度。Supported by: QiChaiQiChai",
-    "tags": ["实用工具"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-speedtest.js",
-    "path": "data/plugins/plugin-speedtest.js",
-    "triggers": ["on::manual"],
-    "hasUI": false,
-    "menus": {},
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [
-      {
-        "id": "ID_112j2shp",
-        "title": "测速文件大小？",
-        "description": "请选择下行速度测试文件大小",
-        "key": "testFileSize",
-        "component": "Select",
-        "value": "10",
-        "options": ["5MB,5", "10MB,10", "20MB,20", "40MB,40", "100MB,100", "200MB,200", "0.5GB,512", "1GB,1024"]
-      }
-    ],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-speedtest-cli",
-    "version": "v2.0.1",
-    "name": "Speedtest CLI",
-    "group": "Tools",
-    "description": "适用于命令行的互联网速度测试",
-    "tags": ["实用工具"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-speedtest-cli.js",
-    "path": "data/plugins/plugin-speedtest-cli.js",
-    "triggers": ["on::manual"],
-    "hasUI": false,
-    "menus": {
-      "选择测速服务器": "startSpeedTestByServerId",
-      "查看测速历史": "speedtestHistory",
-      "清理测速历史": "clearHistory"
-    },
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [],
-    "disabled": false,
-    "install": true,
-    "installed": false
-  },
-  {
-    "id": "plugin-media-unlock-checker",
-    "version": "v2.1.0",
-    "name": "流媒体解锁检测",
-    "group": "Tools",
-    "description": "检测当前网络环境下的流媒体解锁情况。",
-    "tags": ["实用工具"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-media-unlock-checker.js",
-    "path": "data/plugins/plugin-media-unlock-checker.js",
-    "triggers": ["on::manual"],
-    "hasUI": true,
-    "menus": {},
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-geoip-search",
-    "name": "GeoIP 查询",
-    "version": "v1.0.0",
-    "group": "Tools",
-    "description": "查询 IP 信息。Supported by: QiChaiQiChai",
-    "tags": ["实用工具"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-geoip-search.js",
-    "path": "data/plugins/plugin-geoip-search.js",
-    "triggers": ["on::manual"],
-    "hasUI": false,
-    "menus": {},
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-scamalytics-ip-fraud-risk",
-    "name": "Scamalytics IP 欺诈风险查询",
-    "version": "v1.0.0",
-    "group": "Tools",
-    "description": "查询当前节点落地 IP 的欺诈风险。Supported by: QiChaiQiChai",
-    "tags": ["实用工具"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-scamalytics-ip-fraud-risk.js",
-    "path": "data/plugins/plugin-scamalytics-ip-fraud-risk.js",
-    "triggers": ["on::manual"],
-    "hasUI": false,
-    "menus": {
-      "手动模式": "manual"
-    },
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [
-      {
-        "id": "ID_z4ug0d5w",
-        "title": "请输入 hostname (provided by Scamalytics)",
-        "description": "例如: api11.scamalytics.com",
-        "key": "hostname",
-        "component": "Input",
-        "value": "",
-        "options": []
+    {
+      "id": "plugin-speedtest",
+      "name": "SpeedTest",
+      "version": "v1.0.1",
+      "group": "Tools",
+      "description": "Tests the latency and download speed of the current node. Supported by: QiChaiQiChai",
+      "tags": [
+        "Utility Tools"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-speedtest.js",
+      "path": "data/plugins/plugin-speedtest.js",
+      "triggers": [
+        "on::manual"
+      ],
+      "hasUI": false,
+      "menus": {},
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_0blhfutw",
-        "title": "请输入申请 Scamalytics API KEY 时填写的 usename",
-        "description": "",
-        "key": "username",
-        "component": "Input",
-        "value": "",
-        "options": []
+      "status": 0,
+      "configuration": [
+        {
+          "id": "ID_112j2shp",
+          "title": "What is the size of the speed test file?",
+          "description": "Please select the file size for the download speed test.",
+          "key": "testFileSize",
+          "component": "Select",
+          "value": "10",
+          "options": [
+            "5MB,5",
+            "10MB,10",
+            "20MB,20",
+            "40MB,40",
+            "100MB,100",
+            "200MB,200",
+            "0.5GB,512",
+            "1GB,1024"
+          ]
+        }
+      ],
+      "disabled": false,
+      "install": false,
+      "installed": false
+    },
+    {
+      "id": "plugin-speedtest-cli",
+      "version": "v2.0.1",
+      "name": "Speedtest CLI",
+      "group": "Tools",
+      "description": "Internet speed test for command line",
+      "tags": [
+        "utilities"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-speedtest-cli.js",
+      "path": "data/plugins/plugin-speedtest-cli.js",
+      "triggers": [
+        "on::manual"
+      ],
+      "hasUI": false,
+      "menus": {
+        "Select speed test server": "startSpeedTestByServerId",
+        "View speed test history": "speedtestHistory",
+        "Clear speed test history": "clearHistory"
       },
-      {
-        "id": "ID_njkakwg1",
-        "title": "请输入 Scamalytics API KEY",
-        "description": "需在 https://scamalytics.com/ip/api/pricing 申请",
-        "key": "key",
-        "component": "Input",
-        "value": "",
-        "options": []
-      }
-    ],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-open-yacd-meta-dashboard",
-    "name": "Yacd-meta 仪表板",
-    "version": "v1.0.1",
-    "group": "Extensions",
-    "description": "启动 Yacd-meta 仪表板。Supported by: QiChaiQiChai",
-    "tags": ["提升体验", "功能扩展"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-open-yacd-meta-dashboard.js",
-    "path": "data/plugins/plugin-open-yacd-meta-dashboard.js",
-    "triggers": ["on::manual"],
-    "hasUI": false,
-    "menus": {},
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-custom-theme",
-    "name": "自定义主题",
-    "version": "v5.0.2",
-    "group": "Extensions",
-    "description": "通过修改css变量，实现任意主题配色！",
-    "tags": ["UI美化", "功能扩展"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-custom-theme.js",
-    "path": "data/plugins/plugin-custom-theme.js",
-    "triggers": ["on::manual", "on::ready"],
-    "hasUI": false,
-    "menus": {
-      "选择背景": "Select",
-      "清除主题": "Clear",
-      "重置配置": "Reset",
-      "自定义图标": "CustomIcon"
-    },
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [
-      {
-        "id": "ID_pew8wwt6",
-        "title": "自定义背景图片",
-        "description": "不填时将禁用，填写后启用；可使用本地图片和远程图片，例如：http://xxx.png、C:\\xxx.png",
-        "key": "BgImagePath",
-        "component": "Input",
-        "value": "",
-        "options": []
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_gpypsbm4",
-        "title": "自定义CSS",
-        "description": "提供更高级的自定义功能",
-        "key": "CustomCSS",
-        "component": "CodeViewer",
-        "value": "",
-        "options": []
-      }
-    ],
-    "disabled": false,
-    "install": true,
-    "installed": false
-  },
-  {
-    "id": "plugin-global-click-ripple-effect",
-    "name": "点击波纹效果",
-    "version": "v1.1.0",
-    "group": "Extensions",
-    "description": "增加全局点击波纹效果。",
-    "tags": ["UI美化"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-global-click-ripple-effect.js",
-    "path": "data/plugins/plugin-global-click-ripple-effect.js",
-    "triggers": ["on::ready"],
-    "hasUI": false,
-    "menus": {},
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
+      "status": 0,
+      "configuration": [],
+      "disabled": false,
+      "install": true,
+      "installed": false
     },
-    "status": 0,
-    "configuration": [],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-aliyunpan-signin",
-    "name": "阿里云盘签到",
-    "version": "v1.0.1",
-    "group": "Tools",
-    "description": "阿里云盘自动签到，可配合计划任务系统。",
-    "tags": ["实用工具"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-aliyunpan-signin.js",
-    "path": "data/plugins/plugin-aliyunpan-signin.js",
-    "triggers": ["on::manual"],
-    "hasUI": false,
-    "menus": {},
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [
-      {
-        "id": "ID_635535xp",
-        "title": "RefreshToken列表",
-        "description": "",
-        "key": "RefreshTokenList",
-        "component": "InputList",
-        "value": [],
-        "options": []
-      }
-    ],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-screen-recorder",
-    "name": "屏幕录制",
-    "version": "v1.0.1",
-    "group": "Tools",
-    "description": "使用浏览器提供的API录制屏幕。",
-    "tags": ["实用工具"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-screen-recorder.js",
-    "path": "data/plugins/plugin-screen-recorder.js",
-    "triggers": ["on::manual"],
-    "hasUI": false,
-    "menus": {
-      "打开目录": "OpenFolder"
-    },
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [
-      {
-        "id": "ID_1lhkbkow",
-        "title": "捕获鼠标",
-        "description": "",
-        "key": "CursorMode",
-        "component": "Radio",
-        "value": "always",
-        "options": ["从不,never", "移动时,motion", "总是,always"]
+    {
+      "id": "plugin-media-unlock-checker",
+      "version": "v2.1.0",
+      "name": "Streaming Media Unlock Detection",
+      "group": "Tools",
+      "description": "Detects the unlock status of streaming media under the current network environment.",
+      "tags": [
+        "Utility Tools"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-media-unlock-checker.js",
+      "path": "data/plugins/plugin-media-unlock-checker.js",
+      "triggers": [
+        "on::manual"
+      ],
+      "hasUI": true,
+      "menus": {},
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_hd6pzknh",
-        "title": "延迟录制",
-        "description": "默认不延迟录制，如想延迟3s，可填写：3",
-        "key": "DelayTime",
-        "component": "Input",
-        "value": "0",
-        "options": []
+      "status": 0,
+      "configuration": [],
+      "disabled": false,
+      "install": false,
+      "installed": false
+    },
+    {
+      "id": "plugin-geoip-search",
+      "name": "GeoIP Query",
+      "version": "v1.0.0",
+      "group": "Tools",
+      "description": "Query IP information. Supported by: QiChaiQiChai",
+      "tags": [
+        "Utility Tools"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-geoip-search.js",
+      "path": "data/plugins/plugin-geoip-search.js",
+      "triggers": [
+        "on::manual"
+      ],
+      "hasUI": false,
+      "menus": {},
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_i9nwzhat",
-        "title": "保存文件名",
-        "description": "时间格式：YYYY-MM-DD HH:mm:ss",
-        "key": "FileNameFormat",
-        "component": "Input",
-        "value": "screen_YYYY-MM-DD_HHmmss.webm",
-        "options": []
+      "status": 0,
+      "configuration": [],
+      "disabled": false,
+      "install": false,
+      "installed": false
+    },
+    {
+      "id": "plugin-scamalytics-ip-fraud-risk",
+      "name": "Scamalytics IP Fraud Risk Query",
+      "version": "v1.0.0",
+      "group": "Tools",
+      "description": "Query the fraud risk of the current node's landing IP. Supported by: QiChaiQiChai",
+      "tags": [
+        "Utility Tools"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-scamalytics-ip-fraud-risk.js",
+      "path": "data/plugins/plugin-scamalytics-ip-fraud-risk.js",
+      "triggers": [
+        "on::manual"
+      ],
+      "hasUI": false,
+      "menus": {
+        "Manual Mode": "manual"
       },
-      {
-        "id": "ID_i0akr31x",
-        "title": "文件保存方式",
-        "description": "浏览器方式会下载到默认下载目录，GUI方式可指定保存位置",
-        "key": "FileSaveMode",
-        "component": "Radio",
-        "value": "client",
-        "options": ["浏览器下载方式,browser", "GUI写入方式,client"]
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_cc0twpit",
-        "title": "文件保存位置",
-        "description": "采用GUI方式保存时才起作用",
-        "key": "FileSavePath",
-        "component": "Input",
-        "value": "data/third/screen-record",
-        "options": []
-      }
-    ],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-gui-restful-api-v1",
-    "name": "RESTful-Api v1",
-    "version": "v1.3.0",
-    "group": "Development",
-    "description": "GUI RESTful-Api，可通过HTTP协议控制GUI。",
-    "tags": ["功能扩展"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-gui-restful-api-v1.js",
-    "path": "data/plugins/plugin-gui-restful-api-v1.js",
-    "triggers": ["on::manual", "on::ready"],
-    "hasUI": false,
-    "menus": {
-      "启动服务": "Start",
-      "停止服务": "Stop"
+      "status": 0,
+      "configuration": [
+        {
+          "id": "ID_z4ug0d5w",
+          "title": "Please enter hostname (provided by Scamalytics)",
+          "description": "For example: api11.scamalytics.com",
+          "key": "hostname",
+          "component": "Input",
+          "value": "",
+          "options": []
+        },
+        {
+          "id": "ID_0blhfutw",
+          "title": "Please enter the username you used when applying for the Scamalytics API KEY",
+          "description": "",
+          "key": "username",
+          "component": "Input",
+          "value": "",
+          "options": []
+        },
+        {
+          "id": "ID_njkakwg1",
+          "title": "Please enter Scamalytics API KEY",
+          "description": "Required to apply at https://scamalytics.com/ip/api/pricing",
+          "key": "key",
+          "component": "Input",
+          "value": "",
+          "options": []
+        }
+      ],
+      "disabled": false,
+      "install": false,
+      "installed": false
     },
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "status": 0,
-    "configuration": [
-      {
-        "id": "ID_ehoyef2w",
-        "title": "监听端口",
-        "description": "RESTful-Api监听端口",
-        "key": "ApiPort",
-        "component": "Input",
-        "value": "20234",
-        "options": []
+    {
+      "id": "plugin-open-yacd-meta-dashboard",
+      "name": "Yacd-meta Dashboard",
+      "version": "v1.0.1",
+      "group": "Extensions",
+      "description": "Launch the Yacd-meta Dashboard. Supported by: QiChaiQiChai",
+      "tags": [
+        "Enhanced Experience",
+        "Feature Extensions"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-open-yacd-meta-dashboard.js",
+      "path": "data/plugins/plugin-open-yacd-meta-dashboard.js",
+      "triggers": [
+        "on::manual"
+      ],
+      "hasUI": false,
+      "menus": {},
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_zjh3a0en",
-        "title": "监听地址",
-        "description": "RESTful-Api监听地址",
-        "key": "ApiAddress",
-        "component": "Input",
-        "value": "0.0.0.0",
-        "options": []
+      "status": 0,
+      "configuration": [],
+      "disabled": false,
+      "install": false,
+      "installed": false
+    },
+    {
+      "id": "plugin-custom-theme",
+      "name": "Custom Theme",
+      "version": "v5.0.2",
+      "group": "Extensions",
+      "description": "Achieve any theme color scheme by modifying CSS variables!",
+      "tags": [
+        "UI Enhancement",
+        "Function Extension"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-custom-theme.js",
+      "path": "data/plugins/plugin-custom-theme.js",
+      "triggers": [
+        "on::manual",
+        "on::ready"
+      ],
+      "hasUI": false,
+      "menus": {
+        "Select Background": "Select",
+        "Clear Theme": "Clear",
+        "Reset Configuration": "Reset",
+        "Custom Icon": "CustomIcon"
       },
-      {
-        "id": "ID_w3ak83an",
-        "title": "服务密钥",
-        "description": "RESTful-Api请求密钥",
-        "key": "ApiSecret",
-        "component": "Input",
-        "value": "",
-        "options": []
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_mi5dynzi",
-        "title": "跟随GUI启动或停止",
-        "description": "注：该服务总是跟随GUI自动停止",
-        "key": "AutoStartOrStop",
-        "component": "Switch",
-        "value": false,
-        "options": []
-      }
-    ],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-metacubexd-dashboard",
-    "name": "metacubexd 仪表板",
-    "version": "v1.0.1",
-    "group": "Extensions",
-    "description": "一个更好看的Mihomo仪表板。Supported by: ColinZeb",
-    "tags": ["提升体验", "功能扩展"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/refs/heads/main/plugins/Generic/plugin-metacubexd-dashboard.js",
-    "status": 0,
-    "path": "data/plugins/plugin-metacubexd-dashboard.js",
-    "triggers": ["on::manual", "on::ready"],
-    "hasUI": false,
-    "menus": {
-      "XD Dashboard": "OnRun"
+      "status": 0,
+      "configuration": [
+        {
+          "id": "ID_pew8wwt6",
+          "title": "Custom Background Image",
+          "description": "Disabled if left blank, enabled when filled in; can use local and remote images, such as: http://xxx.png, C:\\xxx.png",
+          "key": "BgImagePath",
+          "component": "Input",
+          "value": "",
+          "options": []
+        },
+        {
+          "id": "ID_gpypsbm4",
+          "title": "Custom CSS",
+          "description": "Provides more advanced customization features",
+          "key": "CustomCSS",
+          "component": "CodeViewer",
+          "value": "",
+          "options": []
+        }
+      ],
+      "disabled": false,
+      "install": true,
+      "installed": false
     },
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "configuration": [
-      {
-        "id": "ID_wdim4jvc",
-        "title": "启动时打开",
-        "description": "",
-        "key": "start_onboot",
-        "component": "Switch",
-        "value": false,
-        "options": []
+    {
+      "id": "plugin-global-click-ripple-effect",
+      "name": "Click Ripple Effect",
+      "version": "v1.1.0",
+      "group": "Extensions",
+      "description": "Added global click ripple effect.",
+      "tags": [
+        "UI Enhancement"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-global-click-ripple-effect.js",
+      "path": "data/plugins/plugin-global-click-ripple-effect.js",
+      "triggers": [
+        "on::ready"
+      ],
+      "hasUI": false,
+      "menus": {},
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_m7nubies",
-        "title": "自托管",
-        "description": "自定义metacubexd地址",
-        "key": "xd_url",
-        "component": "Input",
-        "value": "",
-        "options": []
-      }
-    ],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-network-sharing",
-    "name": "Windows 网卡代理共享",
-    "version": "v1.1.4",
-    "group": "Tools",
-    "description": "将指定网卡连接共享给其他网卡，使连接到该网卡的设备流量通过代理 Supported by: 星4",
-    "tags": ["功能扩展", "实用工具"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-network-sharing.js",
-    "path": "data/plugins/plugin-network-sharing.js",
-    "triggers": ["on::manual"],
-    "hasUI": false,
-    "menus": {
-      "快速启用共享": "quickEnable",
-      "快速禁用共享": "quickDisable",
-      "查看共享状态": "quickCheckStatus"
+      "status": 0,
+      "configuration": [],
+      "disabled": false,
+      "install": false,
+      "installed": false
     },
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
-    },
-    "configuration": [
-      {
-        "id": "ID_sourceAdapter",
-        "title": "源网卡名称",
-        "description": "要共享的源网卡名称，默认匹配tun和meta，支持部分匹配，可自定义额外匹配",
-        "key": "sourceAdapterName",
-        "component": "Input",
-        "value": "",
-        "options": []
+    {
+      "id": "plugin-aliyunpan-signin",
+      "name": "Aliyun Drive Check-in",
+      "version": "v1.0.1",
+      "group": "Tools",
+      "description": "Automatic check-in for Aliyun Drive, compatible with scheduled task systems.",
+      "tags": [
+        "Utility Tools"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-aliyunpan-signin.js",
+      "path": "data/plugins/plugin-aliyunpan-signin.js",
+      "triggers": [
+        "on::manual"
+      ],
+      "hasUI": false,
+      "menus": {},
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
       },
-      {
-        "id": "ID_autoReplace",
-        "title": "自动替换现有共享",
-        "description": "当已存在网卡共享时，是否自动替换为新的共享设置",
-        "key": "autoReplaceSharing",
-        "component": "Switch",
-        "value": true,
-        "options": []
-      }
-    ],
-    "status": 0,
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-clash-api-dashboard",
-    "name": "Clash API 仪表板",
-    "version": "v4.0.0",
-    "group": "Extensions",
-    "description": "方便的切换和访问 Clash 面板。Supported by: 泡泡茶壶",
-    "tags": ["提升体验", "功能扩展"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-clash-api-dashboard.js",
-    "path": "data/plugins/plugin-clash-api-dashboard.js",
-    "triggers": ["on::manual", "on::core::started", "on::core::stopped"],
-    "hasUI": false,
-    "menus": {},
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
+      "status": 0,
+      "configuration": [
+        {
+          "id": "ID_635535xp",
+          "title": "RefreshToken列表",
+          "description": "",
+          "key": "RefreshTokenList",
+          "component": "InputList",
+          "value": [],
+          "options": []
+        }
+      ],
+      "disabled": false,
+      "install": false,
+      "installed": false
     },
-    "status": 0,
-    "configuration": [
-      {
-        "id": "ID_vdiv901m",
-        "title": "选择仪表板",
-        "description": "",
-        "key": "DashboardName",
-        "component": "Radio",
-        "value": "Zashboard",
-        "options": ["Yacd,Yacd", "Zashboard,Zashboard", "MetaCubeXD,MetaCubeXD"]
+    {
+      "id": "plugin-screen-recorder",
+      "name": "Screen Recording",
+      "version": "v1.0.1",
+      "group": "Tools",
+      "description": "Records screen using the browser's API.",
+      "tags": [
+        "Utilities"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-screen-recorder.js",
+      "path": "data/plugins/plugin-screen-recorder.js",
+      "triggers": [
+        "on::manual"
+      ],
+      "hasUI": false,
+      "menus": {
+        "Open Directory": "OpenFolder"
       },
-      {
-        "id": "ID_m1ipygpg",
-        "title": "更多 Clash 模式切换",
-        "description": "",
-        "key": "ClashModeAction",
-        "component": "Switch",
-        "value": false,
-        "options": []
-      }
-    ],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-generate-warp-config",
-    "name": "WARP 配置生成",
-    "version": "v1.1.0",
-    "group": "Tools",
-    "description": "自动注册并生成 Cloudflare WARP 的配置信息。Supported by: 泡泡茶壶",
-    "tags": ["实用工具"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-generate-warp-config.js",
-    "path": "data/plugins/plugin-generate-warp-config.js",
-    "triggers": ["on::manual"],
-    "hasUI": false,
-    "menus": {},
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
+      },
+      "status": 0,
+      "configuration": [
+        {
+          "id": "ID_1lhkbkow",
+          "title": "Capture Mouse",
+          "description": "",
+          "key": "CursorMode",
+          "component": "Radio",
+          "value": "always",
+          "options": [
+            "Never",
+            "motion",
+            "always"
+          ]
+        },
+        {
+          "id": "ID_hd6pzknh",
+          "title": "Delayed Recording",
+          "description": "By default, recording is not delayed. To delay by 3 seconds, enter: 3",
+          "key": "DelayTime",
+          "component": "Input",
+          "value": "0",
+          "options": []
+        },
+        {
+          "id": "ID_i9nwzhat",
+          "title": "Save Filename",
+          "description": "Time Format: YYYY-MM-DD HH:mm:ss",
+          "key": "FileNameFormat",
+          "component": "Input",
+          "value": "screen_YYYY-MM-DD_HHmmss.webm",
+          "options": []
+        },
+        {
+          "id": "ID_i0akr31x",
+          "title": "File save method",
+          "description": "Browser mode will download to the default download directory, GUI mode allows specifying the save location",
+          "key": "FileSaveMode",
+          "component": "Radio",
+          "value": "client",
+          "options": [
+            "Browser download mode,browser",
+            "GUI write mode,client"
+          ]
+        },
+        {
+          "id": "ID_cc0twpit",
+          "title": "File save location",
+          "description": "Only effective when saving using GUI mode",
+          "key": "FileSavePath",
+          "component": "Input",
+          "value": "data/third/screen-record",
+          "options": []
+        }
+      ],
+      "disabled": false,
+      "install": false,
+      "installed": false
     },
-    "status": 0,
-    "configuration": [
-      {
-        "id": "ID_1u3mi3d9",
-        "title": "OpenSSL 可执行文件路径",
-        "description": "此选项只需要 Windwos 用户填写，并且是可选的",
-        "key": "OpenSslExecPath",
-        "component": "Input",
-        "value": "C:/Program Files/FireDaemon OpenSSL 3/bin/openssl.exe",
-        "options": []
-      }
-    ],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-duplicate-proxies-removal",
-    "name": "重复节点移除",
-    "version": "v1.0.0",
-    "group": "Extensions",
-    "description": "订阅更新时候移除重复的节点（根据节点{地址:端口}匹配）Supported by: lancelotly",
-    "tags": ["节点处理"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-duplicate-proxies-removal.js",
-    "path": "data/plugins/plugin-duplicate-proxies-removal.js",
-    "triggers": ["on::subscribe"],
-    "hasUI": false,
-    "menus": {},
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
+    {
+      "id": "plugin-gui-restful-api-v1",
+      "name": "RESTful-Api v1",
+      "version": "v1.3.0",
+      "group": "Development",
+      "description": "GUI RESTful API, allowing control of the GUI via HTTP protocol.",
+      "tags": [
+        "Function extensions"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-gui-restful-api-v1.js",
+      "path": "data/plugins/plugin-gui-restful-api-v1.js",
+      "triggers": [
+        "on::manual",
+        "on::ready"
+      ],
+      "hasUI": false,
+      "menus": {
+        "Start service": "Start",
+        "Stop service": "Stop"
+      },
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
+      },
+      "status": 0,
+      "configuration": [
+        {
+          "id": "ID_ehoyef2w",
+          "title": "Listening Port",
+          "description": "RESTful-Api Listening Port",
+          "key": "ApiPort",
+          "component": "Input",
+          "value": "20234",
+          "options": []
+        },
+        {
+          "id": "ID_zjh3a0en",
+          "title": "Listening Address",
+          "description": "RESTful-Api Listening Address",
+          "key": "ApiAddress",
+          "component": "Input",
+          "value": "0.0.0.0",
+          "options": []
+        },
+        {
+          "id": "ID_w3ak83an",
+          "title": "Service Key",
+          "description": "RESTful-Api Request Key",
+          "key": "ApiSecret",
+          "component": "Input",
+          "value": "",
+          "options": []
+        },
+        {
+          "id": "ID_mi5dynzi",
+          "title": "Start or stop with GUI",
+          "description": "Note: This service always stops automatically with the GUI",
+          "key": "AutoStartOrStop",
+          "component": "Switch",
+          "value": false,
+          "options": []
+        }
+      ],
+      "disabled": false,
+      "install": false,
+      "installed": false
     },
-    "status": 0,
-    "configuration": [],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  },
-  {
-    "id": "plugin-subscribe-collection",
-    "name": "聚合订阅",
-    "version": "v2.1.1",
-    "group": "Extensions",
-    "description": "将现有的多个订阅组合为一个新订阅。Supported by: 泡泡茶壶",
-    "tags": ["提升体验", "功能扩展"],
-    "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-subscribe-collection.js",
-    "path": "data/plugins/plugin-subscribe-collection.js",
-    "triggers": ["on::manual", "on::subscribe", "on::ready"],
-    "hasUI": true,
-    "menus": {},
-    "context": {
-      "profiles": {},
-      "subscriptions": {},
-      "rulesets": {},
-      "plugins": {},
-      "scheduledtasks": {}
+    {
+      "id": "plugin-metacubexd-dashboard",
+      "name": "metacubexd dashboard",
+      "version": "v1.0.1",
+      "group": "Extensions",
+      "description": "A better-looking Mihomo dashboard. Supported by: ColinZeb",
+      "tags": [
+        "Enhanced experience",
+        "Feature extensions"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/refs/heads/main/plugins/Generic/plugin-metacubexd-dashboard.js",
+      "status": 0,
+      "path": "data/plugins/plugin-metacubexd-dashboard.js",
+      "triggers": [
+        "on::manual",
+        "on::ready"
+      ],
+      "hasUI": false,
+      "menus": {
+        "XD Dashboard": "OnRun"
+      },
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
+      },
+      "configuration": [
+        {
+          "id": "ID_wdim4jvc",
+          "title": "Open on startup",
+          "description": "",
+          "key": "start_onboot",
+          "component": "Switch",
+          "value": false,
+          "options": []
+        },
+        {
+          "id": "ID_m7nubies",
+          "title": "Self-hosted",
+          "description": "Custom metacubexd address",
+          "key": "xd_url",
+          "component": "Input",
+          "value": "",
+          "options": []
+        }
+      ],
+      "disabled": false,
+      "install": false,
+      "installed": false
     },
-    "status": 0,
-    "configuration": [],
-    "disabled": false,
-    "install": false,
-    "installed": false
-  }
-]
+    {
+      "id": "plugin-network-sharing",
+      "name": "Windows Network Adapter Proxy Sharing",
+      "version": "v1.1.4",
+      "group": "Tools",
+      "description": "Shares the specified network adapter connection with other network adapters, allowing traffic from devices connected to that network adapter to pass through the proxy. Supported by: Star4",
+      "tags": [
+        "Function Extension",
+        "Utilities"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-network-sharing.js",
+      "path": "data/plugins/plugin-network-sharing.js",
+      "triggers": [
+        "on::manual"
+      ],
+      "hasUI": false,
+      "menus": {
+        "Quickly enable sharing": "quickEnable",
+        "Quickly disable sharing": "quickDisable",
+        "View sharing status": "quickCheckStatus"
+      },
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
+      },
+      "configuration": [
+        {
+          "id": "ID_sourceAdapter",
+          "title": "Source NIC name",
+          "description": "The name of the source NIC to be shared. It matches tun and meta by default, supports partial matching, and allows for custom matching of additional elements",
+          "key": "sourceAdapterName",
+          "component": "Input",
+          "value": "",
+          "options": []
+        },
+        {
+          "id": "ID_autoReplace",
+          "title": "Automatically replace existing shares",
+          "description": "Whether to automatically replace with the new share settings when an existing NIC share exists",
+          "key": "autoReplaceSharing",
+          "component": "Switch",
+          "value": true,
+          "options": []
+        }
+      ],
+      "status": 0,
+      "disabled": false,
+      "install": false,
+      "installed": false
+    },
+    {
+      "id": "plugin-clash-api-dashboard",
+      "name": "Clash API Dashboard",
+      "version": "v4.0.0",
+      "group": "Extensions",
+      "description": "Easy to switch and access Clash panels. Supported by: Bubble Teapot",
+      "tags": [
+        "Enhanced Experience",
+        "Function Extensions"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-clash-api-dashboard.js",
+      "path": "data/plugins/plugin-clash-api-dashboard.js",
+      "triggers": [
+        "on::manual",
+        "on::core::started",
+        "on::core::stopped"
+      ],
+      "hasUI": false,
+      "menus": {},
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
+      },
+      "status": 0,
+      "configuration": [
+        {
+          "id": "ID_vdiv901m",
+          "title": "Select Dashboard",
+          "description": "",
+          "key": "DashboardName",
+          "component": "Radio",
+          "value": "Zashboard",
+          "options": [
+            "Yacd,Yacd",
+            "Zashboard,Zashboard",
+            "MetaCubeXD,MetaCubeXD"
+          ]
+        },
+        {
+          "id": "ID_m1ipygpg",
+          "title": "More Clash Mode Switching",
+          "description": "",
+          "key": "ClashModeAction",
+          "component": "Switch",
+          "value": false,
+          "options": []
+        }
+      ],
+      "disabled": false,
+      "install": false,
+      "installed": false
+    },
+    {
+      "id": "plugin-generate-warp-config",
+      "name": "WARP Configuration Generation",
+      "version": "v1.1.0",
+      "group": "Tools",
+      "description": "Automatically registers and generates Cloudflare WARP configuration information. Supported by: Bubble Teapot",
+      "tags": [
+        "Utility Tools"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-generate-warp-config.js",
+      "path": "data/plugins/plugin-generate-warp-config.js",
+      "triggers": [
+        "on::manual"
+      ],
+      "hasUI": false,
+      "menus": {},
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
+      },
+      "status": 0,
+      "configuration": [
+        {
+          "id": "ID_1u3mi3d9",
+          "title": "Path to OpenSSL executable file",
+          "description": "This option only needs to be filled in by Windows users and is optional",
+          "key": "OpenSslExecPath",
+          "component": "Input",
+          "value": "C:/Program Files/FireDaemon OpenSSL 3/bin/openssl.exe",
+          "options": []
+        }
+      ],
+      "disabled": false,
+      "install": false,
+      "installed": false
+    },
+    {
+      "id": "plugin-duplicate-proxies-removal",
+      "name": "Duplicate Node Removal",
+      "version": "v1.0.0",
+      "group": "Extensions",
+      "description": "Removes duplicate nodes when subscribing to updates (matching nodes based on {address:port}). Supported by: lancelotly",
+      "tags": [
+        "Node Processing"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-duplicate-proxies-removal.js",
+      "path": "data/plugins/plugin-duplicate-proxies-removal.js",
+      "triggers": [
+        "on::subscribe"
+      ],
+      "hasUI": false,
+      "menus": {},
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
+      },
+      "status": 0,
+      "configuration": [],
+      "disabled": false,
+      "install": false,
+      "installed": false
+    },
+    {
+      "id": "plugin-subscribe-collection",
+      "name": "Aggregate Subscriptions",
+      "version": "v2.1.1",
+      "group": "Extensions",
+      "description": "Combines multiple existing subscriptions into a new subscription. Supported by: Bubble Teapot",
+      "tags": [
+        "Enhanced Experience",
+        "Feature Extensions"
+      ],
+      "type": "Http",
+      "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-subscribe-collection.js",
+      "path": "data/plugins/plugin-subscribe-collection.js",
+      "triggers": [
+        "on::manual",
+        "on::subscribe",
+        "on::ready"
+      ],
+      "hasUI": true,
+      "menus": {},
+      "context": {
+        "profiles": {},
+        "subscriptions": {},
+        "rulesets": {},
+        "plugins": {},
+        "scheduledtasks": {}
+      },
+      "status": 0,
+      "configuration": [],
+      "disabled": false,
+      "install": false,
+      "installed": false
+    }
+  ]

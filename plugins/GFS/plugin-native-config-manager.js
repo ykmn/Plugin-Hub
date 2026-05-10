@@ -22,7 +22,7 @@ export default (Plugin) => {
         onClick: onRun
       },
       componentSlots: {
-        default: '管理原生配置'
+        default: 'Manage native configurations'
       }
     })
   }
@@ -45,7 +45,7 @@ export default (Plugin) => {
         nativeConfig = JSON.parse(content)
       }
     } catch (error) {
-      throw `原始配置获取失败：${error instanceof Error ? error.message : String(error)}`
+      throw `Original configuration failed to be retrieved:${error instanceof Error ? error.message : String(error)}`
     }
     return {
       ...nativeConfig,
@@ -74,35 +74,52 @@ export default (Plugin) => {
     const component = defineComponent({
       template: `
     <div class="h-full w-full">
-      <div v-if="manager.configs.value.length === 0"
-        class="flex items-center justify-center h-full min-h-[200px] cursor-pointer" @click="openGuide">
-        <span class="text-16 font-bold text-gray-400 hover:text-gray-600 transition-colors">
-          尚未添加任何原生配置，点击添加
-        </span>
-      </div>
-      <div v-else class="grid grid-cols-3 gap-8 p-8 overflow-y-auto max-h-[500px]">
-        <Card v-for="cfg in manager.configs.value" :key="cfg.id" :title="getProfileName(cfg)">
-          <template #extra>
-            <Button class="text-red-500 hover:text-red-700" size="small" type="text" @click.stop="deleteConfig(cfg)">
-              删除
-            </Button>
-          </template>
-          <div class="flex flex-col min-h-[70px]">
-            <div class="mt-auto pt-4 flex justify-between items-center w-full">
-              <div class="text-12 text-gray-500">
-                {{ cfg.type === 'local' ? '本地' : '远程' + (cfg.cache?.path ? '「已缓存」' : '') }}
-              </div>
-              <Button size="small" type="primary" @click.stop="editConfig(cfg)">
-                编辑
-              </Button>
-            </div>
-          </div>
-        </Card>
-        <Button class="col-span-3 mt-4" type="dashed" @click="openGuide">
-          添加新配置
-        </Button>
-      </div>
-    </div>
+<div v-if="manager.configs.value.length === 0"
+class="flex items-center justify-center h-full min-h-[200px] cursor-pointer" @click="openGuide">
+<span class="text-16 font-bold text-gray-400 hover:text-gray-600 transition-colors">
+No native configuration has been added yet, click Add
+</span>
+</div>
+<div v-else class="grid grid-cols-3 gap-8 p-8 overflow-y-auto max-h-[500px]">
+<Card v-for="cfg in manager.configs.value" :key="cfg.id" :title="getProfileName(cfg)">
+<template #extra>
+<Button class="text-red-500 hover:text-red-700" size="small" type="text" @click.stop="deleteConfig(cfg)">
+
+Delete
+
+</Button>
+
+</template>
+
+<div class="flex flex-col min-h-[70px]">
+
+<div class="mt-auto pt-4 flex justify-between items-center w-full">
+
+<div class="text-12 text-gray-500">
+
+{{ cfg.type === 'local' ? 'local' : 'remote' + (cfg.cache?.path ? '“cached”' : '') }}
+
+</div>
+
+<Button size="small" type="primary" @click.stop="editConfig(cfg)">
+
+Edit
+
+</Button>
+
+</div>
+
+</div>
+
+</Card>
+
+<Button class="col-span-3 mt-4" type="dashed" @click="openGuide">
+
+Add new configuration
+
+</Button>
+</div>
+</div>
     `,
       setup(_, { expose }) {
         expose({
@@ -116,7 +133,7 @@ export default (Plugin) => {
                     await Plugins.OpenDir(basePath)
                   }
                 },
-                () => '打开插件目录'
+                () => 'Open the plugin directory'
               ),
               h(
                 resolveComponent('Button'),
@@ -126,7 +143,7 @@ export default (Plugin) => {
                     await Plugins.OpenDir(cacheDir)
                   }
                 },
-                () => '打开缓存目录'
+                () => 'Open the cache directory'
               ),
               h(
                 resolveComponent('Button'),
@@ -136,7 +153,7 @@ export default (Plugin) => {
                     await manager.updateCache()
                   }
                 },
-                () => '更新缓存'
+                () => 'Update cache'
               )
             ]
           }
@@ -157,9 +174,9 @@ export default (Plugin) => {
       }
     })
     const modal = Plugins.modal({
-      title: '原生配置管理',
+      title: 'Native configuration management',
       submit: false,
-      cancelText: '关闭',
+      cancelText: 'Close',
       width: '80',
       height: '80',
       afterClose: () => {
@@ -176,27 +193,35 @@ export default (Plugin) => {
     const enableCache = ref(false)
     const component = defineComponent({
       template: `
-    <div class="flex flex-col gap-8 p-8">
-      <ul class="list-disc pl-6 text-14 text-gray-600 space-y-6 leading-relaxed">
-        <li>你可以通过此插件添加与 sing-box 原始配置关联的 GUI 配置方案。你可以直接编辑所关联的原始配置，将修改应用到运行时配置，而无需重新导入。</li>
-        <li>此插件不支持任何解码操作。要关联的本地或远程配置必须是原始 JSON 文件。</li>
-        <li>请勿直接修改此插件创建的 GUI 配置，因为这将不会生效。如果你需要修改或删除配置，请在此插件内进行操作。</li>
-      </ul>
-      <div class="flex gap-8 mt-8">
-        <Button class="flex-1" type="primary" @click="handleLocal">添加本地配置</Button>
-        <Button class="flex-1" type="primary" @click="showUrlInput = !showUrlInput; enableCache = false">添加远程配置</Button>
-      </div>
-      <div v-if="showUrlInput" class="flex flex-col mt-4">
-        <div class="py-12 flex items-center justify-between gap-8">
-        <Input v-model="remoteUrl" placeholder="http(s)://..." allow-paste class="w-[75%]" />
-        <Button type="primary" @click="handleRemote">确认</Button>
-      </div>
-        <div class="py-12 flex items-center justify-between">
-          <div class="text-16 font-bold">启用缓存</div>
-          <Switch v-model="enableCache" />
-        </div>
-      </div>
-    </div>
+<div class="flex flex-col gap-8 p-8">
+
+<ul class="list-disc pl-6 text-14 text-gray-600 space-y-6 leading-relaxed">
+
+<li>This plugin allows you to add GUI configuration schemes associated with the original sing-box configuration. You can directly edit the associated original configuration and apply the changes to the runtime configuration without re-importing.</li>
+
+<li>This plugin does not support any decoding operations. The local or remote configuration to be associated must be a raw JSON file.</li>
+
+<li>Do not directly modify the GUI configuration created by this plugin, as this will not take effect. If you need to modify or delete a configuration, please do so within this plugin.</li> </li>
+</ul>
+<div class="flex gap-8 mt-8">
+<Button class="flex-1" type="primary" @click="handleLocal">Add local configuration</Button>
+<Button class="flex-1" type="primary" @click="showUrlInput = !showUrlInput; enableCache = false">Add remote configuration</Button>
+</div>
+<div v-if="showUrlInput" class="flex flex-col mt-4">
+<div class="py-12 flex items-center justify-between gap-8">
+<Input v-model="remoteUrl" placeholder="http(s)://..." allow-paste class="w-[75%]" />
+<Button type="primary" @click="handleRemote">Confirm</Button>
+</div>
+<div class="py-12 flex items-center justify-between">
+<div <div class="text-16 font-bold">Enable caching</div>
+
+<Switch v-model="enableCache" />
+
+</div>
+
+</div>
+
+</div>
     `,
       setup() {
         const handleLocal = async () => {
@@ -211,9 +236,11 @@ export default (Plugin) => {
       }
     })
     const modal = Plugins.modal({
-      title: '原生配置添加向导',
+      title: 'Native Configuration Add Wizard',
+
       submit: false,
-      cancelText: '关闭',
+
+      cancelText: 'Close',
       width: '60',
       afterClose: () => {
         modal.destroy()
@@ -228,44 +255,46 @@ export default (Plugin) => {
     const cacheOptions = ref(cfg.type === 'remote' ? (cfg.cache?.enable ?? false) : undefined)
     const component = defineComponent({
       template: `
-    <div class="flex flex-col">
-      <div class="px-8 py-12 flex items-center justify-between gap-8">
-        <div class="text-16 font-bold shrink-0">
-          {{ label }}
-        </div>
-        <Input v-model="inputValue" :placeholder="placeholder" allow-paste class="w-[75%] text-14" />
-      </div>
-      <div v-if="isRemote" class="px-8 py-12 flex items-center justify-between gap-8">
-        <div class="text-16 font-bold shrink-0">启用缓存</div>
-        <Switch v-model="cacheOptions" />
-      </div>
-    </div>
+<div class="flex flex-col">
+<div class="px-8 py-12 flex items-center justify-between gap-8">
+<div class="text-16 font-bold shrink-0">
+{{ label }}
+</div>
+<Input v-model="inputValue" :placeholder="placeholder" allow-paste class="w-[75%] text-14" />
+</div>
+<div v-if="isRemote" class="px-8 py-12 flex items-center justify-between gap-8">
+<div class="text-16 font-bold shrink-0">Enable caching</div>
+<Switch v-model="cacheOptions" />
+</div>
+</div>
     `,
       setup() {
         const isRemote = cfg.type === 'remote'
-        const label = isRemote ? '配置链接' : '配置路径'
+        const label = isRemote ? 'Configuration Link' : 'Configuration Path'
         const placeholder = isRemote ? 'http(s)://...' : '/PATH/TO/FILE.json'
         return { inputValue, label, placeholder, isRemote, cacheOptions }
       }
     })
     const modal = Plugins.modal({
-      title: '编辑',
+      title: 'Edit',
       width: '50',
-      submitText: '保存',
-      cancelText: '取消',
+      submitText: 'Save',
+      cancelText: 'Cancel',
       onOk: async () => {
         if (!inputValue.value.length) {
-          Plugins.message.error('输入不能为空')
+          Plugins.message.error('Input cannot be empty')
           return false
         }
         try {
           await manager.updateConfig(cfg, {
             input: inputValue.value,
             cache: cacheOptions.value
+
           })
           return true
+
         } catch (error) {
-          Plugins.message.error(`保存失败：${error instanceof Error ? error.message : String(error)}`)
+          Plugins.message.error(`Save failed: ${error instanceof Error ? error.message : String(error)}`)
           return false
         }
       },
@@ -293,7 +322,7 @@ class NativeConfigManager {
       const content = await Plugins.ReadFile(this.managerPath)
       this.configs.value = JSON.parse(content)
     } catch (error) {
-      console.error('管理器配置读取失败', error)
+      console.error('Manager configuration read failed', error)
       this.configs.value = []
     }
   }
@@ -306,7 +335,7 @@ class NativeConfigManager {
     const id = Plugins.sampleID()
     const cachePath = `${this.cacheDir}/${id}.json`
     await Plugins.WriteFile(cachePath, content)
-    Plugins.message.info(`配置已缓存至 ${cachePath}，可自行修改为其他路径，本地配置缓存不会触发更新`)
+    Plugins.message.info(`Configuration is cached to ${cachePath}, you can change it to another path. Local configuration caching will not trigger an update`)
     const sourceConfig = JSON.parse(content)
     const profileName = file.name.replace(/\.json$/i, '')
     const profilesStore = Plugins.useProfilesStore()
@@ -322,16 +351,24 @@ class NativeConfigManager {
     }
     this.configs.value.push(newItem)
     await this.saveConfigs()
-    Plugins.message.success('本地配置添加成功')
+    Plugins.message.success('Local configuration added successfully')
+
     return true
+
   }
   async handleAddRemote(url, cache) {
+
     if (!url.length) {
-      Plugins.message.error('URL 不能为空')
+
+      Plugins.message.error('URL cannot be empty')
+
       return false
+
     }
     if (!/^https?:\/\/[^\s]+$/.test(url)) {
-      Plugins.message.error('URL 格式错误')
+
+      Plugins.message.error('URL format incorrect')
+
       return false
     }
     try {
@@ -343,7 +380,7 @@ class NativeConfigManager {
         if (!cache) return { enable: false }
         const cachePath = `${this.cacheDir}/${id}.json`
         await Plugins.WriteFile(cachePath, content)
-        Plugins.message.info(`配置已缓存至 ${cachePath}，请在远程配置发生变化时，手动更新`)
+        Plugins.message.info(`Configuration is cached to ${cachePath}. Please update manually if remote configuration changes.`)
         return { enable: true, path: cachePath }
       }
       const sourceConfig = JSON.parse(content)
@@ -362,10 +399,10 @@ class NativeConfigManager {
       }
       this.configs.value.push(newItem)
       await this.saveConfigs()
-      Plugins.message.success('远程配置添加成功')
+      Plugins.message.success('Remote configuration added successfully')
       return true
     } catch (error) {
-      Plugins.message.error(`远程配置获取失败：${error instanceof Error ? error.message : String(error)}`)
+      Plugins.message.error(`Remote configuration retrieval failed: ${error instanceof Error ? error.message : String(error)}`)
       return false
     }
   }
@@ -380,7 +417,7 @@ class NativeConfigManager {
       await Plugins.Exec(corePath, ['check', '-c', tempPath])
       return true
     } catch (error) {
-      Plugins.message.error(`配置效验不通过：${error instanceof Error ? error.message : String(error)}`)
+      Plugins.message.error(`Configuration verification failed: ${error instanceof Error ? error.message : String(error)}`)
       return false
     } finally {
       await Plugins.RemoveFile(this.tempPath).catch(() => {
@@ -392,10 +429,9 @@ class NativeConfigManager {
     await Plugins.WriteFile(this.managerPath, JSON.stringify(this.configs.value, null, 2))
   }
   async deleteConfig(cfg) {
-    if (!(await Plugins.confirm('提示', '确定要删除该配置吗？').catch(() => false))) return
-    const idx = this.configs.value.findIndex((c) => c.id === cfg.id)
+    if (!(await Plugins.confirm('Prompt', 'Are you sure you want to delete this configuration?').catch(() => false))) return    const idx = this.configs.value.findIndex((c) => c.id === cfg.id)
     if (idx === -1) {
-      Plugins.message.error('配置不存在')
+      Plugins.message.error('Configuration not found')
       return
     }
     this.configs.value?.splice(idx, 1)
@@ -404,7 +440,7 @@ class NativeConfigManager {
     await Plugins.RemoveFile(`${this.cacheDir}/${cfg.id}.json`).catch(() => {
       /*  */
     })
-    Plugins.message.success('配置删除成功')
+    Plugins.message.success('Configuration deleted successfully')
   }
   async updateConfig(cfg, options) {
     const { input, cache } = options
@@ -420,7 +456,7 @@ class NativeConfigManager {
       }
     }
     await this.saveConfigs()
-    Plugins.message.success('配置保存成功')
+    Plugins.message.success('Configuration saved successfully')
   }
   async updateCache() {
     const configs = this.configs.value ?? []
@@ -440,9 +476,10 @@ class NativeConfigManager {
         } else {
           await Plugins.WriteFile(cfg.cache.path, content)
         }
-        Plugins.message.success(`配置 ${profileName} 更新成功`)
+        Plugins.message.success(`Configuration ${profileName} updated successfully`)
       } catch {
-        Plugins.message.warn(`配置 ${profileName} 更新失败`)
+        Plugins.message.warn(`Configuration ${profileName} update failed`)
+
         continue
       }
     }

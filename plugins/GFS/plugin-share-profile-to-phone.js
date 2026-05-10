@@ -6,14 +6,14 @@ export default (Plugin) => {
   const onRun = async () => {
     const store = Plugins.useProfilesStore()
     if (store.profiles.length === 0) {
-      throw '请先创建一个配置'
+      throw 'Please create a configuration first'
     }
     let profile = null
     if (store.profiles.length === 1) {
       profile = store.profiles[0]
     } else {
       profile = await Plugins.picker.single(
-        '请选择要分享的配置',
+        'Please select the configuration you want to share.',
         store.profiles.map((v) => ({
           label: v.name,
           value: v
@@ -82,12 +82,12 @@ export default (Plugin) => {
     }
 
     const version = await Plugins.picker.single(
-      '生成的配置版本',
+      'Generated configuration version',
       [
-        { label: '远古版(v1.11.0-)', value: 1 },
-        { label: '主流版(v1.11.0+)', value: 2 },
-        { label: '稳定版(v1.13.0+)', value: 3 },
-        { label: '测试版(v1.13.0+)', value: 4 }
+        { label: 'Ancient Version (v1.11.0-)', value: 1 },
+        { label: 'Mainstream Version (v1.11.0+)', value: 2 },
+        { label: 'Stable Version (v1.13.0+)', value: 3 },
+        { label: 'Beta Version (v1.13.0+)', value: 4 }
       ],
       [3]
     )
@@ -129,8 +129,8 @@ export default (Plugin) => {
     })
     await Plugins.alert(
       Plugin.name,
-      '### 注意事项： \n\n - 请保证电脑和手机处于同一局域网内\n - 请关闭电脑防火墙\n - 如果仍无法导入，请更换不同二维码尝试\n\n|分享链接|二维码|\n|-|-|\n' +
-        urls.map((url) => `|${url.url}|![](${url.qrcode})|`).join('\n'),
+      '### Notes: \n\n - Please ensure your computer and mobile phone are on the same local network\n - Please disable your computer firewall\n - If you still cannot import, please try a different QR code\n\n|Share Link|QR Code|\n|-|-|\n' +
+      urls.map((url) => `|${url.url}|![](${url.qrcode})|`).join('\n'),
       { type: 'markdown' }
     )
     close()

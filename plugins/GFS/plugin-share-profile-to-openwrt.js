@@ -4,14 +4,14 @@ const PATH = 'data/third/share-profile-to-openwrt'
 const onRun = async () => {
   const store = Plugins.useProfilesStore()
   if (store.profiles.length === 0) {
-    throw '请先创建一个配置'
+    throw 'Please create a configuration first.'
   }
   let profile = null
   if (store.profiles.length === 1) {
     profile = store.profiles[0]
   } else {
     profile = await Plugins.picker.single(
-      '请选择要分享的配置',
+      'Please select the configuration you want to share.',
       store.profiles.map((v) => ({
         label: v.name,
         value: v
@@ -28,11 +28,11 @@ const Share = async (profile) => {
   await transformLocalRuleset(profile)
 
   const type = await Plugins.picker.single(
-    '生成的配置类型',
+    'Generated configuration type',
     [
-      { label: '远古版(v1.11.0-)', value: 'legacy' },
-      { label: '主流版(v1.11.0+)', value: 'main' },
-      { label: '最新版(v1.12.0+)', value: 'stable' }
+      { label: 'Ancient version (v1.11.0-)', value: 'legacy' },
+      { label: 'Main version (v1.11.0+)', value: 'main' },
+      { label: 'Latest version (v1.12.0+)', value: 'stable' }
     ],
     ['stable']
   )
@@ -61,7 +61,7 @@ const Share = async (profile) => {
 
   const validation = validateRequiredTags(config)
   if (!validation.success) {
-    Plugins.alert('配置验证失败', validation.missing.join('\n'))
+    Plugins.alert('Configuration verification failed.', validation.missing.join('\n'))
     return
   }
 
@@ -79,12 +79,12 @@ const Share = async (profile) => {
 
   await Plugins.alert(
     Plugin.name,
-    '### OpenWrt 配置分享\n\n' +
-      '在 OpenWrt 上使用以下命令下载配置：\n\n' +
+    '### OpenWrt Configuration Sharing\n\n' +
+    'Download the configuration on OpenWrt using the following command:\n\n' +
       '```bash\n' +
       `curl -o /etc/sing-box/config.json ${ips[0] ? `http://${ips[0]}:${Plugin.Port}` : 'URL'}\n` +
       '```\n\n' +
-      '|分享链接|二维码|\n|-|-|\n' +
+      '|Share Link|QR Code|\n|-|-|\n' +
       urls.map((url) => `|${url.url}|![](${url.qrcode})|`).join('\n'),
     { type: 'markdown' }
   )
@@ -93,7 +93,7 @@ const Share = async (profile) => {
 
 const onInstall = async () => {
   await Plugins.Download(JS_FILE, PATH + '/qrcode.min.js')
-  await Plugins.message.success('安装成功')
+  await Plugins.message.success('Installation successful')
   return 0
 }
 
@@ -441,7 +441,7 @@ function loadDependence() {
       resolve()
     } catch (error) {
       console.error(error)
-      reject('二维码生成依赖安装失败，请重新安装本插件')
+      reject('QR code generation dependency installation failed, please reinstall this plugin')
     }
   })
 }

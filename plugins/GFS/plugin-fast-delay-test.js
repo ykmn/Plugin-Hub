@@ -13,16 +13,16 @@ export default (Plugin) => {
       await Plugins.MakeDir(tmpPath)
     }
     if (corePidMap.get(subscription.id)) {
-      throw `订阅 [${subscription.name}] 已在测试中，请勿重复执行`
+      throw `The subscription [${subscription.name}] is currently under testing; please do not execute it repeatedly.`
     }
     const proxies = await Plugins.ReadFile(subscription.path)
       .then((c) => JSON.parse(c))
       .catch(() => [])
     if (proxies.length === 0) {
-      throw '缺少节点/数据读取失败'
+      throw 'Missing node/Data read failed'
     }
     if (kernelApiStore.running) {
-      Plugins.message.warn('核心运行中，可能影响测试结果，请自行评估')
+      Plugins.message.warn('The core operation may affect test results; please assess the impact yourself.')
     }
     const secret = Plugins.generateSecureKey()
     const randomPort = Math.floor(Math.random() * 30000) + 30000
@@ -43,17 +43,17 @@ export default (Plugin) => {
     await Plugins.WriteFile(testConfigPath, JSON.stringify(runtimeConfig))
     const corePid = await runCore(testConfigPath)
     corePidMap.set(subscription.id, corePid)
-    Plugins.message.info('开始测试延迟，完成后将发送通知')
+    Plugins.message.info('Start testing the delay; a notification will be sent upon completion.')
     let index = 0
     let success = 0
     let failure = 0
     const totalCount = proxies.length
-    const { update, destroy, success: msgSuccess } = Plugins.message.info(`[${subscription.name}] 测试中...`, 999999)
+    const { update, destroy, success: msgSuccess } = Plugins.message.info(`[${subscription.name}] Under testing...`, 999999)
     const proxyUpdateMap = new Map()
     const newTagDelayMap = new Map()
     const completedProxies = await Plugins.asyncPool(concurrencyLimit, proxies, async (proxy) => {
       index += 1
-      update(`[${subscription.name}] 测试中... ${index} / ${totalCount}, 成功：${success} 失败：${failure}`)
+      update(`[${subscription.name}] Testing... ${index} / ${totalCount}, Success: ${success} Failure: ${failure}`)
       const delay = await getProxyDelay({
         baseUrl,
         proxy: proxy.tag,
@@ -69,7 +69,7 @@ export default (Plugin) => {
       const newTag = `${proxy.tag.replace(/(\s*\[-?[\d.]+ms\])?$/, ` [${delay}ms]`)}`
       proxyUpdateMap.set(proxy.tag, { newTag, delay })
       newTagDelayMap.set(newTag, delay)
-      update(`[${subscription.name}] 测试中... ${index} / ${totalCount}, 成功：${success} 失败：${failure}`)
+      update(`[${subscription.name}] Testing... ${index} / ${totalCount}, Success: ${success} Failure: ${failure}`)
       return {
         ...proxy,
         tag: newTag
@@ -100,8 +100,8 @@ export default (Plugin) => {
         return valA - valB
       })
     await Plugins.WriteFile(subscription.path, JSON.stringify(rawProxies, null, 2))
-    const successMsg = `订阅 [${subscription.name}] 测试完成`
-    msgSuccess(`${successMsg} ${index} / ${totalCount}, 成功：${success} 失败：${failure}`)
+    const successMsg = `Subscription [${subscription.name}] Test complete`
+    msgSuccess(`${successMsg} ${index} / ${totalCount}, Success: ${success} Failure: ${failure}`)
     Plugins.Notify(successMsg)
     await Plugins.sleep(3_000)
     destroy()
@@ -137,7 +137,7 @@ export default (Plugin) => {
   const stopCore = async (subId) => {
     const pid = corePidMap.get(subId)
     if (!pid) return
-    await Plugins.KillProcess(pid).catch(() => {})
+    await Plugins.KillProcess(pid).catch(() => { })
     corePidMap.delete(subId)
   }
   const getProxyDelay = async (opts) => {
@@ -171,7 +171,7 @@ export default (Plugin) => {
     },
     onShutdown: async () => {
       for (const pid of corePidMap.values()) {
-        await Plugins.KillProcess(pid).catch(() => {})
+        await Plugins.KillProcess(pid).catch(() => { })
       }
     }
   }

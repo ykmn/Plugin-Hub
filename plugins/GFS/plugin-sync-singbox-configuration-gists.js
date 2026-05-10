@@ -7,7 +7,7 @@ const onTask = async () => {
 }
 
 const updateGist = async () => {
-  if (!Plugin.GistId) throw '未配置GIST ID'
+  if (!Plugin.GistId) throw 'GIST ID not configured'
   const store = Plugins.useProfilesStore()
   let str = ''
   for (const file of store.profiles) {
@@ -55,7 +55,7 @@ async function transformLocalRuleset(profile) {
 }
 
 async function updateGistFile(name, gistId, configJsonContent) {
-  if (!Plugin.Authorization) throw '未配置TOKEN'
+  if (!Plugin.Authorization) throw 'TOKEN not configured'
   let jsonName = name + '.json'
   const { body } = await Plugins.HttpPatch(
     `https://api.github.com/gists/${gistId}`,

@@ -1,6 +1,6 @@
 const onRun = async () => {
-  const ipaddress = await Plugins.prompt('请输入需要查询的 IP 地址', '', {
-    placeholder: 'IP 地址，例如: 1.1.1.1'
+  const ipaddress = await Plugins.prompt('Please enter the IP address you want to query.', '', {
+    placeholder: 'IP address, example: 1.1.1.1'
   })
 
   const flags = new Map([
@@ -505,7 +505,7 @@ const onRun = async () => {
 
   const url = `https://ipapi.co/${ipaddress}/json`
 
-  const { id } = Plugins.message.info('查询中...', 1000000)
+  const { id } = Plugins.message.info('Searching...', 1000000)
 
   try {
     const { body } = await Plugins.HttpGet(url)
@@ -521,9 +521,9 @@ const onRun = async () => {
     const message = `
     ${emoji} ${body.region} ${body.city}
     🌐 IP: ${body.ip}
-    🕗 时区: ${body.timezone}`
+    🕗 Time zone: ${body.timezone}`
 
-    Plugins.alert('IP 信息', message)
+    Plugins.alert('IP information', message)
   } catch (error) {
     Plugins.message.update(id, error.message || error, 'error')
   } finally {

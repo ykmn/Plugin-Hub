@@ -96,7 +96,7 @@ const deepMerge = (target, source, currentPath = '', ctx) => {
       return cloneArrayValue(target).concat(cloneArrayValue(source))
     }
     if (isAppendArrayPath(currentPath, ctx) && !Array.isArray(target)) {
-      warnMergePath(ctx, currentPath, '目标值不是数组，已回退为覆盖模式')
+      warnMergePath(ctx, currentPath, 'Target value is not an array, has fallen back to overwrite mode')
     }
     return cloneArrayValue(source)
   }
@@ -115,7 +115,7 @@ const deepMerge = (target, source, currentPath = '', ctx) => {
     if (isAppendArrayPath(nextPath, ctx)) {
       ctx?.hitAppendPaths.add(normalizePath(nextPath))
       if (!Array.isArray(sourceValue)) {
-        warnMergePath(ctx, nextPath, 'override 值不是数组，已回退为覆盖模式')
+        warnMergePath(ctx, nextPath, 'override value is not an array, has fallen back to override mode')
       }
     }
 
@@ -143,11 +143,11 @@ const parseJSONObject = (content, label = 'JSON') => {
   try {
     data = JSON.parse(content)
   } catch (error) {
-    throw `${label} 解析失败：${error instanceof Error ? error.message : String(error)}`
+    throw `${label} parsing failed: ${error instanceof Error ? error.message : String(error)}`
   }
 
   if (!data || typeof data !== 'object' || Array.isArray(data)) {
-    throw `${label} 必须是 JSON 对象`
+    throw `${label} must be a  JSON object.`
   }
 
   return data
@@ -158,9 +158,9 @@ const validateJSONText = (content, label = 'JSON') => {
   return true
 }
 
-const validateLocalConfigPath = async (path, label = '覆盖配置') => {
+const validateLocalConfigPath = async (path, label = 'Override configuration') => {
   if (!(await Plugins.FileExists(path).catch(() => false))) {
-    throw `${label} 文件不存在：${path}`
+    throw `${label} The file does not exist.：${path}`
   }
 
   const content = await Plugins.ReadFile(path)
@@ -222,7 +222,7 @@ const readOverrideContent = async (cfg) => {
 const ensureProfileUnbound = (profileId, currentId) => {
   const duplicated = getState().configs.value.find((item) => item.profileId === profileId && item.id !== currentId)
   if (duplicated) {
-    throw `配置 ${getProfileName(profileId)} 已存在覆盖规则`
+    throw `Configuration ${getProfileName(profileId)} Overriding rules already exist`
   }
 }
 
@@ -237,7 +237,7 @@ const addProfilesHeaderAction = () => {
       onClick: onRun
     },
     componentSlots: {
-      default: '管理配置覆盖'
+      default: 'Management configuration coverage'
     }
   })
 }
@@ -266,28 +266,28 @@ const onBeforeCoreStart = async (config, profile) => {
   try {
     content = await readOverrideContent(cfg)
   } catch (error) {
-    throw `读取覆盖配置失败：${error instanceof Error ? error.message : String(error)}`
+    throw `Failed to read overwrite configuration：${error instanceof Error ? error.message : String(error)}`
   }
 
-  const overrideObject = parseJSONObject(content, '覆盖配置')
+  const overrideObject = parseJSONObject(content, 'Override configuration')
   const mergeContext = createMergeContext()
   const mergedConfig = deepMerge(config, overrideObject, '', mergeContext)
 
   const unmatchedPaths = mergeContext.appendPaths.filter((path) => !mergeContext.hitAppendPaths.has(normalizePath(path)))
 
   unmatchedPaths.forEach((path) => {
-    warnMergePath(mergeContext, path, '未命中任何 override 路径，已忽略该数组追加规则')
+    warnMergePath(mergeContext, path, 'No override path was hit; the array append rule has been ignored.')
   })
 
   if (mergeContext.warnings.length > 0) {
-    console.warn(`[${Plugin.id}] 数组追加路径警告:\n- ${mergeContext.warnings.join('\n- ')}`)
-    Plugins.message.warn('部分数组追加路径未按追加模式生效，详情请查看控制台')
+    console.warn(`[${Plugin.id}] Array append path warning:\n- ${mergeContext.warnings.join('\n- ')}`)
+    Plugins.message.warn('Some array append paths are not working correctly in append mode. Please check the console for details.')
   }
 
   try {
     await validateMergedConfig(mergedConfig)
   } catch (error) {
-    throw `覆盖后的 sing-box 配置校验失败：${error instanceof Error ? error.message : String(error)}`
+    throw `The overwritten sing-box configuration verification failed：${error instanceof Error ? error.message : String(error)}`
   }
 
   return mergedConfig
@@ -298,42 +298,44 @@ const openMainUI = (manager) => {
 
   const component = defineComponent({
     template: `
-    <div class="h-full w-full">
-      <div
-        v-if="manager.configs.value.length === 0"
-        class="flex items-center justify-center h-full min-h-[200px] cursor-pointer"
-        @click="openGuide"
-      >
-        <span class="text-16 font-bold text-gray-400 hover:text-gray-600 transition-colors">
-          尚未添加任何配置覆盖规则，点击添加
-        </span>
-      </div>
-      <div v-else class="grid grid-cols-3 gap-8 p-8 overflow-y-auto max-h-[500px]">
-        <Card v-for="cfg in manager.configs.value" :key="cfg.id" :title="profileName(cfg.profileId)">
-          <template #extra>
-            <Button class="text-red-500 hover:text-red-700" size="small" type="text" @click.stop="remove(cfg)">
-              删除
-            </Button>
-          </template>
-          <div class="flex flex-col gap-6 min-h-[90px]">
-            <div class="text-12 text-gray-500 break-all">
-              {{ sourceText(cfg) }}
-            </div>
-            <div class="text-12 text-gray-500">
-              {{ cacheText(cfg) }}
-            </div>
-            <div class="mt-auto pt-4 flex justify-end">
-              <Button size="small" type="primary" @click.stop="edit(cfg)">
-                编辑
-              </Button>
-            </div>
-          </div>
-        </Card>
-        <Button class="col-span-3 mt-4" type="dashed" @click="openGuide">
-          添加新覆盖规则
-        </Button>
-      </div>
-    </div>
+ <div class="h-full w-full">
+<div
+v-if="manager.configs.value.length === 0"
+class="flex items-center justify-center h-full min-h-[200px] cursor-pointer"
+@click="openGuide"
+>
+<span class="text-16 font-bold text-gray-400 hover:text-gray-600 transition-colors">
+No configuration override rules have been added yet, click Add
+</span>
+</div>
+<div v-else class="grid grid-cols-3 gap-8 p-8 overflow-y-auto max-h-[500px]">
+<Card v-for="cfg in manager.configs.value" :key="cfg.id" :title="profileName(cfg.profileId)">
+<template #extra>
+<Button class="text-red-500 hover:text-red-700" size="small" type="text" @click.stop="remove(cfg)">
+delete
+</Button>
+</template>
+<div class="flex flex-col gap-6 min-h-[90px]">
+<div class="text-12 text-gray-500 break-all">
+{{ sourceText(cfg) }}
+</div>
+<div class="text-12 text-gray-500">
+{{ cacheText(cfg) }}
+</div>
+<div class="mt-auto pt-4 flex justify-end">
+<Button size="small" type="primary" @click.stop="edit(cfg)">
+edit
+</Button>
+</div>
+</div>
+</Card>
+<Button class="col-span-3 mt-4" type="dashed" @click="openGuide"> Add a new override rule
+
+</Button>
+
+</div>
+
+</div>
     `,
     setup(_, { expose }) {
       const remoteCount = computed(() => manager.configs.value.filter((item) => item.type === 'remote' && item.cache?.enable).length)
@@ -349,7 +351,7 @@ const openMainUI = (manager) => {
                   openAppendPathsModal()
                 }
               },
-              () => '数组追加路径'
+              () => 'Array append path'
             ),
             h(
               resolveComponent('Button'),
@@ -359,7 +361,7 @@ const openMainUI = (manager) => {
                   await Plugins.OpenDir(BASE_PATH)
                 }
               },
-              () => '打开插件目录'
+              () => 'Open the plugin directory'
             ),
             h(
               resolveComponent('Button'),
@@ -369,7 +371,7 @@ const openMainUI = (manager) => {
                   await Plugins.OpenDir(CACHE_PATH)
                 }
               },
-              () => '打开缓存目录'
+              () => 'Open the cache directory'
             ),
             h(
               resolveComponent('Button'),
@@ -380,7 +382,7 @@ const openMainUI = (manager) => {
                   await manager.updateCache()
                 }
               },
-              () => '更新缓存'
+              () => 'Update cache'
             )
           ]
         }
@@ -392,24 +394,30 @@ const openMainUI = (manager) => {
         edit: (cfg) => openEditModal(cfg, manager),
         remove: (cfg) => manager.deleteConfig(cfg),
         profileName: getProfileName,
-        sourceText: (cfg) => (cfg.type === 'local' ? `本地快照：${cfg.configPath}` : `远程链接：${cfg.configUrl}`),
+        sourceText: (cfg) => (cfg.type === 'local' ? `Local snapshot: ${cfg.configPath}` : `Remote link: ${cfg.configUrl}`),
+
         cacheText: (cfg) => {
+
           if (cfg.type !== 'remote') {
-            return '该规则读取导入后的本地快照，不会自动跟踪原始文件变更'
+
+            return 'This rule reads the imported local snapshot and will not automatically track changes to the original file'
+
           }
           if (!cfg.cache?.enable) {
-            return '缓存：关闭'
+
+            return 'Cache: Off'
+
           }
-          return `缓存：${cfg.cache.path || '尚未生成'}`
+          return `Cache: ${cfg.cache.path || 'Not yet generated'}`
         }
       }
     }
   })
 
   const modal = Plugins.modal({
-    title: '配置覆盖管理',
+    title: 'Configuration overlay management',
     submit: false,
-    cancelText: '关闭',
+    cancelText: 'Close',
     width: '82',
     height: '80',
     afterClose: () => {
@@ -430,7 +438,7 @@ const openAppendPathsModal = () => {
     template: `
     <div class="flex flex-col gap-8 p-8">
       <div class="text-14 text-gray-600 leading-relaxed">
-        命中的数组路径会使用“追加”而不是“覆盖”。示例：route.rules、dns.rules、route.rule_set。
+        The matched array path will be appended instead of overwritten. Example: route.rules、dns.rules、route.rule_set。
       </div>
       <InputList v-model="items" />
     </div>
@@ -441,14 +449,21 @@ const openAppendPathsModal = () => {
   })
 
   const modal = Plugins.modal({
-    title: '数组追加路径',
+    title: 'Append Path to Array',
+
     width: '56',
-    submitText: '保存',
-    cancelText: '取消',
+
+    submitText: 'Save',
+
+    cancelText: 'Cancel',
+
     onOk: async () => {
       setAppendPaths(items.value)
-      Plugins.message.success('数组追加路径已保存')
+
+      Plugins.message.success('Append Path to Array Saved')
+
       return true
+
     },
     afterClose: () => {
       modal.destroy()
@@ -469,39 +484,44 @@ const openGuideModal = (manager) => {
 
   const component = defineComponent({
     template: `
-    <div class="flex flex-col gap-8 p-8">
-      <ul class="list-disc pl-6 text-14 text-gray-600 space-y-6 leading-relaxed">
-        <li>该插件会在 sing-box 启动前，把外部 JSON 作为 override 合并进当前 profile 生成的配置。</li>
-        <li>外部文件必须是 JSON 对象。对象会递归合并，数组默认整体覆盖；命中“数组追加路径”的数组会改为追加。</li>
-        <li>导入本地 JSON 时，插件会把内容复制到缓存目录并以该快照作为后续运行时输入，不会自动跟踪原始文件更新；编辑本地规则时会重新导入到该快照。</li>
-        <li>运行前会对合并后的最终配置执行一次 sing-box check，校验失败会阻止启动。</li>
-      </ul>
-      <div class="py-12 flex items-center justify-between gap-8">
-        <div class="text-16 font-bold shrink-0">关联配置</div>
-        <Select v-model="selectedProfileId" class="w-[70%]" :options="profileOptions" />
-      </div>
-      <div class="flex gap-8">
-        <Button class="flex-1" :type="mode === 'local' ? 'primary' : 'default'" @click="mode = 'local'">
-          本地 JSON
-        </Button>
-        <Button class="flex-1" :type="mode === 'remote' ? 'primary' : 'default'" @click="mode = 'remote'">
-          远程 JSON
-        </Button>
-      </div>
-      <div v-if="mode === 'remote'" class="flex flex-col gap-8">
-        <div class="py-12 flex items-center justify-between gap-8">
-          <Input v-model="remoteUrl" placeholder="http(s)://..." allow-paste class="w-[75%]" />
-          <Button type="primary" @click="handleRemote">确认</Button>
-        </div>
-        <div class="py-12 flex items-center justify-between">
-          <div class="text-16 font-bold">启用缓存</div>
-          <Switch v-model="enableCache" />
-        </div>
-      </div>
-      <div v-else class="flex">
-        <Button class="w-full" type="primary" @click="handleLocal">选择本地 JSON 文件</Button>
-      </div>
-    </div>
+<div class="flex flex-col gap-8 p-8">
+
+<ul class="list-disc pl-6 text-14 text-gray-600 space-y-6 leading-relaxed">
+
+<li>This plugin will merge external JSON as an override into the configuration generated by the current profile before sing-box starts.</li>
+
+<li>External files must be JSON objects. Objects will be recursively merged; arrays will be overwritten by default; arrays matching the "array append path" will be appended instead.</li>
+
+<li>When importing local JSON, the plugin will copy the content to the cache directory and use this snapshot as input for subsequent runtimes, without automatically tracking updates to the original file; it will re-import into this snapshot when editing local rules.</li>
+
+<li>A sing-box check will be performed on the final merged configuration before running; failure to perform the check will prevent startup.</li> </li>
+</ul>
+<div class="py-12 flex items-center justify-between gap-8">
+<div class="text-16 font-bold shrink-0">Associated configuration</div>
+<Select v-model="selectedProfileId" class="w-[70%]" :options="profileOptions" />
+</div>
+<div class="flex gap-8">
+<Button class="flex-1" :type="mode === 'local' ? 'primary' : 'default'" @click="mode = 'local'">
+Local JSON
+</Button>
+<Button class="flex-1" :type="mode === 'remote' ? 'primary' : 'default'" @click="mode = 'remote'">
+Remote JSON
+</Button>
+</div>
+<div v-if="mode === 'remote'" class="flex flex-col gap-8">
+<div class="py-12 flex items-center justify-between gap-8">
+<Input v-model="remoteUrl" placeholder="http(s)://..." allow-paste class="w-[75%]" />
+<Button type="primary" @click="handleRemote">Confirm</Button>
+</div>
+<div class="py-12 flex items-center justify-between">
+<div class="text-16 font-bold">Enable caching</div>
+<Switch v-model="enableCache" />
+</div>
+</div>
+<div v-else class="flex">
+<Button class="w-full" type="primary" @click="handleLocal">Select local JSON file</Button>
+</div>
+</div>
     `,
     setup() {
       const profileOptions = computed(() =>
@@ -513,7 +533,7 @@ const openGuideModal = (manager) => {
 
       const ensureProfileSelected = () => {
         if (!selectedProfileId.value) {
-          Plugins.message.error('请选择一个 profile')
+          Plugins.message.error('Please select one profile')
           return false
         }
         return true
@@ -544,9 +564,9 @@ const openGuideModal = (manager) => {
   })
 
   const modal = Plugins.modal({
-    title: '添加配置覆盖',
+    title: 'Add configuration override',
     submit: false,
-    cancelText: '关闭',
+    cancelText: 'Close',
     width: '64',
     afterClose: () => {
       modal.destroy()
@@ -566,23 +586,28 @@ const openEditModal = (cfg, manager) => {
 
   const component = defineComponent({
     template: `
-    <div class="flex flex-col gap-8">
-      <div class="px-8 py-12 flex items-center justify-between gap-8">
-        <div class="text-16 font-bold shrink-0">关联配置</div>
-        <Select v-model="selectedProfileId" class="w-[75%]" :options="profileOptions" />
-      </div>
-      <div class="px-8 py-12 flex items-center justify-between gap-8">
-        <div class="text-16 font-bold shrink-0">{{ inputLabel }}</div>
-        <Input v-model="inputValue" :placeholder="placeholder" allow-paste class="w-[75%] text-14" />
-      </div>
-      <div v-if="cfg.type === 'local'" class="px-8 text-12 text-gray-500 break-all">
-        当前快照文件：{{ cfg.configPath }}
-      </div>
-      <div v-if="cfg.type === 'remote'" class="px-8 py-12 flex items-center justify-between gap-8">
-        <div class="text-16 font-bold shrink-0">启用缓存</div>
-        <Switch v-model="cacheEnabled" />
-      </div>
-    </div>
+<div class="flex flex-col gap-8">
+<div class="px-8 py-12 flex items-center justify-between gap-8">
+<div class="text-16 font-bold shrink-0">Associated configuration</div>
+<Select v-model="selectedProfileId" class="w-[75%]" :options="profileOptions" />
+</div>
+<div class="px-8 py-12 flex items-center justify-between gap-8">
+<div class="text-16 font-bold shrink-0">{{ inputLabel }}</div>
+<Input v-model="inputValue" :placeholder="placeholder" allow-paste class="w-[75%] text-14" />
+</div>
+<div v-if="cfg.type === 'local'" class="px-8 text-12 text-gray-500 break-all"> Current snapshot file: {{ cfg.configPath }}
+
+</div>
+
+<div v-if="cfg.type === 'remote'" class="px-8 py-12 flex items-center justify-between gap-8">
+
+<div class="text-16 font-bold shrink-0">Enable caching</div>
+
+<Switch v-model="cacheEnabled" />
+
+</div>
+
+</div>
     `,
     setup() {
       const profileOptions = computed(() =>
@@ -598,25 +623,37 @@ const openEditModal = (cfg, manager) => {
         selectedProfileId,
         cacheEnabled,
         profileOptions,
-        inputLabel: cfg.type === 'local' ? '重新导入文件路径' : '配置链接',
+        inputLabel: cfg.type === 'local' ? 'Re-import file path' : 'Configure link',
         placeholder: cfg.type === 'local' ? '/PATH/TO/override.json' : 'http(s)://...'
       }
     }
   })
 
   const modal = Plugins.modal({
-    title: '编辑覆盖规则',
+    title: 'Edit Override Rules',
+
     width: '56',
-    submitText: '保存',
-    cancelText: '取消',
+
+    submitText: 'Save',
+
+    cancelText: 'Cancel',
+
     onOk: async () => {
+
       if (!selectedProfileId.value) {
-        Plugins.message.error('请选择一个 profile')
+
+        Plugins.message.error('Please select a profile')
+
         return false
+
       }
+
       if (!inputValue.value.trim()) {
-        Plugins.message.error('输入不能为空')
+
+        Plugins.message.error('Input cannot be empty')
+
         return false
+
       }
 
       try {
@@ -627,7 +664,7 @@ const openEditModal = (cfg, manager) => {
         })
         return true
       } catch (error) {
-        Plugins.message.error(`保存失败：${error instanceof Error ? error.message : String(error)}`)
+        Plugins.message.error(`Save failed：${error instanceof Error ? error.message : String(error)}`)
         return false
       }
     },
@@ -659,7 +696,7 @@ class ConfigOverrideManager {
     const content = await file.text()
 
     try {
-      validateJSONText(content, '覆盖配置')
+      validateJSONText(content, 'Override configuration')
     } catch (error) {
       Plugins.message.error(String(error))
       return false
@@ -683,8 +720,8 @@ class ConfigOverrideManager {
     })
 
     await saveConfigs()
-    Plugins.message.success('本地覆盖配置添加成功')
-    Plugins.message.info(`已将导入内容写入快照 ${cachePath}`)
+    Plugins.message.success('Local overwrite configuration added successfully')
+    Plugins.message.info(`Imported content has been written to snapshot ${cachePath}`)
     return true
   }
 
@@ -692,18 +729,25 @@ class ConfigOverrideManager {
     ensureProfileUnbound(profileId)
 
     if (!url) {
-      Plugins.message.error('URL 不能为空')
+
+      Plugins.message.error('URL cannot be empty')
+
       return false
+
     }
 
     if (!/^https?:\/\/[^\s]+$/.test(url)) {
-      Plugins.message.error('URL 格式错误')
+
+      Plugins.message.error('URL format error')
+
       return false
+
     }
 
     try {
       const content = await fetchRemoteFile(url)
-      validateJSONText(content, '远程覆盖配置')
+
+      validateJSONText(content, 'Remote overwrite configuration')
 
       const id = Plugins.sampleID()
       const config = {
@@ -725,36 +769,56 @@ class ConfigOverrideManager {
       }
 
       this.configs.value.push(config)
+
       await saveConfigs()
-      Plugins.message.success('远程覆盖配置添加成功')
+
+      Plugins.message.success('Remote configuration overwrite successfully added')
+
       return true
+
     } catch (error) {
-      Plugins.message.error(`远程配置获取失败：${error instanceof Error ? error.message : String(error)}`)
+
+      Plugins.message.error(`Remote configuration retrieval failed: ${error instanceof Error ? error.message : String(error)}`)
+
       return false
+
     }
   }
 
   async deleteConfig(cfg) {
-    if (!(await Plugins.confirm('提示', '确定要删除该覆盖规则吗？').catch(() => false))) {
+
+    if (!(await Plugins.confirm('Prompt', 'Are you sure you want to delete this overriding rule?').catch(() => false))) {
+
       return
+
     }
 
     const idx = this.configs.value.findIndex((item) => item.id === cfg.id)
+
     if (idx === -1) {
-      Plugins.message.error('配置不存在')
+
+      Plugins.message.error('Configuration does not exist')
+
       return
+
     }
 
     this.configs.value.splice(idx, 1)
+
     await saveConfigs()
 
     if (cfg.cache?.path?.startsWith(CACHE_PATH)) {
+
       await Plugins.RemoveFile(cfg.cache.path).catch(() => {
+
         /* noop */
+
       })
+
     }
 
-    Plugins.message.success('覆盖规则删除成功')
+    Plugins.message.success('Overriding rule deleted successfully')
+
   }
 
   async updateConfig(cfg, options) {
@@ -763,7 +827,7 @@ class ConfigOverrideManager {
     cfg.profileId = options.profileId
 
     if (cfg.type === 'local') {
-      const content = await validateLocalConfigPath(options.input, '本地覆盖文件')
+      const content = await validateLocalConfigPath(options.input, 'Local overwrite file')
       const snapshotPath = cfg.cache?.path || cfg.configPath || `${CACHE_PATH}/${cfg.id}.json`
       await Plugins.WriteFile(snapshotPath, content)
       cfg.configPath = snapshotPath
@@ -783,21 +847,21 @@ class ConfigOverrideManager {
 
       if (cfg.cache.enable) {
         const content = await fetchRemoteFile(cfg.configUrl)
-        validateJSONText(content, '远程覆盖配置')
+        validateJSONText(content, 'Remote coverage configuration')
         await Plugins.WriteFile(cfg.cache.path, content)
         cfg.cache.lastTime = Date.now()
       }
     }
 
     await saveConfigs()
-    Plugins.message.success('覆盖规则保存成功')
+    Plugins.message.success('Overwrite rules saved successfully')
   }
 
   async updateCache() {
     const remoteItems = this.configs.value.filter((item) => item.type === 'remote' && item.cache?.enable)
 
     if (remoteItems.length === 0) {
-      Plugins.message.info('没有可更新的远程缓存')
+      Plugins.message.info('No updatable remote cache')
       return
     }
 
@@ -807,7 +871,7 @@ class ConfigOverrideManager {
     for (const cfg of remoteItems) {
       try {
         const content = await fetchRemoteFile(cfg.configUrl)
-        parseJSONObject(content, '远程覆盖配置')
+        parseJSONObject(content, 'Remote coverage configuration')
         const cachePath = cfg.cache.path || `${CACHE_PATH}/${cfg.id}.json`
         await Plugins.WriteFile(cachePath, content)
         cfg.cache.path = cachePath
@@ -815,12 +879,12 @@ class ConfigOverrideManager {
         success += 1
       } catch (error) {
         failure += 1
-        Plugins.message.warn(`更新 ${getProfileName(cfg.profileId)} 失败：${error}`)
+        Plugins.message.warn(`Renew ${getProfileName(cfg.profileId)} failed：${error}`)
       }
     }
 
     await saveConfigs()
-    Plugins.message.success(`缓存更新完成：成功 ${success}，失败 ${failure}`)
+    Plugins.message.success(`Cache update complete: Success ${success}，Fail ${failure}`)
   }
 }
 

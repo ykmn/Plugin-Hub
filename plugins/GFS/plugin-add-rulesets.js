@@ -1,9 +1,11 @@
 const onRun = async () => {
-  const ok = await Plugins.confirm('提示', '> 推荐使用规则集中心添加规则，请前往：`规则集` - `规则集中心`', {
-    type: 'markdown',
-    okText: '好的，我会试试',
-    cancelText: '不用了'
-  }).catch(() => false)
+const ok = await Plugins.confirm('Prompt', '> It is recommended to add rules using the Rule Set Center. Please go to: `Rule Set` - `Rule Set Center`', {
+
+type: 'markdown',
+okText: 'Okay, I\'ll try',
+cancelText: 'No need'
+
+}).catch(() => false)
 
   if (ok) return
 
@@ -47,7 +49,7 @@ const onRun = async () => {
     // https://github.com/MetaCubeX/meta-rules-dat/tree/sing
     {
       id: 'remote-reject',
-      tag: '广告域名列表',
+      tag: 'List of advertising domains',
       updateTime: '',
       type: 'Http',
       format: 'binary',
@@ -58,7 +60,7 @@ const onRun = async () => {
     },
     {
       id: 'remote-private',
-      tag: '私有网络专用域名列表',
+      tag: 'List of private network domain names',
       updateTime: '',
       type: 'Http',
       format: 'binary',
@@ -69,7 +71,7 @@ const onRun = async () => {
     },
     {
       id: 'remote-apple',
-      tag: 'Apple 在中国大陆可直连的域名列表',
+      tag: 'Apple List of domain names that can be directly accessed in mainland China',
       updateTime: '',
       type: 'Http',
       format: 'binary',
@@ -80,7 +82,7 @@ const onRun = async () => {
     },
     {
       id: 'remote-icloud',
-      tag: 'iCloud 在中国大陆可直连的域名列表',
+      tag: 'iCloud List of domain names that can be directly accessed in mainland China',
       updateTime: '',
       type: 'Http',
       format: 'binary',
@@ -91,7 +93,7 @@ const onRun = async () => {
     },
     {
       id: 'remote-gfw',
-      tag: 'GFW 域名列表',
+      tag: 'GFW Domain List',
       updateTime: '',
       type: 'Http',
       format: 'binary',
@@ -102,7 +104,7 @@ const onRun = async () => {
     },
     {
       id: 'remote-tld-not-cn',
-      tag: '非中国大陆使用的顶级域名列表',
+      tag: 'List of top-level domains used outside mainland China',
       updateTime: '',
       type: 'Http',
       format: 'binary',
@@ -113,7 +115,7 @@ const onRun = async () => {
     },
     {
       id: 'remote-telegram-cidr',
-      tag: 'Telegram 使用的 IP 地址列表',
+      tag: 'List of IP addresses used by Telegram',
       updateTime: '',
       type: 'Http',
       format: 'binary',
@@ -124,7 +126,7 @@ const onRun = async () => {
     },
     {
       id: 'remote-lan-cidr',
-      tag: '局域网 IP 及保留 IP 地址列表',
+      tag: 'List of LAN IP addresses and reserved IP addresses',
       updateTime: '',
       type: 'Http',
       format: 'binary',
@@ -135,7 +137,7 @@ const onRun = async () => {
     },
     {
       id: 'remote-cn-cidr',
-      tag: '中国大陆 IP 地址列表',
+      tag: 'List of IP addresses in mainland China',
       updateTime: '',
       type: 'Http',
       format: 'binary',
@@ -146,7 +148,7 @@ const onRun = async () => {
     },
     {
       id: 'remote-cn',
-      tag: '中国大陆域名列表',
+      tag: 'List of domain names in mainland China',
       updateTime: '',
       type: 'Http',
       format: 'binary',
@@ -154,11 +156,55 @@ const onRun = async () => {
       path: 'data/rulesets/remote-cn.srs',
       count: 0,
       disabled: false
+    },
+    {
+      id: 'geoip-ru',
+      tag: 'List of IP-addresses in Russia',
+      updateTime: '',
+      type: 'Http',
+      format: 'binary',
+      url: 'https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geoip/ru.srs',
+      path: 'data/rulesets/geoip-ru.srs',
+      count: 0,
+      disabled: false
+    },
+    {
+      id: 'geosite-ru',
+      tag: 'List of domain names in Russia',
+      updateTime: '',
+      type: 'Http',
+      format: 'binary',
+      url: 'https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/category-ru.srs',
+      path: 'data/rulesets/category-ru.srs',
+      count: 0,
+      disabled: false
+    },
+    {
+      id: 'geoip-ru-blocked',
+      tag: 'List of blocked IP-addresses in Russia',
+      updateTime: '',
+      type: 'Http',
+      format: 'binary',
+      url: 'https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/sing-box/rule-set-geoip/geoip-ru-blocked.srs',
+      path: 'data/rulesets/geoip-ru-blocked.srs',
+      count: 0,
+      disabled: false
+    },
+    {
+      id: 'geosite-ru-blocked',
+      tag: 'List of blocked domains in Russia',
+      updateTime: '',
+      type: 'Http',
+      format: 'binary',
+      url: 'https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-dat/release/sing-box/rule-set-geosite/geosite-ru-blocked.srs',
+      path: 'data/rulesets/geosite-ru-blocked.srs',
+      count: 0,
+      disabled: false
     }
   ]
 
   const ids = await Plugins.picker.multi(
-    '请选择你要添加的规则集',
+    'Please select the rule set you want to add.',
     list.map((v) => ({ label: v.tag, value: v.id })),
     list.filter((v) => rulesetsStore.getRulesetById(v.id)).map((v) => v.id)
   )
@@ -167,7 +213,7 @@ const onRun = async () => {
     if (!rulesetsStore.getRulesetById(ids[i])) {
       const ruleset = list.find((v) => v.id == ids[i])
       await rulesetsStore.addRuleset(ruleset)
-      console.log('添加', ruleset.tag)
+      console.log('Add to', ruleset.tag)
     }
   }
 
@@ -181,5 +227,5 @@ const onRun = async () => {
     Plugins.WriteFile('data/rulesets/proxy.json', '{\n  "version": 1,\n  "rules": []\n}')
   }
 
-  Plugins.message.success('添加完毕')
+  Plugins.message.success('Added')
 }
