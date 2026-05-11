@@ -9,7 +9,7 @@
       "Plugin Examples"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-configuration-example.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-configuration-example.js",
     "path": "data/plugins/plugin-configuration-example.js",
     "triggers": [
       "on::manual"
@@ -161,7 +161,7 @@
       "Plugin examples"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-mmdb-example.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-mmdb-example.js",
     "path": "data/plugins/plugin-mmdb-example.js",
     "triggers": [
       "on::manual"
@@ -191,7 +191,7 @@
       "Plugin Examples"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-ui-example.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-ui-example.js",
     "path": "data/plugins/plugin-ui-example.js",
     "triggers": [
       "on::manual"
@@ -222,7 +222,7 @@
       "Feature Extension"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-quick-start-guide.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-quick-start-guide.js",
     "status": 0,
     "path": "data/plugins/plugin-quick-start-guide.js",
     "triggers": [
@@ -253,7 +253,7 @@
       "Plugin Development"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-ui-dev-helper.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-ui-dev-helper.js",
     "status": 0,
     "path": "data/plugins/plugin-ui-dev-helper.js",
     "triggers": [
@@ -293,7 +293,7 @@
       "Node Processing"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-node-convert.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-node-convert.js",
     "path": "data/plugins/plugin-node-convert.js",
     "triggers": [
       "on::manual",
@@ -331,7 +331,7 @@
       "Node Processing"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-node-configurator.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-node-configurator.js",
     "path": "data/plugins/plugin-node-configurator.js",
     "triggers": [
       "on::manual"
@@ -363,7 +363,7 @@
       "Feature extensions"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-ipc-logs.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-ipc-logs.js",
     "path": "data/plugins/plugin-ipc-logs.js",
     "triggers": [
       "on::ready",
@@ -397,7 +397,7 @@
       "Function Extensions"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-traffic-statistics.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-traffic-statistics.js",
     "path": "data/plugins/plugin-traffic-statistics.js",
     "triggers": [
       "on::manual",
@@ -443,7 +443,7 @@
       "Function Extension"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-subscribe-in-one-click.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-subscribe-in-one-click.js",
     "path": "data/plugins/plugin-subscribe-in-one-click.js",
     "triggers": [
       "on::manual"
@@ -474,7 +474,7 @@
       "Function Extensions"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-smart-proxy-switcher.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-smart-proxy-switcher.js",
     "path": "data/plugins/plugin-smart-proxy-switcher.js",
     "triggers": [
       "on::manual",
@@ -600,7 +600,7 @@
       "Feature Expansion"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-rolling-release.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-rolling-release.js",
     "path": "data/plugins/plugin-rolling-release.js",
     "triggers": [
       "on::manual",
@@ -670,7 +670,7 @@
       "Utilities"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-music-player.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-music-player.js",
     "path": "data/plugins/plugin-music-player.js",
     "triggers": [
       "on::manual"
@@ -713,7 +713,7 @@
       "Enhancing Experience"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-tun-assistant.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-tun-assistant.js",
     "path": "data/plugins/plugin-tun-assistant.js",
     "triggers": [
       "on::manual"
@@ -744,7 +744,7 @@
       "Security Detection"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-check-certificate.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-check-certificate.js",
     "path": "data/plugins/plugin-check-certificate.js",
     "triggers": [
       "on::manual"
@@ -775,7 +775,7 @@
       "Function Extensions"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-download-speed-guard.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-download-speed-guard.js",
     "path": "data/plugins/plugin-download-speed-guard.js",
     "status": 0,
     "triggers": [
@@ -834,7 +834,7 @@
       "Feature Extensions"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-pac-server.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-pac-server.js",
     "path": "data/plugins/plugin-pac-server.js",
     "status": 0,
     "triggers": [
@@ -880,7 +880,7 @@
       "Feature extensions"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-system-proxy-guard.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-system-proxy-guard.js",
     "path": "data/plugins/plugin-system-proxy-guard.js",
     "triggers": [
       "on::manual",
@@ -923,7 +923,7 @@
       "Feature Extensions"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-systemproxy-external.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-systemproxy-external.js",
     "path": "data/plugins/plugin-systemproxy-external.js",
     "triggers": [
       "on::manual",
@@ -957,7 +957,7 @@
       "Function Extension"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-hosts-management.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-hosts-management.js",
     "path": "data/plugins/plugin-hosts-management.js",
     "triggers": [
       "on::manual"
@@ -1020,7 +1020,7 @@
       "Enhance user experience"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-install-font.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-install-font.js",
     "path": "data/plugins/plugin-install-font.js",
     "triggers": [
       "on::manual"
@@ -1050,7 +1050,7 @@
       "UI enhancement"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-live2d-widget.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-live2d-widget.js",
     "path": "data/plugins/plugin-live2d-widget.js",
     "triggers": [
       "on::manual",
@@ -1100,7 +1100,7 @@
       "Utilities"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-adguardhome.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-adguardhome.js",
     "path": "data/plugins/plugin-adguardhome.js",
     "triggers": [
       "on::manual",
@@ -1167,7 +1167,7 @@
       "Utilities"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-traffic-monitor.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-traffic-monitor.js",
     "path": "data/plugins/plugin-traffic-monitor.js",
     "triggers": [
       "on::manual",
@@ -1212,7 +1212,7 @@
       "Function Extensions"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-file-transfer-assistant.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-file-transfer-assistant.js",
     "path": "data/plugins/plugin-file-transfer-assistant.js",
     "triggers": [
       "on::manual",
@@ -1276,7 +1276,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-gitea.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-gitea.js",
     "path": "data/plugins/plugin-gitea.js",
     "triggers": [
       "on::manual",
@@ -1321,7 +1321,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-openlist.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-openlist.js",
     "path": "data/plugins/plugin-openlist.js",
     "triggers": [
       "on::manual",
@@ -1368,7 +1368,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-meilisearch.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-meilisearch.js",
     "path": "data/plugins/plugin-meilisearch.js",
     "triggers": [
       "on::manual",
@@ -1441,7 +1441,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-frp-client.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-frp-client.js",
     "path": "data/plugins/plugin-frp-client.js",
     "triggers": [
       "on::manual",
@@ -1495,7 +1495,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-sub-store-v3.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-sub-store-v3.js",
     "path": "data/plugins/plugin-sub-store-v3.js",
     "triggers": [
       "on::manual",
@@ -1549,7 +1549,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-sub-store-v2.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-sub-store-v2.js",
     "path": "data/plugins/plugin-sub-store-v2.js",
     "triggers": [
       "on::manual",
@@ -1685,7 +1685,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-sub-store-script-support.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-sub-store-script-support.js",
     "path": "data/plugins/plugin-sub-store-script-support.js",
     "triggers": [
       "on::manual",
@@ -1729,7 +1729,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-github-commit-history.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-github-commit-history.js",
     "path": "data/plugins/plugin-github-commit-history.js",
     "triggers": [
       "on::manual"
@@ -1782,7 +1782,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-github-workflows.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-github-workflows.js",
     "path": "data/plugins/plugin-github-workflows.js",
     "triggers": [
       "on::manual"
@@ -1833,7 +1833,7 @@
       "提升体验"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-sync-configuration.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-sync-configuration.js",
     "path": "data/plugins/plugin-sync-configuration.js",
     "triggers": [
       "on::manual"
@@ -1925,7 +1925,7 @@
       "提升体验"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-sync-configuration-gists.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-sync-configuration-gists.js",
     "path": "data/plugins/plugin-sync-configuration-gists.js",
     "triggers": [
       "on::manual"
@@ -1979,7 +1979,7 @@
       "提升体验"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-sync-configuration-webdav.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-sync-configuration-webdav.js",
     "path": "data/plugins/plugin-sync-configuration-webdav.js",
     "triggers": [
       "on::manual"
@@ -2066,7 +2066,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-bandwagon-vps.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-bandwagon-vps.js",
     "path": "data/plugins/plugin-bandwagon-vps.js",
     "triggers": [
       "on::manual"
@@ -2107,7 +2107,7 @@
       "功能扩展"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-unblockneteasemusic.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-unblockneteasemusic.js",
     "path": "data/plugins/plugin-unblockneteasemusic.js",
     "triggers": [
       "on::manual",
@@ -2268,7 +2268,7 @@
       "提升体验"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-hotkey-api-bridge.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-hotkey-api-bridge.js",
     "path": "data/plugins/plugin-hotkey-api-bridge.js",
     "triggers": [
       "on::manual",
@@ -2340,7 +2340,7 @@
       "节点处理"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-index-the-proxy-name.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-index-the-proxy-name.js",
     "path": "data/plugins/plugin-index-the-proxy-name.js",
     "triggers": [
       "on::subscribe"
@@ -2372,7 +2372,7 @@
       "提升体验"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-uwp-loopback-exempt.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-uwp-loopback-exempt.js",
     "path": "data/plugins/plugin-uwp-loopback-exempt.js",
     "triggers": [
       "on::manual"
@@ -2404,7 +2404,7 @@
       "提升体验"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-terminal-proxy.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-terminal-proxy.js",
     "path": "data/plugins/plugin-terminal-proxy.js",
     "triggers": [
       "on::manual",
@@ -2449,7 +2449,7 @@
       "节点处理"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-modify-proxy-name.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-modify-proxy-name.js",
     "path": "data/plugins/plugin-modify-proxy-name.js",
     "triggers": [
       "on::subscribe"
@@ -2520,7 +2520,7 @@
       "节点处理"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-beautiful-node-name.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-beautiful-node-name.js",
     "path": "data/plugins/plugin-beautiful-node-name.js",
     "triggers": [
       "on::subscribe",
@@ -2603,7 +2603,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-ip-geolocation.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-ip-geolocation.js",
     "path": "data/plugins/plugin-ip-geolocation.js",
     "triggers": [
       "on::manual",
@@ -2634,7 +2634,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-speedtest.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-speedtest.js",
     "path": "data/plugins/plugin-speedtest.js",
     "triggers": [
       "on::manual"
@@ -2683,7 +2683,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-speedtest-cli.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-speedtest-cli.js",
     "path": "data/plugins/plugin-speedtest-cli.js",
     "triggers": [
       "on::manual"
@@ -2717,7 +2717,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-media-unlock-checker.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-media-unlock-checker.js",
     "path": "data/plugins/plugin-media-unlock-checker.js",
     "triggers": [
       "on::manual"
@@ -2747,7 +2747,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-geoip-search.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-geoip-search.js",
     "path": "data/plugins/plugin-geoip-search.js",
     "triggers": [
       "on::manual"
@@ -2777,7 +2777,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-scamalytics-ip-fraud-risk.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-scamalytics-ip-fraud-risk.js",
     "path": "data/plugins/plugin-scamalytics-ip-fraud-risk.js",
     "triggers": [
       "on::manual"
@@ -2838,7 +2838,7 @@
       "功能扩展"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-open-yacd-meta-dashboard.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-open-yacd-meta-dashboard.js",
     "path": "data/plugins/plugin-open-yacd-meta-dashboard.js",
     "triggers": [
       "on::manual"
@@ -2869,7 +2869,7 @@
       "功能扩展"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-custom-theme.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-custom-theme.js",
     "path": "data/plugins/plugin-custom-theme.js",
     "triggers": [
       "on::manual",
@@ -2924,7 +2924,7 @@
       "UI美化"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-global-click-ripple-effect.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-global-click-ripple-effect.js",
     "path": "data/plugins/plugin-global-click-ripple-effect.js",
     "triggers": [
       "on::ready"
@@ -2954,7 +2954,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-aliyunpan-signin.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-aliyunpan-signin.js",
     "path": "data/plugins/plugin-aliyunpan-signin.js",
     "triggers": [
       "on::manual"
@@ -2994,7 +2994,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-screen-recorder.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-screen-recorder.js",
     "path": "data/plugins/plugin-screen-recorder.js",
     "triggers": [
       "on::manual"
@@ -3079,7 +3079,7 @@
       "功能扩展"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-gui-restful-api-v1.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-gui-restful-api-v1.js",
     "path": "data/plugins/plugin-gui-restful-api-v1.js",
     "triggers": [
       "on::manual",
@@ -3151,7 +3151,7 @@
       "功能扩展"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/refs/heads/main/plugins/Generic/plugin-metacubexd-dashboard.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/refs/heads/main/plugins/Generic/plugin-metacubexd-dashboard.js",
     "status": 0,
     "path": "data/plugins/plugin-metacubexd-dashboard.js",
     "triggers": [
@@ -3204,7 +3204,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-network-sharing.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-network-sharing.js",
     "path": "data/plugins/plugin-network-sharing.js",
     "triggers": [
       "on::manual"
@@ -3258,7 +3258,7 @@
       "功能扩展"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-clash-api-dashboard.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-clash-api-dashboard.js",
     "path": "data/plugins/plugin-clash-api-dashboard.js",
     "triggers": [
       "on::manual",
@@ -3313,7 +3313,7 @@
       "实用工具"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-generate-warp-config.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-generate-warp-config.js",
     "path": "data/plugins/plugin-generate-warp-config.js",
     "triggers": [
       "on::manual"
@@ -3353,7 +3353,7 @@
       "节点处理"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-duplicate-proxies-removal.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-duplicate-proxies-removal.js",
     "path": "data/plugins/plugin-duplicate-proxies-removal.js",
     "triggers": [
       "on::subscribe"
@@ -3384,7 +3384,7 @@
       "功能扩展"
     ],
     "type": "Http",
-    "url": "https://raw.githubusercontent.com/GUI-for-Cores/Plugin-Hub/main/plugins/Generic/plugin-subscribe-collection.js",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/Generic/plugin-subscribe-collection.js",
     "path": "data/plugins/plugin-subscribe-collection.js",
     "triggers": [
       "on::manual",
