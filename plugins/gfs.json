@@ -5,11 +5,16 @@
     "version": "v1.0.1",
     "description": "One-click add all rule sets to your list. After adding, you need to manually update the rule sets to download them locally so they can be referenced in your configuration files.",
     "group": "Extensions",
-    "tags": ["Enhanced Experience", "Feature Extension"],
+    "tags": [
+      "Enhanced Experience",
+      "Feature Extension"
+    ],
     "type": "Http",
     "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/GFS/plugin-add-rulesets.js",
     "path": "data/plugins/plugin-add-rulesets.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "menus": {},
     "hasUI": false,
     "context": {
@@ -31,11 +36,16 @@
     "version": "v3.0.0",
     "group": "Tools",
     "description": "Configuration specifically generated for the mobile sing-box application, supporting QR code import.",
-    "tags": ["Enhanced Experience", "Feature Extension"],
+    "tags": [
+      "Enhanced Experience",
+      "Feature Extension"
+    ],
     "type": "Http",
     "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/GFS/plugin-share-profile-to-phone.js",
     "path": "data/plugins/plugin-share-profile-to-phone.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "menus": {},
     "hasUI": false,
     "context": {
@@ -56,7 +66,10 @@
         "key": "Ipv6Mode",
         "component": "Radio",
         "value": "disabled",
-        "options": ["Disable IPv6,disabled", "Determined by configuration,none"]
+        "options": [
+          "Disable IPv6,disabled",
+          "Determined by configuration,none"
+        ]
       },
       {
         "id": "ID_dyo2te6b",
@@ -78,11 +91,16 @@
     "version": "v1.0.2",
     "group": "Extensions",
     "description": "One-click sync all generated config.json files to Gists. Supported by: StarfishC",
-    "tags": ["Feature Extension", "Enhanced Experience"],
+    "tags": [
+      "Feature Extension",
+      "Enhanced Experience"
+    ],
     "type": "Http",
     "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/GFS/plugin-sync-singbox-configuration-gists.js",
     "path": "data/plugins/plugin-sync-singbox-configuration-gists.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "menus": {},
     "hasUI": false,
     "context": {
@@ -123,15 +141,23 @@
     "version": "v2.3.1",
     "group": "Extensions",
     "description": "Helps users quickly generate configuration scripts for adding proxy chains. Supported by: 泡泡茶壶",
-    "tags": ["Utility", "Feature Extension", "Enhanced Experience"],
+    "tags": [
+      "Utility",
+      "Feature Extension",
+      "Enhanced Experience"
+    ],
     "type": "Http",
     "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/GFS/plugin-relay-proxy-helper.js",
     "path": "data/plugins/plugin-relay-proxy-helper.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": true,
     "menus": {},
     "context": {
-      "profiles": { "Add Proxy Chain": "addRelayProxy" },
+      "profiles": {
+        "Add Proxy Chain": "addRelayProxy"
+      },
       "subscriptions": {},
       "rulesets": {},
       "plugins": {},
@@ -149,11 +175,18 @@
     "version": "v3.1.1",
     "group": "Recommended",
     "description": "Import a complete sing-box configuration into the GUI. Supported by: 泡泡茶壶",
-    "tags": ["Utility", "Feature Extension", "Enhanced Experience"],
+    "tags": [
+      "Utility",
+      "Feature Extension",
+      "Enhanced Experience"
+    ],
     "type": "Http",
     "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/GFS/plugin-import-configuration-to-gui.js",
     "path": "data/plugins/plugin-import-configuration-to-gui.js",
-    "triggers": ["on::manual", "on::ready"],
+    "triggers": [
+      "on::manual",
+      "on::ready"
+    ],
     "hasUI": true,
     "menus": {},
     "context": {
@@ -175,11 +208,19 @@
     "version": "v1.3.0",
     "group": "Extensions",
     "description": "Allows running and managing unmodified sing-box original configurations directly within the GUI, bypassing the GUI's default configuration overwrites, perfectly preserving your custom rules, designed for users needing high levels of configuration customization. Supported by: 泡泡茶壶",
-    "tags": ["Utility", "Feature Extension", "Enhanced Experience"],
+    "tags": [
+      "Utility",
+      "Feature Extension",
+      "Enhanced Experience"
+    ],
     "type": "Http",
     "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/GFS/plugin-native-config-manager.js",
     "path": "data/plugins/plugin-native-config-manager.js",
-    "triggers": ["on::manual", "on::generate", "on::ready"],
+    "triggers": [
+      "on::manual",
+      "on::generate",
+      "on::ready"
+    ],
     "hasUI": true,
     "menus": {},
     "context": {
@@ -201,11 +242,16 @@
     "version": "v1.0.0",
     "group": "Extensions",
     "description": "Generates configuration for OpenWrt sing-box, automatically adding required inbound components (dns-in/redirect-in/tproxy-in/tun-in), using Zashboard panel. Supported by: cpkt9762",
-    "tags": ["Enhanced Experience", "Feature Extension"],
+    "tags": [
+      "Enhanced Experience",
+      "Feature Extension"
+    ],
     "type": "Http",
     "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/GFS/plugin-share-profile-to-openwrt.js",
     "path": "data/plugins/plugin-share-profile-to-openwrt.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "menus": {},
     "hasUI": false,
     "context": {
@@ -226,7 +272,10 @@
         "key": "Ipv6Mode",
         "component": "Radio",
         "value": "disabled",
-        "options": ["Disable IPv6,disabled", "Determined by configuration,none"]
+        "options": [
+          "Disable IPv6,disabled",
+          "Determined by configuration,none"
+        ]
       },
       {
         "id": "ID_port",
@@ -248,11 +297,15 @@
     "version": "v1.2.0",
     "group": "Development",
     "description": "From compilation environment to source code download, to core customization, compile sing-box core from 0.",
-    "tags": ["Utility"],
+    "tags": [
+      "Utility"
+    ],
     "type": "Http",
     "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/GFS/plugin-singbox-builder.js",
     "path": "data/plugins/plugin-singbox-builder.js",
-    "triggers": ["on::manual"],
+    "triggers": [
+      "on::manual"
+    ],
     "hasUI": true,
     "menus": {},
     "context": {
@@ -274,11 +327,19 @@
     "version": "v1.0.0",
     "group": "Extensions",
     "description": "Before sing-box starts, merge a local or remote JSON as override into the GUI-generated config.json, supporting remote caching and array path append strategies. Supported by: CorneliaMo",
-    "tags": ["Utility", "Feature Extension", "Enhanced Experience"],
+    "tags": [
+      "Utility",
+      "Feature Extension",
+      "Enhanced Experience"
+    ],
     "type": "Http",
     "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/GFS/plugin-config-override.js",
     "path": "data/plugins/plugin-config-override.js",
-    "triggers": ["on::manual", "on::ready", "on::before::core::start"],
+    "triggers": [
+      "on::manual",
+      "on::ready",
+      "on::before::core::start"
+    ],
     "hasUI": true,
     "menus": {},
     "context": {
@@ -309,7 +370,10 @@
     "name": "Fast Delay Test",
     "version": "v1.0.1",
     "description": "Perform delay tests on subscription nodes in a separate core process. Supported by: 泡泡茶壶",
-    "tags": ["Feature Extension", "Enhanced Experience"],
+    "tags": [
+      "Feature Extension",
+      "Enhanced Experience"
+    ],
     "group": "Extensions",
     "type": "Http",
     "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/GFS/plugin-fast-delay-test.js",
@@ -335,7 +399,13 @@
         "key": "test_url",
         "component": "Select",
         "value": "Google",
-        "options": ["Google", "Cloudflare", "Qualcomm", "Apple", "Microsoft"]
+        "options": [
+          "Google",
+          "Cloudflare",
+          "Qualcomm",
+          "Apple",
+          "Microsoft"
+        ]
       },
       {
         "id": "ID_35u5m3ty",

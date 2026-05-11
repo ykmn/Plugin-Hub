@@ -1,5 +1,7 @@
 # Plugin Hub
 
+> English translation in progress...
+
 ## Explanation of Plugin Repository Directory
 
 ```
@@ -15,7 +17,19 @@ Plugin Hub
 
 ## How to Use
 
-Simply add them in the plugin center of the client. For detailed instructions, please visit: [Plugin System Usage Tutorial](https://gui-for-cores.github.io/guide/04-plugins)
+Simply add following links in the plugin center of the [client](https://github.com/GUI-for-Cores/GUI.for.SingBox):
+
+**General:**
+```
+https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/generic.json
+```
+
+**GUI.for.Singbox:**
+```
+https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/gfs.json
+```
+
+For detailed instructions, please visit: [Plugin System Usage Tutorial](https://gui-for-cores.github.io/guide/04-plugins)
 
 ## How to Contribute Plugins
 
