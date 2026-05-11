@@ -13,7 +13,7 @@ export default (Plugin) => {
         onClick: showUI
       },
       componentSlots: {
-        default: '快速配置向导'
+        default: 'Quick Configuration Wizard'
       }
     })
   }
@@ -80,14 +80,14 @@ export default (Plugin) => {
         <Tag v-else-if="isSupportIPv6" color="green">Note: Your network environment already supports IPv6; enabling it is recommended! Accessing domestic websites will provide a better experience!</Tag>
         <Tag v-else color="red">Note: Your network environment does not support IPv6. It is recommended to disable it! Forcing it to work will cause some websites to be inaccessible!</Tag>
         <div class="flex gap-8">
-          <Card @click="isDirectIPv6Enabled = true" :selected="isDirectIPv6Enabled" title="Required" class="flex-1" subtitle="Prioritize accessing directly connected websites via IPv6" />
+          <Card @click="isDirectIPv6Enabled = true" :selected="isDirectIPv6Enabled" title="Required" class="flex-1" subtitle="Prioritize accessing directly connected websites via IPv6"/>
           <Card @click="isDirectIPv6Enabled = false" :selected="!isDirectIPv6Enabled" title="Not Required" class="flex-1" subtitle="Accessing directly connected websites using only IPv4" />
         </div>
       </div>
 
       <div v-if="currentStep === 2" class="flex flex-col gap-8">
         <div class="text-32 py-8 font-bold">Do proxy websites require IPv6?</div>
-        <Tag>If you are a self-hosted user and the node supports IPv6, please select "Required"; if you are an airport user, the node usually does not support IPv6, please select "Not Required".</Tag>
+        <Tag>If you are a self-hosted user and the node supports IPv6, please select Required; if you are an airport user, the node usually does not support IPv6, please select Not Required.</Tag>
         <div class="flex gap-8">
           <Card @click="isProxyIPv6Enabled = true" :selected="isProxyIPv6Enabled" title="Required" class="flex-1" selected subtitle="Prioritize accessing the proxied website via IPv6" />
           <Card @click="isProxyIPv6Enabled = false" :selected="!isProxyIPv6Enabled" title="Not Required" class="flex-1" subtitle="Proxy access uses only IPv4" />
@@ -115,7 +115,7 @@ export default (Plugin) => {
           <Card @click="isTUNEnabled = false" :selected="!isTUNEnabled" title="Not Required" class="flex-1" subtitle="Unable to proxy software that does not follow the system's proxy rules" />
         </div>
         <div v-if="isTUNEnabled">
-          <p>Precautions</p>
+          <p>注意事项</p>
           <ul class="text-14">
             <li class="my-16">Enabling TUN mode on Windows requires administrator privileges. On Linux/macOS, manual authorization is required via Settings > Kernel (this manual authorization is required after each kernel update).</li>
             <li class="my-16">On macOS, you need to go to System Network Settings and change the System DNS to a public IP address, such as 8.8.8.8, to allow the kernel to hijack DNS requests.</li>
@@ -125,45 +125,46 @@ export default (Plugin) => {
       </div>
 
       <div v-if="currentStep === 5" class="flex flex-col gap-8">
-      <div class="text-32 py-8 font-bold">Do you need to encrypt local DNS query requests?</div>
-      <Tag>Prevent DNS query requests from being eavesdropped on or tampered with. Doh service is unavailable in some regions; please change servers or disable it.</Tag>
+        <div class="text-32 py-8 font-bold">Do you need to encrypt local DNS query requests?</div>
+        <Tag>Prevent DNS query requests from being eavesdropped on or tampered with. DoH service is unavailable in some regions; please change servers or disable it.</Tag>
         <div class="flex gap-8">
-        <Card @click="isDohEnabled = true" :selected="isDohEnabled" title="Required" class="flex-1" selected subtitle="Use Encrypted DNS Query" />
-        <Card @click="isDohEnabled = false" :selected="!isDohEnabled" title="Not Required" class="flex-1" subtitle="Use Plaintext DNS Query" />
+          <Card @click="isDohEnabled = true" :selected="isDohEnabled" title="Required" class="flex-1" selected subtitle="Use Encrypted (DoH) DNS Query" />
+          <Card @click="isDohEnabled = false" :selected="!isDohEnabled" title="Not Required" class="flex-1" subtitle="Do not use Encrypted DNS Query" />
         </div>
       </div>
 
-    <div v-if="currentStep === 6" class="flex flex-col gap-8">
-    <div class="text-32 py-8 font-bold">Do you need to enable Fake-IP mode?</div>
-    <Tag>When enabled, DNS queries for some websites will return fake IPs. (Usually, fake-IPs are returned for websites that require proxying.)</Tag>
-    <div class="flex gap-8">
+      <div v-if="currentStep === 6" class="flex flex-col gap-8">
+        <div class="text-32 py-8 font-bold">Do you need to enable Fake-IP mode?</div>
+        <Tag>When enabled, DNS queries for some websites will return fake IPs. Usually, fake-IPs are returned for websites that require proxying.</Tag>
+        <div class="flex gap-8">
       <Card @click="isFakeIPEnabled = true" :selected="isFakeIPEnabled" title="Required" class="flex-1" selected subtitle="Proxied websites return fake-IPs" />
       <Card @click="isFakeIPEnabled = false" :selected="!isFakeIPEnabled" title="Not Required" class="flex-1" subtitle="All websites return real IPs" />
-    </div>
-  </div>
-  
-  <div v-if="currentStep === 7" class="flex flex-col gap-8">
-  <div class="text-32 py-8 font-bold">Should QUIC be disabled?</div>
-  <Tag>Some websites use the QUIC protocol, which usually affects the speed of accessing proxy websites</Tag>
-  <div class="flex gap-8">
-    <Card @click="isBanQUICEnabled = true" :selected="isBanQUICEnabled" title="Required" class="flex-1" selected subtitle="Block websites from using QUIC to avoid affecting proxy speed" />
-    <Card @click="isBanQUICEnabled = false" :selected="!isBanQUICEnabled" title="Not Required" class="flex-1" subtitle="Allow websites to use the QUIC protocol" />
-  </div>
-  </div>
+        </div>
+      </div>
 
-  <div v-if="currentStep === 8" class="flex flex-col gap-8">
-  <div class="text-32 py-8 font-bold">Now, want to configure this to reference one or more subscriptions?</div>
-  <p>Click the + sign below, enter the subscription name on the left, and the subscription link on the right. Or, we'll talk about it later~</p>
-  <KeyValueEditor v-model="subsMap" :placeholder="['subscription name', 'remote subscription link']" />
-  <template v-if="subs.length > 0">
-    <p>Wow! You've added some subscriptions, check them to reference them directly!</p> </p>
-    <div class="grid grid-cols-3 gap-8">
-      <Card v-for="sub in subs" :key="sub.id" :title="sub.name" @click="toggleSubRef(sub)" :selected="subsRef.includes(sub)" />
+      <div v-if="currentStep === 7" class="flex flex-col gap-8">
+        <div class="text-32 py-8 font-bold">Should QUIC be disabled?</div>
+        <Tag>Some websites use the QUIC protocol, which usually affects the speed of accessing proxy websites.</Tag>
+        <div class="flex gap-8">
+          <Card @click="isBanQUICEnabled = true" :selected="isBanQUICEnabled" title="Required" class="flex-1" selected subtitle="Block websites from using QUIC to avoid affecting proxy speed" />
+          <Card @click="isBanQUICEnabled = false" :selected="!isBanQUICEnabled" title="Not Required" class="flex-1" subtitle="Allow websites to use the QUIC protocol" />
+
+         </div>
+      </div>
+
+      <div v-if="currentStep === 8" class="flex flex-col gap-8">
+        <div class="text-32 py-8 font-bold">Now, want to configure this to reference one or more subscriptions?</div>
+        <p>点击下方+lick the + sign below, enter the subscription name on the left, and the subscription link on the right. Or, we'll talk about it later~</p>
+        <KeyValueEditor v-model="subsMap" :placeholder="['subscription name', 'remote subscription link']" />
+        <template v-if="subs.length > 0">
+          <p>Wow! You've added some subscriptions, check them to reference them directly!</p>
+          <div class="grid grid-cols-3 gap-8">
+            <Card v-for="sub in subs" :key="sub.id" :title="sub.name" @click="toggleSubRef(sub)" :selected="subsRef.includes(sub)" />
+          </div>
+        </template>
+        <p v-if="Object.keys(subsMap).length + subsRef.length > 1">If you intend to reference multiple subscriptions, these subscriptions may contain nodes with the same name, causing core startup to fail. However, you can find solutions in the Plugin Center.</p>
+      </div>
     </div>
-  </template>
-  <p v-if="Object.keys(subsMap).length + subsRef.length > 1">If you intend to reference multiple subscriptions, these subscriptions may contain nodes with the same name, causing core startup to fail. However, you can find solutions in the Plugin Center.</p>
-  </div>
-  </div>
     `,
       setup() {
         const subscribeStore = Plugins.useSubscribesStore()
@@ -222,15 +223,15 @@ export default (Plugin) => {
 
           // 2、导入配置
           const profile = profilesStore.getProfileTemplate(name.value)
-            ;[...subIds, ...subsRef.value].forEach(({ name, id }) => {
-              if (Plugins.APP_TITLE.includes('SingBox')) {
-                profile.outbounds[0].outbounds.push({ id: id, tag: name, type: 'Subscription' })
-                profile.outbounds[1].outbounds.push({ id: id, tag: name, type: 'Subscription' })
-              } else if (Plugins.APP_TITLE.includes('Clash')) {
-                profile.proxyGroupsConfig[0].use.push(id)
-                profile.proxyGroupsConfig[1].use.push(id)
-              }
-            })
+          ;[...subIds, ...subsRef.value].forEach(({ name, id }) => {
+            if (Plugins.APP_TITLE.includes('SingBox')) {
+              profile.outbounds[0].outbounds.push({ id: id, tag: name, type: 'Subscription' })
+              profile.outbounds[1].outbounds.push({ id: id, tag: name, type: 'Subscription' })
+            } else if (Plugins.APP_TITLE.includes('Clash')) {
+              profile.proxyGroupsConfig[0].use.push(id)
+              profile.proxyGroupsConfig[1].use.push(id)
+            }
+          })
 
           // 3、个性化配置
           personalizeProfile(profile, {
