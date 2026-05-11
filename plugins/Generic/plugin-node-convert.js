@@ -32,7 +32,7 @@ export default async () => {
     const { body } = await Plugins.HttpGet('https://api.github.com/repos/sub-store-org/Sub-Store/releases/latest')
     const url = body.assets.find((v) => v.uploader.login === 'github-actions[bot]' && v.name === 'proxy-utils.esm.mjs')?.browser_download_url
     if (!url) {
-      Plugins.message.error('未找到依赖: proxy-utils.esm.mjs')
+      Plugins.message.error('No dependency found: proxy-utils.esm.mjs')
       return
     }
     await Plugins.Download(url, ProxyUtilsFile)
