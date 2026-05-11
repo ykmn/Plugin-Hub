@@ -1,5 +1,37 @@
 [
   {
+    "id": "plugin-sync-profile-to-skeen",
+    "name": "Sync Profile to SKeen",
+    "version": "4a402e5",
+    "group": "Tools",
+    "description": "Generates a sing-box configuration for SKeen based on a GUI.for.SingBox profile, including the necessary inbound components (redirect-in / tproxy-in) and the Zashboard panel. Original link: https://github.com/jinndi/sync-profile-to-skeen",
+    "tags": [
+      "Enhanced Experience",
+      "Feature Extension"
+    ],
+    "type": "Http",
+    "url": "https://raw.githubusercontent.com/ykmn/Plugin-Hub/main/plugins/GFS/sync-profile-to-skeen.js",
+    "path": "data/plugins/sync-profile-to-skeen.js",
+    "triggers": [
+      "on::manual"
+    ],
+    "hasUI": true,
+    "menus": {},
+    "context": {
+      "profiles": {},
+      "subscriptions": {},
+      "rulesets": {},
+      "plugins": {},
+      "scheduledtasks": {}
+    },
+    "status": 0,
+    "configuration": [],
+    "disabled": false,
+    "install": false,
+    "installed": false
+  },
+  
+  {
     "id": "plugin-add-rulesets",
     "name": "One-Click Add Rule Sets",
     "version": "v1.0.1",
