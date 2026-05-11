@@ -11,19 +11,19 @@ const onRun = async () => {
   const envStore = Plugins.useEnvStore()
 
   if (envStore.env.os !== 'windows') {
-    throw '不支持非Windows系统'
+    throw 'Non-Windows systems are not supported.'
   }
 
   const exists = await Plugins.FileExists(DST_FILE)
   if (!exists) {
     await installFont()
-    if (await Plugins.confirm('提示', '是否立即重启客户端，以便字体生效？')) {
+    if (await Plugins.confirm('The prompt asks whether to restart the client immediately for the font to take effect？')) {
       await Plugins.RestartApp()
     }
     return
   }
 
-  if (await Plugins.confirm('提示', '检测到本字体已安装，是否卸载？')) {
+  if (await Plugins.confirm('The system detected that this font is already installed. Do you want to uninstall it?')) {
     await uninstallFont()
   }
 }
@@ -31,12 +31,12 @@ const onRun = async () => {
 const installFont = async () => {
   let downloadOK = true
   if (!(await Plugins.FileExists(TMP_FILE))) {
-    const { update, success, error, destroy } = Plugins.message.info('正在下载字体...', 5 * 60 * 1000)
+    const { update, success, error, destroy } = Plugins.message.info('Downloading fonts...', 5 * 60 * 1000)
     try {
       await Plugins.Download(SRC_URL, TMP_FILE, {}, (c, t) => {
-        update('正在下载字体...' + ((c / t) * 100).toFixed(2) + '%')
+        update('Downloading fonts...' + ((c / t) * 100).toFixed(2) + '%')
       })
-      success('下载完成')
+      success('Download complete')
     } catch (e) {
       console.log(`[${Plugin.name}]`, e)
       error(e.message || e)
@@ -61,7 +61,7 @@ const installFont = async () => {
     'Twemoji.Mozilla.ttf',
     '/f'
   ])
-  Plugins.message.success('安装完成')
+  Plugins.message.success('Installation complete.')
 }
 
 const uninstallFont = async () => {
@@ -69,12 +69,12 @@ const uninstallFont = async () => {
   await Plugins.RemoveFile(DST_FILE).catch((e) => {
     uninstallOK = false
     if (e.includes('The process cannot access the file because it is being used by another process.')) {
-      Plugins.alert('提示', '请退出本程序，使用系统字体管理程序进行卸载。')
+      Plugins.alert('Hint', 'Please exit this program and uninstall it using the system font management program.')
     }
   })
 
   if (!uninstallOK) return
 
   await Plugins.Exec('reg', ['delete', 'HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts', '/v', 'Twemoji.Mozilla.ttf', '/f'])
-  Plugins.message.success('卸载完成')
+  Plugins.message.success('Uninstallation complete')
 }
