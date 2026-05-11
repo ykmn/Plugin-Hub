@@ -22,7 +22,7 @@ export default async () => {
   }
 
   await loadModule().catch(() => {
-    Plugins.message.warn('请右键更新依赖')
+    Plugins.message.warn('Please right-click and update dependencies.')
   })
 
   /**
@@ -37,7 +37,7 @@ export default async () => {
     }
     await Plugins.Download(url, ProxyUtilsFile)
     await loadModule()
-    Plugins.message.success('更新成功')
+    Plugins.message.success('Update successful')
   }
 
   const onInstall = async () => {
@@ -55,7 +55,7 @@ export default async () => {
     const proxies = await getClashProxies(subscription)
     const v2ray_proxies = produce(proxies, 'v2ray', 'internal')
     await Plugins.ClipboardSetText(v2ray_proxies)
-    Plugins.message.success('已复制')
+    Plugins.message.success('Copy')
   }
 
   /**
@@ -64,7 +64,7 @@ export default async () => {
   const ExportAsClash = async (subscription) => {
     const proxies = await getClashProxies(subscription)
     await Plugins.ClipboardSetText(JSON.stringify(proxies))
-    Plugins.message.success('已复制')
+    Plugins.message.success('Copy')
   }
 
   /**
@@ -74,7 +74,7 @@ export default async () => {
     const proxies = await getClashProxies(subscription)
     const singbox_proxies = produce(proxies, 'singbox', 'internal')
     await Plugins.ClipboardSetText(JSON.stringify(singbox_proxies))
-    Plugins.message.success('已复制')
+    Plugins.message.success('Copy')
   }
 
   /**
@@ -85,13 +85,16 @@ export default async () => {
     if (Plugins.APP_TITLE.includes('SingBox')) {
       const tmp = 'data/.cache/tmp_subscription_' + subscription.id
       if (!(await Plugins.FileExists(tmp))) {
-        await Plugins.alert(
-          '提示',
-          '你需要先更新此订阅，才能继续使用本功能！\n\n\n一直看见本提示？请`编辑`订阅在请求头中添加`User-Agent`=`clash.meta`后再更新订阅。\n\n注：手动管理的订阅不支持导出',
-          {
-            type: 'markdown'
-          }
-        )
+await Plugins.alert(
+
+'Prompt',
+
+'You need to update this subscription before you can continue using this feature!\n\n\nKeep seeing this prompt? Please `edit` your subscription and add `User-Agent`=`clash.meta` to the request header before updating the subscription.\n\nNote: Manually managed subscriptions do not support export',
+
+{
+type: 'markdown'
+
+}        )
         return
       }
       sub_path = tmp
@@ -104,7 +107,7 @@ export default async () => {
    * 插件钩子：点击运行按钮时
    */
   const onRun = async () => {
-    const input = await Plugins.prompt('请输入分享链接：', '', {
+    const input = await Plugins.prompt('Please enter the sharing link.：', '', {
       placeholder: '(ss|ssr|vmess|vless|hysteria2|hysteria|tuic|wireguard|trojan)://',
       type: 'code'
     })
@@ -113,16 +116,19 @@ export default async () => {
     const singbox_proxies = produce(mihomo_proxies, 'singbox', 'internal')
     const v2ray_proxies = produce(mihomo_proxies, 'v2ray', 'internal')
 
-    const platform = await Plugins.picker.single('请选择格式', [
-      { label: 'Mihomo格式', value: 'mihomo' },
-      { label: 'SingBox格式', value: 'singbox' },
-      { label: 'v2Ray格式', value: 'v2ray' }
-    ])
+const platform = await Plugins.picker.single('Please select a format', [
+{ label: 'Mihomo format', value: 'mihomo' },
+
+{ label: 'SingBox format', value: 'singbox' },
+
+{ label: 'v2Ray format', value: 'v2ray' }
+
+])
 
     // prettier-ignore
     const result = platform == 'singbox' ? JSON.stringify(singbox_proxies, null, 2) : platform == 'mihomo' ? Plugins.YAML.stringify(mihomo_proxies) : v2ray_proxies
 
-    await Plugins.confirm('转换结果如下', result)
+    await Plugins.confirm('The conversion result is as follows', result)
   }
 
   /**
