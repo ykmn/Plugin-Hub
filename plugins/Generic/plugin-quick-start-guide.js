@@ -66,104 +66,104 @@ export default (Plugin) => {
     <div>
       <Progress :percent="(currentStep / 7) * 100" />
       <div v-if="currentStep === 0">
-        <div class="text-32 py-8 font-bold">欢迎使用快速配置向导</div>
-        <p>此向导可帮你生成一份不会出错的配置。开始前请：</p>
+        <div class="text-32 py-8 font-bold">Welcome to the Quick Configuration Wizard</div>
+        <p>This wizard can help you generate an error-free configuration. Please proceed before starting：</p>
         <ul>
-          <li class="my-16">关闭所有代理软件（避免影响IPv6判断）</li>
-          <li class="my-16">开启路由器及本机的IPv6协议栈（避免影响IPv6判断）</li>
-          <li class="my-16">如果你禁用过Windows的智能多宿主DNS解析，请还原（避免影响TUN模式）</li>
+          <li class="my-16">Close all proxy software (to avoid affecting IPv6 detection)</li>
+          <li class="my-16">Enable the IPv6 protocol stack on the router and your local machine (to avoid affecting IPv6 detection)</li>
+          <li class="my-16">If you have disabled Windows' Smart Multihomed DNS resolution, please restore it (to avoid affecting TUN mode)</li>
         </ul>
       </div>
       <div v-if="currentStep === 1" class="flex flex-col gap-8">
-        <div class="text-32 py-8 font-bold">直连网站是否需要IPv6？</div>
-        <Tag v-if="isSupportIPv6 === undefined">正在检测你的网络环境...</Tag>
-        <Tag v-else-if="isSupportIPv6" color="green">提示：你的网络环境已支持IPv6，推荐开启！访问国内网站能获得更好的效果！</Tag>
-        <Tag v-else color="red">提示：你的网络环境不支持IPv6，建议关闭！强行开启会导致部分网站无法访问！</Tag>
+        <div class="text-32 py-8 font-bold">Does a direct website connection require IPv6?</div>
+        <Tag v-if="isSupportIPv6 === undefined">Detecting your network environment...</Tag>
+        <Tag v-else-if="isSupportIPv6" color="green">Note: Your network environment already supports IPv6; enabling it is recommended! Accessing domestic websites will provide a better experience!</Tag>
+        <Tag v-else color="red">Note: Your network environment does not support IPv6. It is recommended to disable it! Forcing it to work will cause some websites to be inaccessible!</Tag>
         <div class="flex gap-8">
-          <Card @click="isDirectIPv6Enabled = true" :selected="isDirectIPv6Enabled" title="需要" class="flex-1" subtitle="优先通过 IPv6 访问直连网站" />
-          <Card @click="isDirectIPv6Enabled = false" :selected="!isDirectIPv6Enabled" title="不需要" class="flex-1" subtitle="仅使用 IPv4 访问直连网站" />
+          <Card @click="isDirectIPv6Enabled = true" :selected="isDirectIPv6Enabled" title="Required" class="flex-1" subtitle="Prioritize accessing directly connected websites via IPv6" />
+          <Card @click="isDirectIPv6Enabled = false" :selected="!isDirectIPv6Enabled" title="Not Required" class="flex-1" subtitle="Accessing directly connected websites using only IPv4" />
         </div>
       </div>
 
       <div v-if="currentStep === 2" class="flex flex-col gap-8">
-        <div class="text-32 py-8 font-bold">代理网站是否需要IPv6？</div>
-        <Tag>如果你是自建用户，且节点支持IPv6，请选择需要；如果你是机场用户，节点通常不支持IPv6，请选择不需要。</Tag>
+        <div class="text-32 py-8 font-bold">Do proxy websites require IPv6?</div>
+        <Tag>If you are a self-hosted user and the node supports IPv6, please select "Required"; if you are an airport user, the node usually does not support IPv6, please select "Not Required".</Tag>
         <div class="flex gap-8">
-          <Card @click="isProxyIPv6Enabled = true" :selected="isProxyIPv6Enabled" title="需要" class="flex-1" selected subtitle="优先通过 IPv6 访问被代理的网站" />
-          <Card @click="isProxyIPv6Enabled = false" :selected="!isProxyIPv6Enabled" title="不需要" class="flex-1" subtitle="代理访问时仅使用 IPv4" />
+          <Card @click="isProxyIPv6Enabled = true" :selected="isProxyIPv6Enabled" title="Required" class="flex-1" selected subtitle="Prioritize accessing the proxied website via IPv6" />
+          <Card @click="isProxyIPv6Enabled = false" :selected="!isProxyIPv6Enabled" title="Not Required" class="flex-1" subtitle="Proxy access uses only IPv4" />
         </div>
       </div>
 
       <div v-if="currentStep === 3" class="flex flex-col gap-8">
-        <div class="text-32 py-8 font-bold">是否需要代理局域网设备？</div>
-        <Tag>通常情况下你无需开启此项</Tag>
+        <div class="text-32 py-8 font-bold">Do I need a proxy for my LAN devices?</div>
+        <Tag>Normally you don't need to enable this option.</Tag>
         <div class="flex gap-8">
-          <Card @click="isAllowLanEnabled = true" :selected="isAllowLanEnabled" title="需要" class="flex-1" selected subtitle="入站代理将监听所有局域网地址" />
-          <Card @click="isAllowLanEnabled = false" :selected="!isAllowLanEnabled" title="不需要" class="flex-1" subtitle="入站代理仅监听本机地址" />
+          <Card @click="isAllowLanEnabled = true" :selected="isAllowLanEnabled" title="Required" class="flex-1" selected subtitle="Inbound proxy will listen to all local area network addresses" />
+          <Card @click="isAllowLanEnabled = false" :selected="!isAllowLanEnabled" title="Not Required" class="flex-1" subtitle="Inbound proxies only listen on the local machine address" />
         </div>
         <template v-if="isAllowLanEnabled">
-          <h4>如果你想自定义开放的端口，请填写：</h4>
-          <Input v-model="lanPort" placeholder="请输入端口号" />
+          <h4>If you want to customize the open ports, please fill in:</h4>
+          <Input v-model="lanPort" placeholder="Please enter the port number" />
         </template>
       </div>
 
       <div v-if="currentStep === 4" class="flex flex-col gap-8">
-        <div class="text-32 py-8 font-bold">是否需要开启TUN模式？</div>
-        <Tag>开启后，会新建一张虚拟网卡，所有软件的流量将通过核心进行转发</Tag>
+        <div class="text-32 py-8 font-bold">Should TUN mode be enabled?</div>
+        <Tag>Once enabled, a new virtual network adapter will be created, and all software traffic will be forwarded through the core.</Tag>
         <div class="flex gap-8">
-          <Card @click="isTUNEnabled = true" :selected="isTUNEnabled" title="需要" class="flex-1" selected subtitle="所有流量将通过虚拟网卡并由核心转发" />
-          <Card @click="isTUNEnabled = false" :selected="!isTUNEnabled" title="不需要" class="flex-1" subtitle="无法代理不遵循系统代理规则的软件" />
+          <Card @click="isTUNEnabled = true" :selected="isTUNEnabled" title="Required" class="flex-1" selected subtitle="All traffic will pass through the virtual network interface card and be forwarded by the core." />
+          <Card @click="isTUNEnabled = false" :selected="!isTUNEnabled" title="Not Required" class="flex-1" subtitle="Unable to proxy software that does not follow the system's proxy rules" />
         </div>
         <div v-if="isTUNEnabled">
-          <p>注意事项</p>
+          <p>Precautions</p>
           <ul class="text-14">
-            <li class="my-16">Windows下启用TUN模式需要管理员权限，Linux/MacOS下需要到设置-内核页进行手动授权（每次更新核心后均需要重新手动授权）。</li>
-            <li class="my-16">MacOS下需要前往系统网络设置，将系统DNS修改为公网IP，例如8.8.8.8，以便核心劫持DNS请求。</li>
-            <li class="my-16">如果遇到网络不通，请尝试更换不同的TUN堆栈模式。</li>
+            <li class="my-16">Enabling TUN mode on Windows requires administrator privileges. On Linux/macOS, manual authorization is required via Settings > Kernel (this manual authorization is required after each kernel update).</li>
+            <li class="my-16">On macOS, you need to go to System Network Settings and change the System DNS to a public IP address, such as 8.8.8.8, to allow the kernel to hijack DNS requests.</li>
+            <li class="my-16">If you encounter network connectivity issues, try using a different TUN stack mode.</li>
           </ul>
         </div>
       </div>
 
       <div v-if="currentStep === 5" class="flex flex-col gap-8">
-        <div class="text-32 py-8 font-bold">是否需要对本地DNS查询请求进行加密？</div>
-        <Tag>防止DNS查询请求被监听、篡改。部分地区无法正常使用Doh服务，请更换服务器或关闭。</Tag>
+      <div class="text-32 py-8 font-bold">Do you need to encrypt local DNS query requests?</div>
+      <Tag>Prevent DNS query requests from being eavesdropped on or tampered with. Doh service is unavailable in some regions; please change servers or disable it.</Tag>
         <div class="flex gap-8">
-          <Card @click="isDohEnabled = true" :selected="isDohEnabled" title="需要" class="flex-1" selected subtitle="使用加密DNS查询" />
-          <Card @click="isDohEnabled = false" :selected="!isDohEnabled" title="不需要" class="flex-1" subtitle="使用明文DNS查询" />
+        <Card @click="isDohEnabled = true" :selected="isDohEnabled" title="Required" class="flex-1" selected subtitle="Use Encrypted DNS Query" />
+        <Card @click="isDohEnabled = false" :selected="!isDohEnabled" title="Not Required" class="flex-1" subtitle="Use Plaintext DNS Query" />
         </div>
       </div>
 
-      <div v-if="currentStep === 6" class="flex flex-col gap-8">
-        <div class="text-32 py-8 font-bold">是否需要开启Fake-IP模式？</div>
-        <Tag>开启后，部分网站的DNS查询将返回虚假的IP。（通常对需要代理的网站返回fake-ip）</Tag>
-        <div class="flex gap-8">
-          <Card @click="isFakeIPEnabled = true" :selected="isFakeIPEnabled" title="需要" class="flex-1" selected subtitle="被代理的网站返回 fake-ip" />
-          <Card @click="isFakeIPEnabled = false" :selected="!isFakeIPEnabled" title="不需要" class="flex-1" subtitle="所有网站均返回真实 IP" />
-        </div>
-      </div>
-
-      <div v-if="currentStep === 7" class="flex flex-col gap-8">
-        <div class="text-32 py-8 font-bold">是否需要禁用QUIC？</div>
-        <Tag>部分网站会使用QUIC协议，这通常会影响访问代理网站的速度</Tag>
-        <div class="flex gap-8">
-          <Card @click="isBanQUICEnabled = true" :selected="isBanQUICEnabled" title="需要" class="flex-1" selected subtitle="阻止网站使用 QUIC，避免影响代理速度" />
-          <Card @click="isBanQUICEnabled = false" :selected="!isBanQUICEnabled" title="不需要" class="flex-1" subtitle="允许网站使用 QUIC 协议" />
-        </div>
-      </div>
-
-      <div v-if="currentStep === 8" class="flex flex-col gap-8">
-        <div class="text-32 py-8 font-bold">现在，为此配置引用一个或多个订阅？</div>
-        <p>点击下方+号，左侧填写订阅名称，右侧填写订阅链接。或者，稍后再说~</p>
-        <KeyValueEditor v-model="subsMap" :placeholder="['订阅名', '远程订阅链接']" />
-        <template v-if="subs.length > 0">
-          <p>哇哦！你已经添加了一些订阅，勾选它们直接引用！</p>
-          <div class="grid grid-cols-3 gap-8">
-            <Card v-for="sub in subs" :key="sub.id" :title="sub.name" @click="toggleSubRef(sub)" :selected="subsRef.includes(sub)" />
-          </div>
-        </template>
-        <p v-if="Object.keys(subsMap).length + subsRef.length > 1">如果你打算引用多个订阅，这些订阅中可能包含相同名称的节点，造成核心启动失败。但你可以在插件中心找到解决方案。</p>
-      </div>
+    <div v-if="currentStep === 6" class="flex flex-col gap-8">
+    <div class="text-32 py-8 font-bold">Do you need to enable Fake-IP mode?</div>
+    <Tag>When enabled, DNS queries for some websites will return fake IPs. (Usually, fake-IPs are returned for websites that require proxying.)</Tag>
+    <div class="flex gap-8">
+      <Card @click="isFakeIPEnabled = true" :selected="isFakeIPEnabled" title="Required" class="flex-1" selected subtitle="Proxied websites return fake-IPs" />
+      <Card @click="isFakeIPEnabled = false" :selected="!isFakeIPEnabled" title="Not Required" class="flex-1" subtitle="All websites return real IPs" />
     </div>
+  </div>
+  
+  <div v-if="currentStep === 7" class="flex flex-col gap-8">
+  <div class="text-32 py-8 font-bold">Should QUIC be disabled?</div>
+  <Tag>Some websites use the QUIC protocol, which usually affects the speed of accessing proxy websites</Tag>
+  <div class="flex gap-8">
+    <Card @click="isBanQUICEnabled = true" :selected="isBanQUICEnabled" title="Required" class="flex-1" selected subtitle="Block websites from using QUIC to avoid affecting proxy speed" />
+    <Card @click="isBanQUICEnabled = false" :selected="!isBanQUICEnabled" title="Not Required" class="flex-1" subtitle="Allow websites to use the QUIC protocol" />
+  </div>
+  </div>
+
+  <div v-if="currentStep === 8" class="flex flex-col gap-8">
+  <div class="text-32 py-8 font-bold">Now, want to configure this to reference one or more subscriptions?</div>
+  <p>Click the + sign below, enter the subscription name on the left, and the subscription link on the right. Or, we'll talk about it later~</p>
+  <KeyValueEditor v-model="subsMap" :placeholder="['subscription name', 'remote subscription link']" />
+  <template v-if="subs.length > 0">
+    <p>Wow! You've added some subscriptions, check them to reference them directly!</p> </p>
+    <div class="grid grid-cols-3 gap-8">
+      <Card v-for="sub in subs" :key="sub.id" :title="sub.name" @click="toggleSubRef(sub)" :selected="subsRef.includes(sub)" />
+    </div>
+  </template>
+  <p v-if="Object.keys(subsMap).length + subsRef.length > 1">If you intend to reference multiple subscriptions, these subscriptions may contain nodes with the same name, causing core startup to fail. However, you can find solutions in the Plugin Center.</p>
+  </div>
+  </div>
     `,
       setup() {
         const subscribeStore = Plugins.useSubscribesStore()
@@ -203,7 +203,7 @@ export default (Plugin) => {
         width: '90',
         height: '90',
         maskClosable: true,
-        submitText: '完成',
+        submitText: 'Finish',
         afterClose() {
           modal.destroy()
         },
@@ -222,15 +222,15 @@ export default (Plugin) => {
 
           // 2、导入配置
           const profile = profilesStore.getProfileTemplate(name.value)
-          ;[...subIds, ...subsRef.value].forEach(({ name, id }) => {
-            if (Plugins.APP_TITLE.includes('SingBox')) {
-              profile.outbounds[0].outbounds.push({ id: id, tag: name, type: 'Subscription' })
-              profile.outbounds[1].outbounds.push({ id: id, tag: name, type: 'Subscription' })
-            } else if (Plugins.APP_TITLE.includes('Clash')) {
-              profile.proxyGroupsConfig[0].use.push(id)
-              profile.proxyGroupsConfig[1].use.push(id)
-            }
-          })
+            ;[...subIds, ...subsRef.value].forEach(({ name, id }) => {
+              if (Plugins.APP_TITLE.includes('SingBox')) {
+                profile.outbounds[0].outbounds.push({ id: id, tag: name, type: 'Subscription' })
+                profile.outbounds[1].outbounds.push({ id: id, tag: name, type: 'Subscription' })
+              } else if (Plugins.APP_TITLE.includes('Clash')) {
+                profile.proxyGroupsConfig[0].use.push(id)
+                profile.proxyGroupsConfig[1].use.push(id)
+              }
+            })
 
           // 3、个性化配置
           personalizeProfile(profile, {
@@ -245,7 +245,7 @@ export default (Plugin) => {
           })
 
           await profilesStore.addProfile(profile)
-          Plugins.message.success('完事~')
+          Plugins.message.success('Done~')
         }
       },
       {
@@ -259,7 +259,7 @@ export default (Plugin) => {
                 disabled: currentStep.value < 1,
                 onClick: () => (currentStep.value -= 1)
               },
-              () => '上一步'
+              () => 'Previous step'
             ),
             h(
               resolveComponent('Button'),
@@ -268,7 +268,7 @@ export default (Plugin) => {
                 disabled: currentStep.value >= 8,
                 onClick: () => (currentStep.value += 1)
               },
-              () => '下一步'
+              () => 'Next step'
             )
           ])
       }
@@ -299,7 +299,7 @@ const checkIPv6Support = async () => {
     })
     return status === 200
   } catch (error) {
-    console.log(`[${Plugin.name}]`, '检测IPv6失败', error)
+    console.log(`[${Plugin.name}]`, 'IPv6 detection failed', error)
     return false
   }
 }
